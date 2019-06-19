@@ -4,14 +4,14 @@
 ### 시스템 구조
 * O/S : Windows 10
 
-* Web Server : Apache Tomcat 9.0
-               JAVA
+* Web Server : Apache Tomcat 9.0/ 
+               JAVA/ 
                JavaScript/ JQuery/ AJAX
                HTML/ CSS/ Bootstrap
 
 * Data Server : Oracle 11g
 
-* Development Enviroment : JDK 1.8.1 Eclipse Oxygen/Intelljj
-                           Spring framework, Mybatis, Apache Maven
+* Development Enviroment : JDK 1.8.1 Eclipse Oxygen/Intelljj/ 
+                           Spring framework/ Mybatis/ Apache Maven/ 
                            Github
                            
