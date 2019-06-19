@@ -2,13 +2,6 @@ sqlplus study/1234@70.12.115.55:1521/xe
 
 sqlplus system/1234
 
-CREATE USER study identified by 1234;
-GRANT CONNECT, DBA, RESOURCE TO study;
-
-conn study/1234
-sqlplus study/1234@70.12.115.55:1521/xe
-
-		
 drop table USERINFO cascade constraint;
 drop table USERINFO ;
 CREATE TABLE USERINFO (
@@ -38,6 +31,17 @@ insert into category values (4, '취업');
 insert into category values (5, '코딩');
 insert into category values (6, '기타');
 
+delete from category;
+
+insert into category values (1, 'english');
+insert into category values (2, 'japanese');
+insert into category values (3, 'chinese');
+insert into category values (4, 'job');
+insert into category values (5, 'coding');
+insert into category values (6, 'etc');
+
+
+alter table 
 	
 drop table SUBCATEGORY;
 CREATE TABLE SUBCATEGORY (
@@ -77,6 +81,9 @@ insert into subcategory values (52,5, '공모전');
 insert into subcategory values (61,6, '자율');
 insert into subcategory values (62,6, '취미');
 
+select c.categoryname, s.subjectcode, c.categorycode, s.subjectname
+ from category c, subcategory s 
+ where s.categorycode = c.categorycode;
 
 drop table LOCATION;
 CREATE TABLE LOCATION (
@@ -137,5 +144,6 @@ CREATE TABLE NOTIFY (
 	notifydate Date DEFAULT SYSDATE,
 	notifycheck VARCHAR2(2) CONSTRAINTS notify_ck CHECK ( notifycheck IN ('0', '1'))
 	);	
+	
 
 	
