@@ -15,3 +15,5 @@
                            Spring framework/ Mybatis/ Apache Maven/ 
                            Github
                            
+###데이터베이스 구조
+<img width="200" src="https://user-images.githubusercontent.com/32103362/59747692-5c311580-92b4-11e9-8009-4dbdc5d9b2f5.png">
