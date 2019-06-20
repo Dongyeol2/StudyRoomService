@@ -43,6 +43,14 @@ public class AdminServiceImpl implements AdminService{
 	public List<StudyRoomVO> getStudyRoomList() {
 		return dao.getStudyRoomList();
 	}
+	@Override
+	public List<UserVO> searchUser(String condition, String keyword) {
+		return dao.searchUser(condition, keyword);
+	}
+	@Override
+	public List<StudyRoomVO> searchStudyRoom(String condition, String keyword) {
+		return dao.searchStudyRoom(condition, keyword);
+	}
 	
 	
 	

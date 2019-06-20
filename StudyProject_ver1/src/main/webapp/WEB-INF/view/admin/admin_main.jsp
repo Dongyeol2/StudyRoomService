@@ -28,7 +28,7 @@
 <div>
 <div id="userlist">
 <h5>회 원 검 색</h5>
-<form action="${pageContext.request.contextPath}/user/search.do"
+<form action="${pageContext.request.contextPath}/admin/usersearch.do"
 	method="post">
 	<table>
 		<tr>
@@ -67,6 +67,7 @@
 
 			</tr>
 		</c:forEach>
+	</form>
 </table>
 <table>
 	<tr>
@@ -78,15 +79,15 @@
 <!---------------------------------- studyroomlist --------------------------------------------->
 
 <div id="studyroomlist">
-<h5>회 원 검 색</h5>
-<form action="${pageContext.request.contextPath}/user/search.do"
+<h5>스 터 디 룸 검 색</h5>
+<form action="${pageContext.request.contextPath}/admin/studyroomsearch.do"
 	method="post">
 	<table>
 		<tr>
 			<td><select name="searchCondition">
-					<option value="username">이름</option>
-					<option value="email">이메일</option>
-					<option value="userid">아이디</option>
+					<option value="studytitle">방제목</option>
+					<option value="managerid">방장이름</option>
+					<option value="content">내용</option>
 			</select> <input type="text" name="searchKeyword"> <input
 				type="submit" value="검색" /></td>
 		</tr>
@@ -108,7 +109,7 @@
 
 
 	<form name="f" method="get"
-		action="${pageContext.request.contextPath}/user/add.do">
+		action="${pageContext.request.contextPath}/admin/search.do">
 
 		<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
 		<c:forEach var="room" items="${rooms}">
@@ -129,6 +130,8 @@
 
 			</tr>
 		</c:forEach>
+		
+	</form>
 </table>
 <table>
 	<tr>
@@ -137,4 +140,3 @@
 </table>
 </div>
 </div>
-</form>

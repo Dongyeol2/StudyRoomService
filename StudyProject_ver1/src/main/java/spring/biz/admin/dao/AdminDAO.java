@@ -9,6 +9,10 @@ public interface AdminDAO {
 	List<UserVO> getUserList();
 	
 	List<StudyRoomVO> getStudyRoomList();
+
+	List<UserVO> searchUser(String condition,String keyword);
+	
+	List<StudyRoomVO> searchStudyRoom(String condition,String keyword);
 	/*
 	 * UserVO login(String id,String pw);
 	 * 

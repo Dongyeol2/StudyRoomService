@@ -31,7 +31,23 @@ public class AdminController {
 		mav.setViewName("admin/admin_main");
 		return mav;
 	}
+
 	
+	@RequestMapping("/admin/usersearch.do")
+	public ModelAndView usersearch(String searchCondition, String searchKeyword) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("users", service.searchUser(searchCondition, searchKeyword));
+		mav.setViewName("admin/admin_main");
+		return mav;
+	}
+	
+	@RequestMapping("/admin/studyroomsearch.do")
+	public ModelAndView roomsearch(String searchCondition, String searchKeyword) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rooms", service.searchStudyRoom(searchCondition, searchKeyword));
+		mav.setViewName("admin/admin_main");
+		return mav;
+	}
 	/*
 	 * @RequestMapping(value = "/user/add.do",method = RequestMethod.GET) public
 	 * String addUser() { return "user/user_write"; }
