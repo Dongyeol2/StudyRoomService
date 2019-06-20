@@ -16,7 +16,7 @@ import spring.biz.user.vo.UserVO;
 public class UserDAO_MyBatis implements UserDAO{
 
 	//@Autowired
-	//@Inject
+	@Inject
 	SqlSession sqlSession=null;
 	
 	UserMapper ui = null;
