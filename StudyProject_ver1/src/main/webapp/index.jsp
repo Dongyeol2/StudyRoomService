@@ -16,6 +16,7 @@
   <li> <a href="${pageContext.request.contextPath}/login.do">로 그 인</a>
   <li> <a href="${pageContext.request.contextPath}/user/add.do">회 원 가 입</a>
   <li> <a href="${pageContext.request.contextPath}/admin/adminpage.do">adminpage</a>
+  <li> <a href="${pageContext.request.contextPath}/admin/adminpage.do">test</a>
   
 </c:if>
 
