@@ -20,6 +20,7 @@
 </c:if>
 
  <c:if test="${!empty login}">
+  <li> <a href="${pageContext.request.contextPath}/write.do">스터디 등록</a>
   <li> <a href="${pageContext.request.contextPath}/hello.do">hello.do</a>
   <li> <a href="${pageContext.request.contextPath}/report.do">이미지등록</a>
 

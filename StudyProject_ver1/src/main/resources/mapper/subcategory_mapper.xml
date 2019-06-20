@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="subcategory">
+
+	<select id="getsubcategorylist" resultType="subcategoryvo">
+		select * from subcategory
+	</select>
+	
+	<select id="getsubcategoryl" resultType="subcategoryvo">
+		select subjectname from subcategory s, category c where s.categorycode = c.catedgorycode and categoryname = #{categoryname}
+	</select> 	
+	<select id="getsubcategory" resultType="subcategoryvo">
+		select subjectname from subcategory where categorycode = #{categorycode}
+	</select> 	
+ </mapper>
+
+
+
+
+
+
+
+
+
+

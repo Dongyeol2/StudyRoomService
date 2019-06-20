@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="studyroom">
+
+	<select id="getstudyroom" resultType="studyroomvo">
+		select * from studyroom where studyno = #{studyno}
+	</select>
+
+	<insert id="add" parameterType="studyroomvo">
+		insert into studyroom
+		(studyno, studytitle, subjectcode, membercnt, locationcode, managerid, content)
+		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, 
+		(select subjectcode from subcategory where subjectname=#{subjectname}),
+		#{membercnt}, (select locationcode from location where loc1 like #{loc1} and loc2 like #{loc2} and loc3 like #{loc3}) , #{managerid}, #{content})
+	</insert>
+	<insert id="in" parameterType="studyroomvo">
+		insert into studyroom
+		(studyno, studytitle, membercnt, content)
+		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, #{membercnt}, #{content})
+	</insert>
+ 	
+ </mapper>
+
+
+
+
+
+
+
+
+
+
