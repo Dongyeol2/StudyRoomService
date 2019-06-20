@@ -26,7 +26,11 @@ public class LoginController {
 		if(user != null) {
 			request.getSession().setAttribute("User", user);
 			request.getSession().setAttribute("login", user);
-			return "redirect:user/list.do";
+			if(user.getUserid().equals("admin")) {
+				return "redirect:admin/adminpage.do";
+			}else {
+				return "redirect:user/list.do";
+			}
 		}else {
    			request.setAttribute("msg", "로그인 정보를 다시입력하세요.");
    			return "login";
