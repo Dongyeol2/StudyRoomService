@@ -23,7 +23,7 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1>
-						<a href="index.html">스터디 천국</a>
+						<a href="index.html">Study Heaven</a>
 					</h1>
 					<span>환영합니다.</span>
 				</div>
@@ -64,7 +64,7 @@
 									그 인</a>
 						</c:if>
 						<c:if test="${!empty login}">
-							<li><a href="#">마이페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/adminpage.do">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</nav>
@@ -76,16 +76,15 @@
 			<div id="banner" class="box container">
 				<div class="row">
 					<div class="col-7 col-12-medium">
-						<h2>안녕하세요. 스터디 천국입니다.</h2>
-						<p>스터디를 찾기위한 최적의 공간</p>
+						<h2>안녕하세요.<br> 스터디 천국입니다.</h2><br>
+						<p style="font-size: 30px">스터디를 찾기위한 최적의 공간</p>
 					</div>
 					<div class="col-5 col-12-medium">
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/write.do"
-								class="button large icon solid fa-arrow-circle-right">스터디 찾기</a></li>
+								class="button large icon solid fa-arrow-circle-right">스터디 찾기</a></li><br>
 							<li><a href="#"
-								class="button alt large icon solid fa-question-circle">스터디
-									예약하기</a></li>
+								class="button alt large icon solid fa-question-circle">스터디 예약</a></li>
 						</ul>
 					</div>
 				</div>
