@@ -8,8 +8,8 @@
 		select * from subcategory
 	</select>
 	
-	<select id="getsubcategoryl" resultType="subcategoryvo">
-		select subjectname from subcategory s, category c where s.categorycode = c.catedgorycode and categoryname = #{categoryname}
+	<select id="getsubcategoryl" resultType="subcategoryvo" >
+		select subjectname from subcategory s, category c where s.categorycode = c.categorycode and categoryname = #{categoryname}
 	</select> 	
 	<select id="getsubcategory" resultType="subcategoryvo">
 		select subjectname from subcategory where categorycode = #{categorycode}

@@ -22,9 +22,9 @@ public class SubCategoryServiceImpl  implements SubCategoryService{
 	ApplicationContext context;
 
 	@Override
-	public List<SubCategoryVO> getSubCategoryList() {
+	public List<SubCategoryVO> getList() {
 		// TODO Auto-generated method stub
-		return dao.getSubCategoryList();
+		return dao.getList();
 	}
 
 	@Override

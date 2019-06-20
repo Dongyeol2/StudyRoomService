@@ -10,6 +10,7 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -44,26 +45,37 @@ $(function() {
 		f.submit();
 	}
 	
-	$(function() {
-		$('#category1').change(function() {
-			alert("클릭");
-			changeSubCategory();
-		})
-	});
+	$('#category1').change(function() {
+		
+		changeSubCategory();
+		alert("클릭");
+		
+	})
 
 });
 
+var xdata
 function changeSubCategory() {
+	var selected = $('#category1 option:selected').val();
 		$.ajax({
-			type : "POST",
-			url : "url.do",
-			data : data,
+			type : "GET",
+			url : "./url.do",
+			data : selected,
 			dataType : "json",
 			success : function(data) {
-				alert("성공");
+				xdata=data;
+				if(data){
+					if(data.subcategory.length > 0){
+						$("#f").find("#small").remove();
+						for (var i = 0; i < data.subcategory.length; i++) {
+							$("#f").find("#small")
+							.append("<option value='"+data.subcategory[i].subjectname+"' >"+ data.subcategory[i].subjectname + "</option>");
+						}
+					}
+				}
 			},
-			error : function(e) {
-				alert("실패");			
+			error : function(request, status, error) {
+		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
 			}
 			
 		});
@@ -78,6 +90,9 @@ function changeSubCategory() {
 		text-align: right;
 	}
 	#s1{
+		float: left;
+	}
+	#s3{
 		float: left;
 	}
 	#s2{
@@ -107,24 +122,20 @@ function changeSubCategory() {
    <div class="form-group" >
       <label class="control-label col-sm-2" for="regdate">과목:</label>
       <div class="col-sm-10">          
-	     <div class="dropdown" id="s1">
-	     <select name="category" id="category1" value="">
-	     	<option value='' selected="selected">대분류</option>
-	     	<option value="영어">영어</option>
-	     	<option value="일본">일본어</option>
-	     	<option value="중국어">중국어</option>
-	     	<option value="취업">취업</option>
-	     	<option value="코딩">코딩</option>
-	     	<option value="기타">기타</option>
+	    <div class="dropdown"  id="s3">
+	     <select name="category1" id="category1" >
+	     	<option id="big" value='' selected="selected">대분류</option>
+		     <c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
+		     	<option value="${scateData}">${scateData}</option>
+		     </c:forEach>
 	     </select>
 
   		</div>
 	    <div class="dropdown"  id="s2">
-	     <select name="category" id="category2" value="">
-	     	<option value='' selected="selected">소분류</option>
+	     <select name="category" id="category" >
+	     	<option id="small" value='' selected="selected">소분류</option>
 		     <c:forEach var="scateData" items="${subcategory }">
-		     	<option value="<c:out value="${scateData.categoryname }"/>">
-		     	<c:out value="${scateData.categoryname }"/></option>
+		     	<option value="${scateData.categoryname }">${scateData.categoryname }></option>
 		     </c:forEach>
 	     </select>
 

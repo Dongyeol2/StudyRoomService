@@ -6,7 +6,7 @@ import spring.biz.subcategory.vo.SubCategoryVO;
 
 public interface SubCategoryDAO {
 	   
-	List<SubCategoryVO> getSubCategoryList();
+	List<SubCategoryVO> getList();
 	SubCategoryVO getSubCategory(int categorycode);
 	List<SubCategoryVO> getSubCategoryList(String categoryname);
 }
