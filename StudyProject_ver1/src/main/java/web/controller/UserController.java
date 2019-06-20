@@ -93,19 +93,19 @@ public class UserController {
 		return mav;
 	}
 
-//	// 회원 확인
-//	@ResponseBody
-//	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
-//	public int postIdCheck(HttpServletRequest req) {
-//		logger.info("post idCheck");
-//		String userid = req.getParameter("userid");
-//		UserVO idCheck = service.idCheck(userid);
-//		int result = 0;
-//		if (idCheck != null) {
-//			result = 1;
-//		}
-//		return result;
-//	}
+	// 회원 확인
+	@ResponseBody
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	public int postIdCheck(HttpServletRequest req) {
+		//logger.info("post idCheck");
+		String userid = req.getParameter("userid");
+		UserVO idCheck = service.idCheck(userid);
+		int result = 0;
+		if (idCheck != null) {
+			result = 1;
+		}
+		return result;
+	}
 
 	@ExceptionHandler(Exception.class)
 	public String Ex(Exception exception, Model model) {
