@@ -7,7 +7,7 @@ public class StudyRoomVO {
 	public String studytitle;
 	public int subjectcode;
 	public int membercnt;
-	public int locationcode;
+	public long locationcode;
 	public String managerid;
 	public Date regdate;
 	public String state;
@@ -18,7 +18,7 @@ public class StudyRoomVO {
 		super();
 	}
 
-	public StudyRoomVO(int studyno, String studytitle, int subjectcode, int membercnt, int locationcode,
+	public StudyRoomVO(int studyno, String studytitle, int subjectcode, int membercnt, long locationcode,
 			String managerid, Date regdate, String state, String content, int viewcnt) {
 		super();
 		this.studyno = studyno;
@@ -65,11 +65,11 @@ public class StudyRoomVO {
 		this.membercnt = membercnt;
 	}
 
-	public int getLocationcode() {
+	public long getLocationcode() {
 		return locationcode;
 	}
 
-	public void setLocationcode(int locationcode) {
+	public void setLocationcode(long locationcode) {
 		this.locationcode = locationcode;
 	}
 
