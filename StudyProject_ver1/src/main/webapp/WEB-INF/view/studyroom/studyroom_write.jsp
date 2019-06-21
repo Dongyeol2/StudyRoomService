@@ -49,7 +49,7 @@ $(function() {
 		if($('#category1 option:selected').val() == "default"){
 			$("#category").empty();   
 			$("#category")
-			.append("<option value='origin'>소분류</option>");
+			.append("<option value='default'>소분류</option>");
 			
 		}else{
 			changeSubCategory();
@@ -62,7 +62,7 @@ var xdata
 function changeSubCategory() {
 		$.ajax({  
 			type : "GET",
-			url : "./url.do",
+			url : "./changecategory.do",
 			data : {categoryname : $('#category1 option:selected').val()},
 			dataType : 'json',
 			success : function(data) {

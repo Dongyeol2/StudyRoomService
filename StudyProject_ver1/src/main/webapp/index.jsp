@@ -15,6 +15,111 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script language="JavaScript">
+$(function() {
+	getLoc1List();
+	
+	$('#category1').change(function() {
+		if($('#category1 option:selected').val() == "default"){
+			$("#category").empty();   
+			$("#category")
+			.append("<option value='default'>소분류</option>");
+		}else{
+			changeSubCategory();
+		}
+	})
+	
+	$('#location1').change(function() {
+		if($('#location1 option:selected').val() == "default"){
+			$("#location1").empty();   
+			$("#location1")
+			.append("<option value='default'>시,군,구</option>");
+		}else{
+			getLoc2List();
+		}
+	})
+});
+
+function changeSubCategory() {
+		$.ajax({  
+			type : "GET",
+			url : "./changecategory.do",
+			data : {categoryname : $('#category1 option:selected').val()},
+			dataType : 'json',
+			success : function(data) {
+				if(data){
+					if(data.length > 0){  
+						$("#category").empty();   
+						var html = "";
+						for (var i = 0; i < data.length; i++) {
+							$("#category")
+							.append("<option value='"+data[i].subjectname+"'>"+ data[i].subjectname + "</option>");
+						}
+					}
+				}
+			},  
+			error : function(request, status, error) {
+		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+			}
+			
+		});
+		
+	}
+	
+function getLoc1List() {
+	$.ajax({  
+		type : "GET",
+		url : "./getloc1list.do",
+		//data : {categoryname : $('#category1 option:selected').val()},
+		dataType : 'json',
+		success : function(data) {
+			if(data){
+				if(data.length > 0){  
+					//$("#location1").empty();   
+					var html = "";
+					for (var i = 0; i < data.length; i++) {  
+						$("#location1")
+						.append("<option value='"+data[i]+"'>"+ data[i] + "</option>");
+					}
+				}
+			}
+		},  
+		error : function(request, status, error) {
+	        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+		}
+		
+	});
+	
+}
+
+function getLoc2List() {
+	$.ajax({  
+		type : "GET",
+		url : "./getloc2list.do",
+		data : {loc1name : $('#location1 option:selected').val()},
+		dataType : 'json',
+		success : function(data) {
+			if(data){
+				if(data.length > 0){  
+					$("#location2").empty();   
+					var html = "";
+					for (var i = 0; i < data.length; i++) {  
+						$("#location2")
+						.append("<option value='"+data[i].locationcode+"'>"+ data[i].loc2 + "</option>");
+					}
+				}
+			}
+		},  
+		error : function(request, status, error) {
+	        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+		}
+		
+	});
+	
+}
+
+</script>
+
 
 </head>
 
@@ -118,32 +223,31 @@
 								<table >
 								   <tr>
 								     <td>
-								        <select name="category1" id = "category1" onchange="selectCategory1(this.value);">
-								           <option value="">카테고리1</option>
-								           <option value="명어"> 영어 </option>
-								           <option value="일본어"> 일본어</option>
-								           <option value="중국어"> 중국어 </option>
-								           <option value="취업"> 취업 </option>
-								           <option value="코딩"> 코딩 </option>
-								           <option value="기타"> 기타 </option>
-								        </select>
+								        <select name="category1" id="category1" >
+									     	<option id="big" value="default" selected="selected">대분류</option>
+										     <c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
+										     	<option value="${scateData}">${scateData}</option>
+										     </c:forEach>
+	     								</select>
 								        
-								        <select name="category2">
-								           <option value="">카테고리2</option>
-								           
-								        </select>
-								        <select name="location1">
-								           <option value="서울">지역</option>
-								           <option value="서울"> 서울 </option>
-								           <option value="경기"> 경기</option>
-								           <option value="인천"> 인천 </option>
-								        </select>
-								        <select name="location2">
-								           <option value="종로구"> 종로구 </option>
-								           <option value="중구"> 중구</option>
-								           <option value="용산구"> 용산구 </option>
-								           <option value="성동구"> 광진구 </option>
-								        </select>
+								        <select name="category" id="category" >
+									     	<option id="small" value="default" selected="selected">소분류</option>
+										     <c:forEach var="scateData" items="${subcategory }">
+										     	<option value="${scateData.categoryname }">${scateData.categoryname }></option>
+										     </c:forEach>
+	     								</select>
+	     								<select name="location1" id="location1" >
+									     	<option id="do_si" value="default" selected="selected">도,시</option>
+										     <c:forEach var="data" items="${location1 }">
+										     	<option value="${data.loc1 }">${data.loc1 }></option>
+										     </c:forEach>
+	     								</select>
+	     								<select name="location2" id="location2" >
+									     	<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
+										     <c:forEach var="data" items="${location2 }">
+										     	<option value="${data.loc2 }">${data.loc2 }></option>
+										     </c:forEach>
+	     								</select>
 								        <input type="text" name="searchKeyword">
 								        <input  type="submit" value="검색"/>
 								     </td>
