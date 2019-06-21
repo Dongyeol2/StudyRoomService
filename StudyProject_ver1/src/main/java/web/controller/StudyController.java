@@ -39,7 +39,7 @@ public class StudyController {
 			                  HttpServletRequest request,
 			                  BindingResult errors) {
 		
-		System.out.println(studyroom);
+		System.out.println(studyroom);  
 		
 		int row = 0 ;
 		row = service.addStudyRoom(studyroom);
