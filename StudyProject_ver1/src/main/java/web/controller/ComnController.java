@@ -28,7 +28,6 @@ public class ComnController {
 	@RequestMapping(value="/changecategory.do")
 	@ResponseBody  //응답 데이터로 넘어감
 	public List<SubCategoryVO> getSubCategory(@RequestParam("categoryname") String categoryname) throws Exception{
-		System.out.println(categoryname);
 		List<SubCategoryVO> list  = subcategoryservice.getSubCategoryList(categoryname);
 		return list;
 		
