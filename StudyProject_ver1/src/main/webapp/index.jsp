@@ -152,6 +152,7 @@
 								</li><br>
 							<li><a href="#"
 								class="button alt large icon solid fa-question-circle">스터디 예약</a></li>
+						
 						</ul>
 					</div>
 				</div>
