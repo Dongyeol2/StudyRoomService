@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="location">  
+
+	<select id="getloc1list" resultType="String">
+		select loc1 from location where loc2 is null and loc3 is null
+	</select>
+	
+	<select id="getloc2list" resultType="locationvo">
+		select locationcode,loc1,loc2 from location where loc1 = #{loc1} and loc3 is null
+	</select>
+	
+ </mapper>
+
+
+
+
+
+
+
+
+
+
