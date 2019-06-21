@@ -1,3 +1,4 @@
+<%@page import="spring.biz.user.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -11,6 +12,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body class="is-preload homepage">     
@@ -23,40 +28,68 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1>
-						<a href="index.html">Study Heaven</a>
+						<a href="index.jsp">Study Heaven</a>
 					</h1>
-					<span>환영합니다.</span>
+					<h3>
+						<% if(session.getAttribute("User") != null){
+							UserVO vo =(UserVO) session.getAttribute("User");%>
+							<%= vo.getUsername()%>
+						<%}%> 님 환영합니다.
+					</h3>
+					
 				</div>
 
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="current"><a href="index.html">Welcome</a></li>
-						<li><a href="#">스터디 찾기</a>
+						
+						<li>
+							<a href="#">영어</a>
 							<ul>
-								<li><a href="#">영어</a>
-									<ul>
-										<li><a href="#">토익</a></li>
-										<li><a href="#">토스</a></li>
-										<li><a href="#">오픽</a></li>
-										<li><a href="#">기타</a></li>
-									</ul></li>
-								<li><a href="#">일본어</a>
-									<ul>
-										<li><a href="#">일본어1</a></li>
-										<li><a href="#">일본어2</a></li>
-										<li><a href="#">일본어3</a></li>
-										<li><a href="#">기타</a></li>
-									</ul></li>
-								<li><a href="#">코딩</a>
-									<ul>
-										<li><a href="#">직무이론</a></li>
-										<li><a href="#">공모전</a></li>
-										<li><a href="#">알고리즘</a></li>
-										<li><a href="#">기타</a></li>
-									</ul></li>
-								<li><a href="#">기타</a></li>
-							</ul></li>
+								<li><a href="#">토익</a></li>
+								<li><a href="#">토스</a></li>
+								<li><a href="#">오픽</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">일본어</a>
+							<ul>
+								<li><a href="#">JPLT</a></li>
+								<li><a href="#">JPT</a></li>
+								<li><a href="#">SJPT</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">중국어</a>
+							<ul>
+								<li><a href="#">HSK</a></li>
+								<li><a href="#">BCT</a></li>
+								<li><a href="#">FLEX</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">코딩</a>
+							<ul>
+								<li><a href="#">알고리즘</a></li>
+								<li><a href="#">공모전</a></li>
+								
+							</ul>
+						</li>
+						<li>
+							<a href="#">취업</a>
+							<ul>
+								<li><a href="#">자소서</a></li>
+								<li><a href="#">면접</a></li>
+								<li><a href="#">인적성</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">기타</a>
+							<ul>
+								<li><a href="#">자율</a></li>
+								<li><a href="#">취미</a></li>
+							</ul>
+						</li>
 						<li><a href="#">스터디 예약하기</a></li>
 
 						<c:if test="${empty login}">
@@ -70,7 +103,7 @@
 				</nav>
 			</header>
 		</div>
-
+		
 		<!-- Banner -->
 		<div id="banner-wrapper">
 			<div id="banner" class="box container">
@@ -81,8 +114,42 @@
 					</div>
 					<div class="col-5 col-12-medium">
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/write.do"
-								class="button large icon solid fa-arrow-circle-right">스터디 찾기</a></li><br>
+							<li>
+								<table >
+								   <tr>
+								     <td>
+								        <select name="category1" id = "category1" onchange="selectCategory1(this.value);">
+								           <option value="">카테고리1</option>
+								           <option value="명어"> 영어 </option>
+								           <option value="일본어"> 일본어</option>
+								           <option value="중국어"> 중국어 </option>
+								           <option value="취업"> 취업 </option>
+								           <option value="코딩"> 코딩 </option>
+								           <option value="기타"> 기타 </option>
+								        </select>
+								        
+								        <select name="category2">
+								           <option value="">카테고리2</option>
+								           
+								        </select>
+								        <select name="location1">
+								           <option value="서울">지역</option>
+								           <option value="서울"> 서울 </option>
+								           <option value="경기"> 경기</option>
+								           <option value="인천"> 인천 </option>
+								        </select>
+								        <select name="location2">
+								           <option value="종로구"> 종로구 </option>
+								           <option value="중구"> 중구</option>
+								           <option value="용산구"> 용산구 </option>
+								           <option value="성동구"> 광진구 </option>
+								        </select>
+								        <input type="text" name="searchKeyword">
+								        <input  type="submit" value="검색"/>
+								     </td>
+								   </tr>
+								</table>
+								</li><br>
 							<li><a href="#"
 								class="button alt large icon solid fa-question-circle">스터디 예약</a></li>
 						</ul>
