@@ -1,5 +1,7 @@
 package web.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.biz.admin.service.AdminService;
+import spring.biz.studyroom.service.StudyRoomService;
+import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.user.dao.UserDAO;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
@@ -28,7 +32,21 @@ public class UserController {
 	UserService service;
 	@Autowired
 	AdminService adminService;
+	@Autowired
+	StudyRoomService studyRoomService; 
 	
+	
+	@RequestMapping(value = "/myStudyList.do",method = RequestMethod.GET)
+	public ModelAndView myStudyList(HttpServletRequest request , HttpSession session) {
+		ModelAndView mav= new ModelAndView();
+		UserVO vo = (UserVO) session.getAttribute("login");
+		List<StudyRoomVO> studyList = service.getMystudyList(vo.getUserid());
+		
+		mav.addObject("studyLists",studyList);
+		mav.setViewName("myStudyList");
+		
+		return mav;
+	}
 	
 	@RequestMapping(value = "/mypage.do",method = RequestMethod.GET)
 	public ModelAndView mypage(HttpServletRequest request , HttpSession session) {
