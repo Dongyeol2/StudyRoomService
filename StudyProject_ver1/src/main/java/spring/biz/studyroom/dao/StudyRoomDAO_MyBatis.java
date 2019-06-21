@@ -1,5 +1,7 @@
 package spring.biz.studyroom.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -22,6 +24,11 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 	@Override
 	public StudyRoomVO getStudyRoom(String studyno) {
 		return sqlSession.selectOne("studyroom.getstudyroom",studyno);
+	}
+	
+	@Override
+	public List<StudyRoomVO> getSubcategoryList(int subjectcode) {
+		return sqlSession.selectList("studyroom.subjectlist", subjectcode);
 	}
 
 }

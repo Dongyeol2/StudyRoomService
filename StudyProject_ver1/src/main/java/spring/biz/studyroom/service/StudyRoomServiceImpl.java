@@ -1,5 +1,7 @@
 package spring.biz.studyroom.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +53,11 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	public StudyRoomVO getStudyRoom(String studyno) {
 		return dao.getStudyRoom(studyno);
 	}
-
+	
+	@Override
+	public List<StudyRoomVO> getSubcategoryList(int subjectcode) {
+		return dao.getSubcategoryList(subjectcode);
+	}
 
 	
 

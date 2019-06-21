@@ -20,6 +20,12 @@
 		(studyno, studytitle, membercnt, content)
 		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, #{membercnt}, #{content})
 	</insert>
+	
+	<select id="subjectlist" resultType="studyroomvo">
+		select *
+		from studyroom s, subcategory c
+		where s.subjectcode = c.subjectcode and s.subjectcode=#{s.subjectcode}
+	</select>
  	
  </mapper>
 

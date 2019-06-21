@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
@@ -36,6 +38,14 @@ public class StudyController {
 		row = service.addStudyRoom(studyroom);
 		return "studyroom/studyroom_write";
 		
+	}
+	
+	@RequestMapping("/subjectlist.do")
+	public ModelAndView subjectcatory(@RequestParam("subjectcode") int subjectcode) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rooms", service.getSubcategoryList(subjectcode));
+		mav.setViewName("studyroom/studyroom_subject");
+		return mav;
 	}
 
 }

@@ -1,5 +1,7 @@
 package spring.biz.studyroom.service;
 
+import java.util.List;
+
 import spring.biz.studyroom.vo.StudyRoomVO;
 
 public interface StudyRoomService {
@@ -7,5 +9,5 @@ public interface StudyRoomService {
 	   
 	   StudyRoomVO getStudyRoom(String studyno);
 	   
-
+	   List<StudyRoomVO> getSubcategoryList(int subjectcode);
 }

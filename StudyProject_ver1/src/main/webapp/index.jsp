@@ -151,51 +151,50 @@ function getLoc2List() {
 						<li>
 							<a href="#">영어</a>
 							<ul>
-								<li><a href="#">토익</a></li>
-								<li><a href="#">토스</a></li>
-								<li><a href="#">오픽</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">토익</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">토스</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">오픽</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#">일본어</a>
 							<ul>
-								<li><a href="#">JPLT</a></li>
-								<li><a href="#">JPT</a></li>
-								<li><a href="#">SJPT</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=22">JPT</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=23">SJPT</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#">중국어</a>
 							<ul>
-								<li><a href="#">HSK</a></li>
-								<li><a href="#">BCT</a></li>
-								<li><a href="#">FLEX</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=32">BCT</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=33">FLEX</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#">코딩</a>
 							<ul>
-								<li><a href="#">알고리즘</a></li>
-								<li><a href="#">공모전</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">알고리즘</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">공모전</a></li>
 								
 							</ul>
 						</li>
 						<li>
 							<a href="#">취업</a>
 							<ul>
-								<li><a href="#">자소서</a></li>
-								<li><a href="#">면접</a></li>
-								<li><a href="#">인적성</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">자소서</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">면접</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=53">인적성</a></li>
 							</ul>
 						</li>
 						<li>
-							<a href="#">기타</a> 
+							<a href="#">기타</a>
 							<ul>
-								<li><a href="#">자율</a></li>
-								<li><a href="#">취미</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
+								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=62">취미</a></li>
 							</ul>
 						</li>
-						<li><a href="#">스터디 예약하기</a></li>
 						<li><a href="#">스터디 예약하기</a></li>
 
 						<c:if test="${empty login}">
@@ -203,7 +202,7 @@ function getLoc2List() {
 									그 인</a>
 						</c:if>
 						<c:if test="${!empty login}">
-							<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/adminpage.do">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</nav>
