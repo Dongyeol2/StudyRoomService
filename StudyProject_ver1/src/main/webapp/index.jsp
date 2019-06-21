@@ -150,8 +150,8 @@
 								   </tr>
 								</table>
 								</li><br>
-							<li><a href="#"
-								class="button alt large icon solid fa-question-circle">스터디 예약</a></li>
+							<li><a href="${pageContext.request.contextPath}/write.do"
+								class="button alt large icon solid fa-question-circle">스터디 신청</a></li>
 						
 						</ul>
 					</div>
