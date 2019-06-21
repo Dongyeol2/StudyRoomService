@@ -27,7 +27,7 @@ public class StudyController {
 	StudyRoomService service;
 
 	@Autowired
-	SubCategoryService cservice;
+	SubCategoryService subcategoryservice;
 	
 	@RequestMapping(value = "/write.do",method = RequestMethod.GET)
 	public String addStudyRoom() {
@@ -74,15 +74,12 @@ public class StudyController {
 	@RequestMapping(value="/url.do")
 	@ResponseBody  //응답 데이터로 넘어감
 	public List<SubCategoryVO> test(@RequestParam("categoryname") String categoryname) throws Exception{
-		ModelAndView mav = new ModelAndView();		
+		//ModelAndView mav = new ModelAndView();		
 		System.out.println(categoryname);
-		List<SubCategoryVO> subvo  = cservice.getSubCategoryList(categoryname);
+		List<SubCategoryVO> list  = subcategoryservice.getSubCategoryList(categoryname);
 		//mav.addObject("subcategory",cservice.getSubCategoryList(categoryname));
 		//mav.setViewName("/studyroom/write");
-		System.out.println(subvo);
-		
-		
-		return subvo;
+		return list;
 		
 	}
 

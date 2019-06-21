@@ -46,36 +46,37 @@ $(function() {
 	}
 	
 	$('#category1').change(function() {
-		
-		changeSubCategory();
-		alert("클릭");
-		
+		if($('#category1 option:selected').val() == "default"){
+			$("#category").empty();   
+			$("#category")
+			.append("<option value='origin'>소분류</option>");
+			
+		}else{
+			changeSubCategory();
+		}
 	})
 
 });
 
 var xdata
 function changeSubCategory() {
-	//var selected = $('#category1 option:selected').val();
-		$.ajax({
+		$.ajax({  
 			type : "GET",
 			url : "./url.do",
 			data : {categoryname : $('#category1 option:selected').val()},
-			dataType : "json",
+			dataType : 'json',
 			success : function(data) {
-				alert("성공");
-				//xdata=data;
-				xdata=JSON.parse(data);
-				if(xdata){
-					if(xdata.subcategory.length > 0){
-						$("#f").find("#small").remove();
-						for (var i = 0; i < xdata.subcategory.length; i++) {
-							$("#f").find("#small")
-							.append("<option value='"+xdata.get(i).subjectname+"' >"+ xdata.get(i).subjectname + "</option>");
+				if(data){
+					if(data.length > 0){  
+						$("#category").empty();   
+						var html = "";
+						for (var i = 0; i < data.length; i++) {
+							$("#category")
+							.append("<option value='"+data[i].subjectname+"'>"+ data[i].subjectname + "</option>");
 						}
 					}
 				}
-			},
+			},  
 			error : function(request, status, error) {
 		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
 			}
@@ -126,7 +127,7 @@ function changeSubCategory() {
       <div class="col-sm-10">          
 	    <div class="dropdown"  id="s3">
 	     <select name="category1" id="category1" >
-	     	<option id="big" value='' selected="selected">대분류</option>
+	     	<option id="big" value="default" selected="selected">대분류</option>
 		     <c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
 		     	<option value="${scateData}">${scateData}</option>
 		     </c:forEach>
@@ -135,7 +136,7 @@ function changeSubCategory() {
   		</div>
 	    <div class="dropdown"  id="s2">
 	     <select name="category" id="category" >
-	     	<option id="small" value='' selected="selected">소분류</option>
+	     	<option id="small" value="default" selected="selected">소분류</option>
 		     <c:forEach var="scateData" items="${subcategory }">
 		     	<option value="${scateData.categoryname }">${scateData.categoryname }></option>
 		     </c:forEach>
