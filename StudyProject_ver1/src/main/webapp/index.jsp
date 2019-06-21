@@ -189,7 +189,7 @@ function getLoc2List() {
 							</ul>
 						</li>
 						<li>
-							<a href="#">기타</a>
+							<a href="#">기타</a> 
 							<ul>
 								<li><a href="#">자율</a></li>
 								<li><a href="#">취미</a></li>
@@ -203,7 +203,7 @@ function getLoc2List() {
 									그 인</a>
 						</c:if>
 						<c:if test="${!empty login}">
-							<li><a href="${pageContext.request.contextPath}/admin/adminpage.do">마이페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</nav>
