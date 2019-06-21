@@ -88,7 +88,7 @@ public class UserController {
 		}
 		int row = 0;
 		row = service.addUser(vo);
-		return "redirect:/user/list.do";
+		return "/index";
 
 	}
 

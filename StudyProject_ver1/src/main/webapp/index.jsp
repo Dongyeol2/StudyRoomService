@@ -119,7 +119,11 @@ function getLoc2List() {
 }
 
 </script>
-
+<style type="text/css">
+	#logo{
+		text-decoration: none;
+	}
+</style>
 
 </head>
 
@@ -133,15 +137,8 @@ function getLoc2List() {
 				<!-- Logo -->
 				<div id="logo">
 					<h1>
-						<a href="index.jsp">Study Heaven</a>
+						<a id="logo" href="index.jsp">Study Heaven</a>
 					</h1>
-					<h3>
-						<% if(session.getAttribute("User") != null){
-							UserVO vo =(UserVO) session.getAttribute("User");%>
-							<%= vo.getUsername()%>
-						<%}%> 님 환영합니다.
-					</h3>
-					
 				</div>
 
 				<!-- Nav -->
@@ -203,6 +200,7 @@ function getLoc2List() {
 						</c:if>
 						<c:if test="${!empty login}">  
 							<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 						</c:if>
 					</ul>
 				</nav>
@@ -214,7 +212,11 @@ function getLoc2List() {
 			<div id="banner" class="box container">
 				<div class="row">
 					<div class="col-7 col-12-medium">
-						<h2>안녕하세요.<br> 스터디 천국입니다.</h2><br>
+						<h2>안녕하세요.
+						<c:if test="${!empty login}">
+							${login.username }님
+						</c:if>									
+						<br> 스터디 천국입니다.</h2><br>
 						<p style="font-size: 30px">스터디를 찾기위한 최적의 공간</p>
 					</div>
 					<div class="col-5 col-12-medium">
