@@ -1,17 +1,27 @@
-<%@page contentType="text/html; charset=utf-8" isELIgnored="false"%>
-<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib  prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-
-
-<html>
+    
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>사용자 관리</title>
-<meta charset="utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script language="JavaScript">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script language="JavaScript">
 $(function() {
 	var date = new Date(); 
 	var year = date.getFullYear(); 
@@ -29,81 +39,139 @@ $(function() {
 	$("#regdate").val(year + "/" + month + "/" + day);
 
 	
-	function userCreate() {	
+	function studyroomCreate() {	
 		f.action="./write.do";
 		f.method="post";
 		f.submit();
 	}
-
+	
+	$('#category1').change(function() {
+		
+		changeSubCategory();
+		alert("클릭");
+		
+	})
 
 });
-	
+
+var xdata
+function changeSubCategory() {
+	//var selected = $('#category1 option:selected').val();
+		$.ajax({
+			type : "GET",
+			url : "./url.do",
+			data : {categoryname : $('#category1 option:selected').val()},
+			dataType : "json",
+			success : function(data) {
+				alert("성공");
+				//xdata=data;
+				xdata=JSON.parse(data);
+				if(xdata){
+					if(xdata.subcategory.length > 0){
+						$("#f").find("#small").remove();
+						for (var i = 0; i < xdata.subcategory.length; i++) {
+							$("#f").find("#small")
+							.append("<option value='"+xdata.get(i).subjectname+"' >"+ xdata.get(i).subjectname + "</option>");
+						}
+					}
+				}
+			},
+			error : function(request, status, error) {
+		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+			}
+			
+		});
+		
+	}
 
 </script>
+<style type="text/css">
+	#uinfo{
+		display: inline;
+		float: right;
+		text-align: right;
+	}
+	#s1{
+		float: left;
+	}
+	#s3{
+		float: left;
+	}
+	#s2{
+		float: left;
+	}
+</style>
 </head>
-<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
-<br>
-<table width=780 border=0 cellpadding=0 cellspacing=0>
-	<tr>
-	  <td width="20"></td>
-	  <td>
-  <!--contents-->
-	  <table width=590 border=0 cellpadding=0 cellspacing=0>
-		  <tr>
-			<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b></b></td>
-		  </tr>
-	  </table>  
-	  <br>
-	  <!-- view Form  -->
-	  <form name="f" method="post" action="">
-	  <input type="hidden" name="managerid" value="${login.userid}">
-	  <table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
-		  <tr>
-			<td colspan="2" width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:150" name="studytitle" value="${studyroom.studytitle}"> 
-			</td>
-		  </tr>
-		  <tr>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="password" style="width:150" name="subjectcode" value="${studyroom.subjectcode}">
-			</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input id="regdate"  readonly="readonly" style="width:240" name="regdate">
-			</td>
-		  </tr>
-		  <tr>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="locationcode" value="${studyroom.locationcode}">
-			</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="address" value="${studyroom.membercnt}">
-			</td>
-		  </tr>		
-		  <tr>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">작성자 : ${login.username}</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">연락처 : ${login.phone}</td>
-		  </tr>	
-		  <tr>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="address" value="${studyroom.content}">
-			</td>
-		  </tr>	
-	  </table>
+<body>
 
-	  <br>
-	  
-	  <table width=590 border=0 cellpadding=0 cellspacing=0>
-		  <tr>
-			<td align=center>
-			<input type="button" value="회원 가입" onClick="userCreate()"> &nbsp;
-			<input type="button" value="목록" onClick="userList()">
-			</td>
-		  </tr>
-	  </table>
+<div class="container">
+  <h2>스터디 신청서</h2>
+  <form name="f" method="post" action="" class="form-horizontal" class="needs-validation">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="studytitle">제목:</label>
+      <div class="col-sm-10">
+ 	      <input type="text" class="form-control" id="studytitle" placeholder="Enter title" name="studytitle" required="required" value="${studyroom.studytitle}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="regdate">게시일:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="regdate" name="regdate" readonly="readonly">
+      </div>
+    </div>
 
-	  </td>
-	</tr>
-</table>  
-	  </form>
+
+   <div class="form-group" >
+      <label class="control-label col-sm-2" for="regdate">과목:</label>
+      <div class="col-sm-10">          
+	    <div class="dropdown"  id="s3">
+	     <select name="category1" id="category1" >
+	     	<option id="big" value='' selected="selected">대분류</option>
+		     <c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
+		     	<option value="${scateData}">${scateData}</option>
+		     </c:forEach>
+	     </select>
+
+  		</div>
+	    <div class="dropdown"  id="s2">
+	     <select name="category" id="category" >
+	     	<option id="small" value='' selected="selected">소분류</option>
+		     <c:forEach var="scateData" items="${subcategory }">
+		     	<option value="${scateData.categoryname }">${scateData.categoryname }></option>
+		     </c:forEach>
+	     </select>
+
+  		</div>
+     </div>
+   </div>
+  
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="membercnt">인원수:</label>
+      <div class="col-sm-10">
+	      <input type="number" class="form-control" id="membercnt" placeholder="Enter membercount" name="membercnt"  value="${studyroom.membercnt}">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-10" id="uinfo">
+      	 신청자 : ${login.username}	      	 연락처 : ${login.phone}      	 
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="content">내용:</label>
+      <div class="col-sm-10">
+	      <input type="text" class="form-control" id="content" placeholder="Enter content" name="content"  value="${studyroom.content}">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" onclick="studyroomCreate()">신청하기</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
 </body>
 </html>
