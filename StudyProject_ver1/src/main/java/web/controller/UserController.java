@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.biz.admin.service.AdminService;
 import spring.biz.user.dao.UserDAO;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
@@ -25,11 +26,20 @@ public class UserController {
 
 	@Autowired
 	UserService service;
+	@Autowired
+	AdminService adminService;
+	
 	
 	@RequestMapping(value = "/mypage.do",method = RequestMethod.GET)
 	public ModelAndView mypage(HttpServletRequest request , HttpSession session) {
 		UserVO vo = (UserVO) session.getAttribute("login");
 		ModelAndView mav= new ModelAndView();
+		if(vo.getUserid().equals("admin")) {
+			mav.addObject("users", adminService.getUserList());
+			mav.addObject("rooms", adminService.getStudyRoomList());
+			mav.setViewName("admin/admin_main");
+		}
+		
 		mav.addObject("user",vo);
 		mav.setViewName("mypage");
 		return mav;
