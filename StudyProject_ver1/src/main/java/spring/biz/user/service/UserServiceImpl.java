@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.user.dao.UserDAO;
 import spring.biz.user.vo.UserVO;
 
@@ -81,4 +82,10 @@ public class UserServiceImpl implements UserService{
 	public UserVO idCheck(String userid) {
 		return dao.idCheck(userid);
 	}
+	//@Override
+	public List<StudyRoomVO> getMystudyList(String userid) {
+		// TODO Auto-generated method stub
+		return dao.getMystudyList(userid);
+	}
+	
 }

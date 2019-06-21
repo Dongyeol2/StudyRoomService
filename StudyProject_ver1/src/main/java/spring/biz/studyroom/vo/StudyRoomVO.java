@@ -3,6 +3,13 @@ package spring.biz.studyroom.vo;
 import java.sql.Date;
 
 public class StudyRoomVO {
+	@Override
+	public String toString() {
+		return "StudyRoomVO [studyno=" + studyno + ", studytitle=" + studytitle + ", subjectcode=" + subjectcode
+				+ ", membercnt=" + membercnt + ", locationcode=" + locationcode + ", managerid=" + managerid
+				+ ", regdate=" + regdate + ", state=" + state + ", content=" + content + ", viewcnt=" + viewcnt + "]";
+	}
+
 	public int studyno;
 	public String studytitle;
 	public int subjectcode;

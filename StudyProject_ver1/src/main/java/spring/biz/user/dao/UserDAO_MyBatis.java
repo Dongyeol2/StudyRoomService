@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import mappers.UserMapper;
+import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.user.vo.UserVO;
 
 @Repository("mybatis")
@@ -25,6 +26,10 @@ public class UserDAO_MyBatis implements UserDAO{
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 		ui = sqlSession.getMapper(UserMapper.class);
+	}
+	
+	public List<StudyRoomVO> getMystudyList(String userid){
+		return sqlSession.selectList("user.getMyStudyList",userid);
 	}
 	
 	public SqlSession getSqlSession() {

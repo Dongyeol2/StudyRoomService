@@ -1,6 +1,7 @@
 package web.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,16 @@ public class UserController {
 
 	@Autowired
 	UserService service;
-
+	
+	@RequestMapping(value = "/mypage.do",method = RequestMethod.GET)
+	public ModelAndView mypage(HttpServletRequest request , HttpSession session) {
+		UserVO vo = (UserVO) session.getAttribute("login");
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("user",vo);
+		mav.setViewName("mypage");
+		return mav;
+	}
+	
 	@RequestMapping("/user/list.do")
 	public ModelAndView getUserList() {
 		ModelAndView mav = new ModelAndView();
@@ -65,10 +75,12 @@ public class UserController {
 		return "redirect:/user/list.do";
 	}
 
-	@RequestMapping("/user/modify.do")
-	public ModelAndView modify(@RequestParam("userid") String id) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("user", service.getUser(id));
+	@RequestMapping("modify.do")
+	public ModelAndView modify(HttpServletRequest request , HttpSession session) {
+		System.out.println("modify.do");
+		UserVO vo = (UserVO) session.getAttribute("login");
+		ModelAndView mav= new ModelAndView();
+		mav.addObject("user",vo);
 		mav.setViewName("user/user_modify");
 		return mav;
 	}

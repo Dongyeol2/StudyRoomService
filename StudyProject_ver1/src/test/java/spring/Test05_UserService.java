@@ -17,6 +17,11 @@ public class Test05_UserService {
 	@Autowired
 	UserService service;
 
+	@Test
+	public void getMyStudyList() {
+		System.out.println(service.getMystudyList("user02"));
+	}
+	
 	//@Test
 	public void login() {
 		System.out.println(service.login("admin", "a1234"));

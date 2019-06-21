@@ -12,6 +12,14 @@
         <result property="address" column="address"/>
     </resultMap>
 	
+	<select id ="getMyStudyList" parameterType="spring.biz.user.vo.UserVO"
+			resultType="spring.biz.studyroom.vo.StudyRoomVO">
+		select * from studyroom r,studymember m
+		where r.studyno=m.studyno
+		and m.userid=#{userid}
+	</select>
+	
+	
 	<select id="login" parameterType="spring.biz.user.vo.UserVO"
 		resultType="uservo">
 		select * from userinfo
