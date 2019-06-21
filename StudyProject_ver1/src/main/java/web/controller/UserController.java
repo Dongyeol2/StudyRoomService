@@ -50,16 +50,19 @@ public class UserController {
 	
 	@RequestMapping(value = "/mypage.do",method = RequestMethod.GET)
 	public ModelAndView mypage(HttpServletRequest request , HttpSession session) {
-		UserVO vo = (UserVO) session.getAttribute("login");
+		
+		//UserVO vo = (UserVO) session.getAttribute("login");
+		UserVO vo = (UserVO)request.getSession().getAttribute("login");
 		ModelAndView mav= new ModelAndView();
 		if(vo.getUserid().equals("admin")) {
 			mav.addObject("users", adminService.getUserList());
 			mav.addObject("rooms", adminService.getStudyRoomList());
 			mav.setViewName("admin/admin_main");
+		}else {
+			System.out.println("mypage로 이동");
+			mav.addObject("user",vo);
+			mav.setViewName("mypage");	
 		}
-		
-		mav.addObject("user",vo);
-		mav.setViewName("mypage");
 		return mav;
 	}
 	

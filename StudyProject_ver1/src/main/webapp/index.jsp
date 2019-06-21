@@ -201,8 +201,8 @@ function getLoc2List() {
 							<li><a href="${pageContext.request.contextPath}/login.do">로
 									그 인</a>
 						</c:if>
-						<c:if test="${!empty login}">
-							<li><a href="${pageContext.request.contextPath}/admin/adminpage.do">마이페이지</a></li>
+						<c:if test="${!empty login}">  
+							<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
 						</c:if>
 					</ul>
 				</nav>
