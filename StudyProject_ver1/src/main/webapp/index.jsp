@@ -31,9 +31,9 @@ $(function() {
 	
 	$('#location1').change(function() {
 		if($('#location1 option:selected').val() == "default"){
-			$("#location1").empty();   
-			$("#location1")
-			.append("<option value='default'>시,군,구</option>");
+			$("#location2").empty();   
+			$("#location2")
+			.append("<option value='default'>--전체--</option>");
 		}else{
 			getLoc2List();
 		}

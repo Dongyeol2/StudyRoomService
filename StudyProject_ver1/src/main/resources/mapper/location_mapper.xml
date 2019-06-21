@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="getloc2list" resultType="locationvo">
-		select locationcode,loc1,loc2 from location where loc1 = #{loc1} and loc3 is null
+		select locationcode,loc1,decode(loc2,null,'전체',loc2) as loc2 from location where loc1 = #{loc1} and loc3 is null
 	</select>
 	
  </mapper>
