@@ -196,6 +196,7 @@ function getLoc2List() {
 							</ul>
 						</li>
 						<li><a href="#">스터디 예약하기</a></li>
+						<li><a href="#">스터디 예약하기</a></li>
 
 						<c:if test="${empty login}">
 							<li><a href="${pageContext.request.contextPath}/login.do">로
