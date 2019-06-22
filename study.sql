@@ -79,3 +79,8 @@ CREATE TABLE NOTIFY (
 	);	
 	
 	
+select r.studytitle,  s.subjectname, (select loc1 ||' ' || loc2 from location where locationcode = 1168064000), r.content
+from subcategory s, studyroom r
+where r.subjectcode = s.subjectcode and s.subjectname='TOEIC';
+
+
