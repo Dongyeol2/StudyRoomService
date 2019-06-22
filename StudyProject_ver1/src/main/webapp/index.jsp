@@ -4,314 +4,239 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
 <!DOCTYPE html>
-<html>
-<head>
-<title>Study Heaven</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script language="JavaScript">
-$(function() {
-	getLoc1List();
-	
-	$('#category1').change(function() {
-		if($('#category1 option:selected').val() == "default"){
-			$("#category").empty();   
-			$("#category")
-			.append("<option value='default'>소분류</option>");
-		}else{
-			changeSubCategory();
-		}
-	})
-	
-	$('#location1').change(function() {
-		if($('#location1 option:selected').val() == "default"){
-			$("#location2").empty();   
-			$("#location2")
-			.append("<option value='default'>--전체--</option>");
-		}else{
-			getLoc2List();
-		}
-	})
-});
+<html lang="en">
+  <head>
+    <title>Job Finder &mdash; Colorlib Website Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-function changeSubCategory() {
-		$.ajax({  
-			type : "GET",
-			url : "./changecategory.do",
-			data : {categoryname : $('#category1 option:selected').val()},
-			dataType : 'json',
-			success : function(data) {
-				if(data){
-					if(data.length > 0){  
-						$("#category").empty();   
-						var html = "";
-						for (var i = 0; i < data.length; i++) {
-							$("#category")
-							.append("<option value='"+data[i].subjectname+"'>"+ data[i].subjectname + "</option>");
-						}
-					}
-				}
-			},  
-			error : function(request, status, error) {
-		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
-			}
-			
-		});
-		
-	}
-	
-function getLoc1List() {
-	$.ajax({  
-		type : "GET",
-		url : "./getloc1list.do",
-		//data : {categoryname : $('#category1 option:selected').val()},
-		dataType : 'json',
-		success : function(data) {
-			if(data){
-				if(data.length > 0){  
-					//$("#location1").empty();   
-					var html = "";
-					for (var i = 0; i < data.length; i++) {  
-						$("#location1")
-						.append("<option value='"+data[i]+"'>"+ data[i] + "</option>");
-					}
-				}
-			}
-		},  
-		error : function(request, status, error) {
-	        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
-		}
-		
-	});
-	
-}
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-function getLoc2List() {
-	$.ajax({  
-		type : "GET",
-		url : "./getloc2list.do",
-		data : {loc1name : $('#location1 option:selected').val()},
-		dataType : 'json',
-		success : function(data) {
-			if(data){
-				if(data.length > 0){  
-					$("#location2").empty();   
-					var html = "";
-					for (var i = 0; i < data.length; i++) {  
-						$("#location2")
-						.append("<option value='"+data[i].locationcode+"'>"+ data[i].loc2 + "</option>");
-					}
-				}
-			}
-		},  
-		error : function(request, status, error) {
-	        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
-		}
-		
-	});
-	
-}
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    
+    
+    
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="css/aos.css">
 
-</script>
-<style type="text/css">
-	#logo{
-		text-decoration: none;
-	}
-</style>
+    <link rel="stylesheet" href="css/style_index.css">
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
 
-</head>
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+    
+    <div class="site-navbar-wrap js-site-navbar bg-white">
+      
+      <div class="container">
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-center">
+              <div class="col-2">
+                <h2 class="mb-0 site-logo"><a href="index.html">Study<strong class="font-weight-bold">Room</strong> </a></h2>
+              </div>
+              <div class="col-10">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
-<body class="is-preload homepage">     
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<div id="header-wrapper">
-			<header id="header" class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-					<h1>
-						<a id="logo" href="index.jsp">Study Heaven</a>
-					</h1>
-				</div>
-
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						
-						<li>
-							<a href="#">영어</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">토익</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">토스</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">오픽</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">일본어</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=22">JPT</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=23">SJPT</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">중국어</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=32">BCT</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=33">FLEX</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">코딩</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">알고리즘</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">공모전</a></li>
-								
-							</ul>
-						</li>
-						<li>
-							<a href="#">취업</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">자소서</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">면접</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=53">인적성</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">기타</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
-								<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=62">취미</a></li>
-							</ul>
-						</li>
-						<li><a href="#">스터디 예약하기</a></li>
-
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+                      <li class="has-children">
+                        <a href="#">영어</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">TOEIC-SPEAKING</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">OPIC</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=14">TEPS</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=15">TOEFL</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=16">G-TELP</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
+                        </ul>
+                      </li>
+                      <li class="has-children">
+                        <a href="#">일본어</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=22">JPT</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=23">SJPT</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=24">FLEX</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=25">BJT</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
+                        </ul>
+                      </li>
+                      <li class="has-children">
+                        <a href="#">중국어</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=32">BCT</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=33">FLEX</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=34">OPIC</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
+                        </ul>
+                      </li>
+                       <li class="has-children">
+                        <a href="#">코딩</a>
+                        <ul class="dropdown arrow-top">
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
+                          <li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
+                        </ul>
+                      </li>
+                       <li class="has-children">
+                        <a href="#">취업</a>
+                        <ul class="dropdown arrow-top">
+              				<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
+							<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=43">면접</a></li>
+							<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
+                        </ul>
+                      </li>
+                      <li class="has-children">
+                        <a href="#">기타</a>
+                        <ul class="dropdown arrow-top">
+							<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
+							<li><a href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=62">취미</a></li>                       
+						</ul>
+                      </li>
 						<c:if test="${empty login}">
-							<li><a href="${pageContext.request.contextPath}/login.do">로
+							<li><a class="menu" href="${pageContext.request.contextPath}/login.do">로
 									그 인</a>
 						</c:if>
 						<c:if test="${!empty login}">  
-							<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
-							<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
+							<li><a class="menu" href="#">스터디 예약하기</a></li>
+							<li><a class="menu" href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+							<li><a class="menu" href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 						</c:if>
-					</ul>
-				</nav>
-			</header>
-		</div>
-		
-		<!-- Banner -->
-		<div id="banner-wrapper">
-			<div id="banner" class="box container">
-				<div class="row">
-					<div class="col-7 col-12-medium">
-						<h2>안녕하세요.
-						<c:if test="${!empty login}">
-							${login.username }님
-						</c:if>									
-						<br> 스터디 천국입니다.</h2><br>
-						<p style="font-size: 30px">스터디를 찾기위한 최적의 공간</p>
-					</div>
-					<div class="col-5 col-12-medium">
-						<ul>
-							<li>
-								<table >
-								   <tr>
-								     <td>
-								        <select name="category1" id="category1" >
-									     	<option id="big" value="default" selected="selected">대분류</option>
-										     <c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
-										     	<option value="${scateData}">${scateData}</option>
-										     </c:forEach>
-	     								</select>
-								        
-								        <select name="category" id="category" >
-									     	<option id="small" value="default" selected="selected">소분류</option>
-										     <c:forEach var="scateData" items="${subcategory }">
-										     	<option value="${scateData.categoryname }">${scateData.categoryname }></option>
-										     </c:forEach>
-	     								</select>
-	     								<select name="location1" id="location1" >
-									     	<option id="do_si" value="default" selected="selected">도,시</option>
-										     <c:forEach var="data" items="${location1 }">
-										     	<option value="${data.loc1 }">${data.loc1 }></option>
-										     </c:forEach>
-	     								</select>
-	     								<select name="location2" id="location2" >
-									     	<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
-										     <c:forEach var="data" items="${location2 }">
-										     	<option value="${data.loc2 }">${data.loc2 }></option>
-										     </c:forEach>
-	     								</select>
-								        <input type="text" name="searchKeyword">
-								        <input  type="submit" value="검색"/>
-								     </td>
-								   </tr>
-								</table>
-								</li><br>
-							<li><a href="${pageContext.request.contextPath}/write.do"
-								class="button alt large icon solid fa-question-circle">스터디 신청</a></li>
-						
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+     <div style="height: 70px;"></div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
+    <div class="site-blocks-cover overlay" style="background-image: url('images/logo.png'); background-size: 50%; background-position: 50% -300px ;" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12" data-aos="fade">
+            <h1>Search Study</h1>
+            <form action="#">
+              <div class="row mb-3">
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <input type="text" class="mr-3 form-control border-0 px-4" placeholder="category keywords or subject name ">
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0">
+
+                      <div class="input-wrap">
+                        <span class="icon icon-room"></span>
+                      <input type="text" class="form-control form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="city, province or region" onFocus="geolocate()">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <input type="submit" class="btn btn-search btn-primary btn-block" value="Search">
+                </div>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <footer class="site-footer">
+      <div class="container">
+        
+
+        <div class="row">
+          <div class="col-md-4">
+            <h3 class="footer-heading mb-4 text-white">About</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
+            <p><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-md-2">
+            <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
+              <div class="col-md-12">
+                <p>
+                  <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+                  <a href="#" class="p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="p-2"><span class="icon-instagram"></span></a>
+                  <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
+
+                </p>
+              </div>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-warning" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  
+  <script src="js/mediaelement-and-player.min.js"></script>
+
+  <script src="js/main_index.js"></script>
+    
+
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%-- <!-- Header -->
-		<header id="header">
-			<h2>menu 클릭하세요</h2>
-			<ul>
-				<c:if test="${empty login}">
-					<li><a href="${pageContext.request.contextPath}/login.do">로
-							그 인</a>
-					<li><a href="${pageContext.request.contextPath}/user/add.do">회
-							원 가 입</a>
-					<li><a
-						href="${pageContext.request.contextPath}/admin/adminpage.do">adminpage</a>
-				</c:if>
-
-				<c:if test="${!empty login}">
-					<li><a href="${pageContext.request.contextPath}/write.do">스터디
-							등록</a>
-					<li><a href="${pageContext.request.contextPath}/hello.do">hello.do</a>
-					<li><a href="${pageContext.request.contextPath}/report.do">이미지등록</a>
-					<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
-					<li><a href="${pageContext.request.contextPath}/user/add.do">User
-							등록</a></li>
-					<li><a href="${pageContext.request.contextPath}/user/list.do">User
-							목록</a></li>
-				</c:if>
-			</ul>
-		</header>
-	</div> --%>
