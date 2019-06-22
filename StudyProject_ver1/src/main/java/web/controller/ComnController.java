@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spring.biz.category.service.CategoryService;
+import spring.biz.category.vo.CategoryVO;
 import spring.biz.location.service.LocationService;
 import spring.biz.location.vo.LocationVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -16,7 +18,9 @@ import spring.biz.subcategory.vo.SubCategoryVO;
 @Controller
 public class ComnController {
 	
-
+	@Autowired
+	CategoryService categoryservice;
+	
 	@Autowired
 	SubCategoryService subcategoryservice;
 	
@@ -24,12 +28,21 @@ public class ComnController {
 	LocationService locationservice;
 	
 	
-	//category select box
-	@RequestMapping(value="/changecategory.do")
+	//set category select box
+	@RequestMapping(value="/getcategorylist.do")
 	@ResponseBody  //응답 데이터로 넘어감
-	public List<SubCategoryVO> getSubCategory(@RequestParam("categoryname") String categoryname) throws Exception{
-		List<SubCategoryVO> list  = subcategoryservice.getSubCategoryList(categoryname);
-		return list;
+	public List<CategoryVO> getCategoryList() throws Exception{
+		List<CategoryVO> categorylist  = categoryservice.getCategoryList();
+		return categorylist;
+		
+	}
+	
+	//get subcategory select box
+	@RequestMapping(value="/getsubcategorylist.do")
+	@ResponseBody  //응답 데이터로 넘어감
+	public List<SubCategoryVO> getSubCategoryList(@RequestParam("categorycode") int categorycode) throws Exception{
+		List<SubCategoryVO> subcategorylist  = subcategoryservice.getSubCategoryList(categorycode);
+		return subcategorylist;
 		
 	}
 

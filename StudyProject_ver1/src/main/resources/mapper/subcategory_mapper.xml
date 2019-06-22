@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="getsubcategoryl" resultType="subcategoryvo" >
-		select subjectname from subcategory s, category c where s.categorycode = c.categorycode and categoryname = #{categoryname}
+		select * from subcategory s, category c where s.categorycode = c.categorycode and s.categorycode = #{categorycode}
 	</select> 	
 	<select id="getsubcategory" resultType="subcategoryvo">
 		select subjectname from subcategory where categorycode = #{categorycode}

@@ -30,9 +30,9 @@ public class SubCategoryDAO_MyBatis implements SubCategoryDAO{
 	}
 
 	@Override
-	public List<SubCategoryVO> getSubCategoryList(String categoryname) {
+	public List<SubCategoryVO> getSubCategoryList(int categorycode) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("subcategory.getsubcategoryl", categoryname);
+		return sqlSession.selectList("subcategory.getsubcategoryl", categorycode);
 	}
 
 	@Override

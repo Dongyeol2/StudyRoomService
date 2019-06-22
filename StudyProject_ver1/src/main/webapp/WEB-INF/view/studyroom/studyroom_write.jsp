@@ -32,6 +32,7 @@
 
 <script language="JavaScript">
 	$(function() {
+		getCategoryList(); //Category가져오기
 		getLoc1List(); //Location1가져오기
 
 		var date = new Date();
@@ -55,46 +56,71 @@
 			f.submit();
 		}
 
-		$('#category1').change(function() {
-			if ($('#category1 option:selected').val() == "default") {
-				$("#category").empty();
-				$("#category").append("<option value='default'>소분류</option>");
+		$('#category').change(function() {
+			if ($('#category option:selected').val() == "default") {
+				$("#subcategory").empty();
+				$("#subcategory").append("<option value='default'>소분류</option>");
 
 			} else {
-				changeSubCategory();
+				getSubCategory();
 			}
 		})
-		
+
 		$('#location1').change(function() {
-			if($('#location1 option:selected').val() == "default"){
-				$("#location2").empty();   
-				$("#location2")
-				.append("<option value='default'>전체</option>");
-			}else{
+			if ($('#location1 option:selected').val() == "default") {
+				$("#location2").empty();
+				$("#location2").append("<option value='default'>전체</option>");
+			} else {
 				getLoc2List();
 			}
 		})
 
 	});
 
-	var xdata
-	function changeSubCategory() {
+	function getCategoryList() {
 		$.ajax({
 			type : "GET",
-			url : "./changecategory.do",
+			url : "./getcategorylist.do",
+			//data : {categoryname : $('#category1 option:selected').val()},
+			dataType : 'json',
+			success : function(data) {
+				if (data) {
+					if (data.length > 0) {
+						//$("#location1").empty();   
+						var html = "";
+						for (var i = 0; i < data.length; i++) {
+							$("#category").append(
+									"<option value='"+data[i].categorycode+"'>"
+											+ data[i].categoryname
+											+ "</option>");
+						}
+					}
+				}
+			},
+			error : function(request, status, error) {
+				console.log('code:' + request.status + '\n' + 'message:'
+						+ request.responseText + '\n' + 'error:' + error);
+			}
+		});
+	}
+
+	function getSubCategory() {
+		$.ajax({
+			type : "GET",
+			url : "./getsubcategorylist.do",
 			data : {
-				categoryname : $('#category1 option:selected').val()
+				categorycode : $('#category option:selected').val()
 			},
 			dataType : 'json',
 			success : function(data) {
 				if (data) {
 					if (data.length > 0) {
-						$("#category").empty();
+						$("#subcategory").empty();
 						var html = "";
 						for (var i = 0; i < data.length; i++) {
-							$("#category")
+							$("#subcategory")
 									.append(
-											"<option value='"+data[i].subjectname+"'>"
+											"<option value='"+data[i].subjectcode+"'>"
 													+ data[i].subjectname
 													+ "</option>");
 						}
@@ -109,57 +135,63 @@
 		});
 
 	}
-	
+
 	function getLoc1List() {
-		$.ajax({  
+		$.ajax({
 			type : "GET",
 			url : "./getloc1list.do",
 			//data : {categoryname : $('#category1 option:selected').val()},
 			dataType : 'json',
 			success : function(data) {
-				if(data){
-					if(data.length > 0){  
+				if (data) {
+					if (data.length > 0) {
 						//$("#location1").empty();   
 						var html = "";
-						for (var i = 0; i < data.length; i++) {  
-							$("#location1")
-							.append("<option value='"+data[i]+"'>"+ data[i] + "</option>");
+						for (var i = 0; i < data.length; i++) {
+							$("#location1").append(
+									"<option value='"+data[i]+"'>" + data[i]
+											+ "</option>");
 						}
 					}
 				}
-			},  
+			},
 			error : function(request, status, error) {
-		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+				console.log('code:' + request.status + '\n' + 'message:'
+						+ request.responseText + '\n' + 'error:' + error);
 			}
-			
+
 		});
-		
+
 	}
 
 	function getLoc2List() {
-		$.ajax({  
+		$.ajax({
 			type : "GET",
 			url : "./getloc2list.do",
-			data : {loc1name : $('#location1 option:selected').val()},
+			data : {
+				loc1name : $('#location1 option:selected').val()
+			},
 			dataType : 'json',
 			success : function(data) {
-				if(data){
-					if(data.length > 0){  
-						$("#location2").empty();   
+				if (data) {
+					if (data.length > 0) {
+						$("#location2").empty();
 						var html = "";
-						for (var i = 0; i < data.length; i++) {  
-							$("#location2")
-							.append("<option value='"+data[i].locationcode+"'>"+ data[i].loc2 + "</option>");
+						for (var i = 0; i < data.length; i++) {
+							$("#location2").append(
+									"<option value='"+data[i].locationcode+"'>"
+											+ data[i].loc2 + "</option>");
 						}
 					}
 				}
-			},  
+			},
 			error : function(request, status, error) {
-		        console.log('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);	
+				console.log('code:' + request.status + '\n' + 'message:'
+						+ request.responseText + '\n' + 'error:' + error);
 			}
-			
+
 		});
-		
+
 	}
 </script>
 <style type="text/css">
@@ -169,22 +201,21 @@
 	text-align: right;
 }
 
-select{
+select {
 	float: left;
 }
 
-#category1,#category{
+#category1, #category {
 	width: 6em;
 }
 
-#location1{
+#location1 {
 	width: 10em;
 }
 
-#location2{
+#location2 {
 	width: 7em;
 }
-
 </style>
 </head>
 <body>
@@ -214,25 +245,24 @@ select{
 				<label class="control-label col-sm-2" for="regdate">과목:</label>
 				<div class="col-sm-10">
 					<div class="dropdown" id="s1">
-						<select name="category1" id="category1">
+						<select name="category" id="category">
 							<option id="big" value="default" selected="selected">대분류</option>
-							<c:forEach var="scateData" items="영어,일본어,중국어,취업,코딩,기타">
-								<option value="${scateData}">${scateData}</option>
+							<c:forEach var="scateData" items="${category }">
+								<option value="${scateData.categorycode}">${scateData.categoryname }</option>
 							</c:forEach>
 						</select>
-
 					</div>
 					<div class="dropdown" id="s2">
-						<select name="category" id="category">
+						<select name="subcategory" id="subcategory">
 							<option id="small" value="default" selected="selected">소분류</option>
 							<c:forEach var="scateData" items="${subcategory }">
-								<option value="${scateData.categoryname }">${scateData.categoryname }></option>
+								<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
 							</c:forEach>
 						</select>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="regdate">지역:</label>
 				<div class="col-sm-10">

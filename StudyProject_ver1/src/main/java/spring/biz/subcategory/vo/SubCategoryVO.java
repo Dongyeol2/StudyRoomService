@@ -2,7 +2,7 @@ package spring.biz.subcategory.vo;
 
 public class SubCategoryVO {
 	
-	public int subcategorycode;
+	public int subjectcode;
 	public int categorycode;
 	public String subjectname;
 	
@@ -12,17 +12,17 @@ public class SubCategoryVO {
 
 	public SubCategoryVO(int subcategorycode, int categorycode, String subjectname) {
 		super();
-		this.subcategorycode = subcategorycode;
+		this.subjectcode = subcategorycode;
 		this.categorycode = categorycode;
 		this.subjectname = subjectname;
 	}
 
 	public int getSubcategorycode() {
-		return subcategorycode;
+		return subjectcode;
 	}
 
 	public void setSubcategorycode(int subcategorycode) {
-		this.subcategorycode = subcategorycode;
+		this.subjectcode = subcategorycode;
 	}
 
 	public int getCategorycode() {

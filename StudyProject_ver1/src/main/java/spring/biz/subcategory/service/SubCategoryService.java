@@ -10,6 +10,6 @@ public interface SubCategoryService {
 	SubCategoryVO getSubCategory(int categorycode);
 	SubCategoryVO getSubCategory2(int subjectcode);
 
-	List<SubCategoryVO> getSubCategoryList(String categoryname);
+	List<SubCategoryVO> getSubCategoryList(int categorycode);
 
 }
