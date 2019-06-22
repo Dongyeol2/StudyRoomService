@@ -1,25 +1,25 @@
 package spring.biz.category.vo;
 
 public class CategoryVO {
-	public int category;
+	public int categorycode;
 	public String categoryname;
 	
 	public CategoryVO() {
 		super();
 	}
 
-	public CategoryVO(int category, String categoryname) {
+	public CategoryVO(int categorycode, String categoryname) {
 		super();
-		this.category = category;
+		this.categorycode = categorycode;
 		this.categoryname = categoryname;
 	}
 
-	public int getCategory() {
-		return category;
+	public int getCategorycode() {
+		return categorycode;
 	}
 
-	public void setCategory(int category) {
-		this.category = category;
+	public void setCategorycode(int categorycode) {
+		this.categorycode = categorycode;
 	}
 
 	public String getCategoryname() {

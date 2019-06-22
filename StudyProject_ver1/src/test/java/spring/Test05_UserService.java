@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import spring.biz.subcategory.service.SubCategoryService;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
 
@@ -16,8 +17,15 @@ public class Test05_UserService {
 	
 	@Autowired
 	UserService service;
-
+	
+	@Autowired
+	SubCategoryService scService;
+	
 	@Test
+	public void getsubcategoryNameFromsubjectCode() {
+		System.out.println(scService.getSubCategory(1).getSubjectname());
+	}
+	//@Test
 	public void getMyStudyList() {
 		System.out.println(service.getMystudyList("user02"));
 	}

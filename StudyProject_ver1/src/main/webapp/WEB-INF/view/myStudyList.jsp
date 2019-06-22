@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,20 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table class="tablea">
+
+<table>
+	<tr>
+	    <th>no.</th>
+	    <th>제목</th>
+	    <th>과목</th>
+	    <th>위치</th>
+	    <th>매니저아이디</th>
+	    <th>게시일</th>
+	    <th>모집상태</th>
+ 	</tr>
+	
+		<c:forEach var="studyList" items="${studyLists}" >
+			<tr>
+				<td >${studyList.studyno}	</td>
+				<td >${studyList.studytitle}	</td>
+				<td >${studyList.subjectcode2}	</td>
+				<td >${studyList.locationcode}	</td>
+				<td >${studyList.managerid}	</td>
+				<td >${studyList.regdate}	</td>
+				<td >${studyList.state}	</td>
+			</tr>
+		</c:forEach>
+</table>
   
  
 
-	<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
- 	<c:forEach var=studyList items="${studyLists}" >
-	  	<tr>
-		<td >${studyList.studytitle}	</td>
-		<td >${studyList.locationcode}</td>
-		<td >${studyList.subjectcode}</td>
-		<td >${studyList.managerid}</td>
-		
-		</tr>
- 	 </c:forEach>
-</table>
 </body>
 </html>

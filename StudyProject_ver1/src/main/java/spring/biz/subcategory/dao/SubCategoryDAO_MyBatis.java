@@ -35,5 +35,11 @@ public class SubCategoryDAO_MyBatis implements SubCategoryDAO{
 		return sqlSession.selectList("subcategory.getsubcategoryl", categoryname);
 	}
 
+	@Override
+	public SubCategoryVO getSubCategory2(int subjectcode) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("subcategory.getsubcategory3", subjectcode);
+	}
+
 
 }

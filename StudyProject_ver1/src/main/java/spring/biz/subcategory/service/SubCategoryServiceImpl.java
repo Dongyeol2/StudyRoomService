@@ -38,5 +38,11 @@ public class SubCategoryServiceImpl  implements SubCategoryService{
 		// TODO Auto-generated method stub
 		return dao.getSubCategoryList(categoryname);
 	}
+
+	@Override
+	public SubCategoryVO getSubCategory2(int subjectcode) {
+		// TODO Auto-generated method stub
+		return dao.getSubCategory2(subjectcode);
+	}
 		
 }

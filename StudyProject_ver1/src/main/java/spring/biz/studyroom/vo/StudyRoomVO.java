@@ -20,7 +20,25 @@ public class StudyRoomVO {
 	public String state;
 	public String content;
 	public int viewcnt;
+	public String subjectcode2;
+	public String locationcode2;
 	
+	public String getSubjectcode2() {
+		return subjectcode2;
+	}
+
+	public void setSubjectcode2(String subjectcode2) {
+		this.subjectcode2 = subjectcode2;
+	}
+
+	public String getLocationcode2() {
+		return locationcode2;
+	}
+
+	public void setLocationcode2(String locationcode2) {
+		this.locationcode2 = locationcode2;
+	}
+
 	public StudyRoomVO() {
 		super();
 	}

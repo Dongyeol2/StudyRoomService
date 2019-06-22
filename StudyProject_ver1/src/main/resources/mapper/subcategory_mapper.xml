@@ -13,7 +13,11 @@
 	</select> 	
 	<select id="getsubcategory" resultType="subcategoryvo">
 		select subjectname from subcategory where categorycode = #{categorycode}
-	</select> 	
+	</select>
+	<select id = "getsubcategory3" resultType="subcategoryvo">
+		select subjectname from subcategory where subjectcode= #{subjectcode}
+	</select>
+	 	
  </mapper>
 
 

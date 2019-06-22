@@ -26,8 +26,8 @@
 	function modify(url) {
 		document.getElementById("mainFrame").src = "${pageContext.request.contextPath}/modify.do";
 	}
-	function study2(url) {
-		document.getElementById("mainFrame").src = "${pageContext.request.contextPath}/studylist2.do";
+	function myStudyList(url) {
+		document.getElementById("mainFrame").src = "${pageContext.request.contextPath}/myStudyList.do";
 	}
 
 	//스터디 리스트
@@ -117,7 +117,8 @@
 				<label class="box-title" for="cb2">나의 스터디 목록</label> <label
 					class="box-close" for="acc-close"></label>
 				<div class="box-content">
-					<button type="button" onclick="location.href='${pageContext.request.contextPath}/myStudyList.do'">목록</button>
+					<%-- <button type="button" onclick="location.href='${pageContext.request.contextPath}/myStudyList.do'">목록</button> --%>
+					<button type="button" value='New Page' onclick="myStudyList('New.php')">목록</button>
 				</div>
 				<!-- <div class="box-content">
 					<button type="button" onclick="study2('New.php')">알고리즘 스터디</button>
@@ -144,7 +145,7 @@
 		</nav>
 	</div>
 	<div id="maincontent">
-		<iframe width="500" height="500" scrolling="yes" name="mainFrame"
+		<iframe width="80%" height="500" scrolling="yes" name="mainFrame"
 			id="mainFrame"></iframe>
 		​
 

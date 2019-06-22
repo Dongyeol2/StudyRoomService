@@ -8,5 +8,6 @@ public interface SubCategoryDAO {
 	   
 	List<SubCategoryVO> getList();
 	SubCategoryVO getSubCategory(int categorycode);
+	SubCategoryVO getSubCategory2(int subcategorycode);
 	List<SubCategoryVO> getSubCategoryList(String categoryname);
 }

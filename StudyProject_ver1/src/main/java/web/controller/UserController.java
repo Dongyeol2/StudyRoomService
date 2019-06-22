@@ -20,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 import spring.biz.admin.service.AdminService;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
+import spring.biz.subcategory.service.SubCategoryService;
+import spring.biz.subcategory.vo.SubCategoryVO;
 import spring.biz.user.dao.UserDAO;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
@@ -34,6 +36,8 @@ public class UserController {
 	AdminService adminService;
 	@Autowired
 	StudyRoomService studyRoomService; 
+	@Autowired
+	SubCategoryService subCategoryService;
 	
 	
 	@RequestMapping(value = "/myStudyList.do",method = RequestMethod.GET)
@@ -41,6 +45,15 @@ public class UserController {
 		ModelAndView mav= new ModelAndView();
 		UserVO vo = (UserVO) session.getAttribute("login");
 		List<StudyRoomVO> studyList = service.getMystudyList(vo.getUserid());
+		
+		 for(StudyRoomVO srv : studyList) {
+		 //srv.setSubjectcode2(subCategoryService.getSubCategory(srv.getSubjectcode()).
+		 //getSubjectname());
+			 SubCategoryVO scv = subCategoryService.getSubCategory2(srv.getSubjectcode());
+			 srv.setSubjectcode2(scv.getSubjectname());
+		 }
+		 
+		
 		
 		mav.addObject("studyLists",studyList);
 		mav.setViewName("myStudyList");
