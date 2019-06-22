@@ -33,6 +33,10 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style_index.css">
+	<!-- 드롭다운 박스 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
   </head>
   <body>
@@ -150,15 +154,31 @@
               <div class="row mb-3">
                 <div class="col-md-9">
                   <div class="row">
+                    <div class="dropdown" style="display : inline">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">대분류
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+					      <li role="presentation" class="divider"></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+					    </ul>
+					  </div>
+					  <div class="dropdown" style="display : inline">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">소분류
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+					      <li role="presentation" class="divider"></li>
+					      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+					    </ul>
+					  </div>
+                  
                     <div class="col-md-6 mb-3 mb-md-0">
                       <input type="text" class="mr-3 form-control border-0 px-4" placeholder="category keywords or subject name ">
-                    </div>
-                    <div class="col-md-6 mb-3 mb-md-0">
-
-                      <div class="input-wrap">
-                        <span class="icon icon-room"></span>
-                      <input type="text" class="form-control form-control-block search-input  border-0 px-4" id="autocomplete" placeholder="city, province or region" onFocus="geolocate()">
-                      </div>
                     </div>
                   </div>
                 </div>
