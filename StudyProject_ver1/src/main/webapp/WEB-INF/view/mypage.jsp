@@ -23,11 +23,11 @@
 	
 
 	//스터디 목록
-	function study1(url) {
-		document.getElementById("main_frame").src = "${pageContext.request.contextPath}/modify.do";
+	function modify(url) {
+		document.getElementById("mainFrame").src = "${pageContext.request.contextPath}/modify.do";
 	}
 	function study2(url) {
-		document.getElementById("main_frame").src = "${pageContext.request.contextPath}/studylist2.do";
+		document.getElementById("mainFrame").src = "${pageContext.request.contextPath}/studylist2.do";
 	}
 
 	//스터디 리스트
@@ -105,9 +105,9 @@
 				<label class="box-title" for="cb1">회원정보 수정</label> <label
 					class="box-close" for="acc-close"></label>
 				<div class="box-content">
-					<%-- <button value="수정" target = "main_frame" onClick="location.href='${pageContext.request.contextPath}/modify.do'">수정페이지</button> --%>
+					<button type="button" value='New Page'  onclick = "modify('New.php')">수정페이지</button>
 					<!-- <button value="수정" onclick = "changeIframeUrl('New.php')">수정페이지</button> -->				
-					<button value="수정"><a href = "${pageContext.request.contextPath}/modify.do" target="mainFrame">회원정보수정</a></button>
+					<%-- <button type="button" value="수정"><a href = "${pageContext.request.contextPath}/modify.do" target="mainFrame">회원정보수정</a></button> --%>
 				</div>
 			</section>
 
@@ -144,7 +144,7 @@
 		</nav>
 	</div>
 	<div id="maincontent">
-		<iframe width="500" height="500" scrolling="yes" name="main_frame"
+		<iframe width="500" height="500" scrolling="yes" name="mainFrame"
 			id="mainFrame"></iframe>
 		​
 
