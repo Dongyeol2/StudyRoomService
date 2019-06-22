@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import changeCodeToName.ChangeCodeToName;
 import spring.biz.admin.service.AdminService;
 import spring.biz.location.service.LocationService;
 import spring.biz.studyroom.service.StudyRoomService;
@@ -52,12 +53,16 @@ public class UserController {
 		 for(StudyRoomVO srv : studyList) {
 		 //srv.setSubjectcode2(subCategoryService.getSubCategory(srv.getSubjectcode()).
 		 //getSubjectname());
+			 ChangeCodeToName cctn = new ChangeCodeToName();
 			 SubCategoryVO scv = subCategoryService.getSubCategory2(srv.getSubjectcode());
 			 srv.setSubjectcode2(scv.getSubjectname());
+			 //cctn.changeLocationCodeToName(srv);
 			 String loc1 = locationService.getLocation(srv.getLocationcode()).getLoc1();
 			 String loc2 = locationService.getLocation(srv.getLocationcode()).getLoc2();
 			 String loc = loc1 +" "+ loc2;
 			 srv.setLocationcode2(loc);
+			 
+			 cctn.changeStateCodeToName(srv);
 		 }
 		 
 		

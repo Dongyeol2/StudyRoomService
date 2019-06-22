@@ -28,7 +28,7 @@
 				<td >${studyList.locationcode2}	</td>
 				<td >${studyList.managerid}	</td>
 				<td >${studyList.regdate}	</td>
-				<td >${studyList.state}	</td>
+				<td >${studyList.stateName}	</td>
 			</tr>
 		</c:forEach>
 </table>

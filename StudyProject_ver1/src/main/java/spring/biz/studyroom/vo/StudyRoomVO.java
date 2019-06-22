@@ -22,7 +22,16 @@ public class StudyRoomVO {
 	public int viewcnt;
 	public String subjectcode2;
 	public String locationcode2;
+	public String stateName;
 	
+	public String getStateName() {
+		return stateName;
+	}
+
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
+
 	public String getSubjectcode2() {
 		return subjectcode2;
 	}
