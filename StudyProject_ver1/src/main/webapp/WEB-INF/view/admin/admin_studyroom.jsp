@@ -35,18 +35,26 @@
 <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
 <link rel="stylesheet" href="../css/aos.css">
+<link rel="stylesheet" href="../css/table.css">
+<link rel="stylesheet" href="../css/button.css">
 
 <link rel="stylesheet" href="../css/style_index.css">
+
+
 <style type="text/css">
 	section{
 		width: 100%;
 		height: 100%;
 		padding: 100px;
 	}
+	.tableb{
+		margin: 0 auto;
+		margin-top: 30px;
 
-</style></head>
+	}
+</style>
+</head>
 <body>
-
 	<div class="site-wrap">
 
 		<div class="site-mobile-menu">
@@ -104,11 +112,75 @@
 
 
 		<div style="height: 70px;"></div>
+
+		<section>
+
+<div id="studyroomlist">
+<form action="${pageContext.request.contextPath}/admin/studyroomsearch.do"
+	method="post">
+	<table class="tables">
+		<tr>
+			<td><select name="searchCondition">
+					<option value="studytitle">방제목</option>
+					<option value="managerid">방장이름</option>
+					<option value="content">내용</option>
+			</select> <input type="text" name="searchKeyword"> <input
+				type="submit" value="검색" /></td>
+		</tr>
+	</table>
+</form>
+<table class="tablea">
+	<tr>
+		<th>studyno</th>
+		<th>studytitle</th>
+		<th>subjectcode</th>
+		<th>membercnt</th>
+		<!-- <th>locationcode</th> -->
+		<th>managerid</th>
+		<th>regdate</th>
+		<th>state</th>
+		<th>content</th>
+		<th>viewcnt</th>
+	</tr>
+
+
+	<form name="f" method="get"
+		action="${pageContext.request.contextPath}/admin/search.do">
+
+		<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
+		<c:forEach var="room" items="${rooms}">
+			<tr>
+				<td>${room.studyno}</td>
+				<td><%-- <a
+					href="${pageContext.request.contextPath}/user/view.do?userid=${room.studyno}">
+						${room.studytitle} </a> --%>
+						${room.studytitle}</td>
+				<td>${room.subjectcode}</td>
+				<td>${room.membercnt}</td>
+				<%-- <td>${room.locationcode}</td> --%>
+				<td>${room.managerid}</td>
+				<td>${room.regdate}</td>
+				<td>${room.state}</td>
+				<td>${room.content}</td>
+				<td>${room.viewcnt}</td>
+
+			</tr>
+		</c:forEach>
+		
+	</form>
+</table>
+<table class="tableb">
+	<tr>
+		<td><input class="abtn" type="submit" value="방 추가" /></td>
+	</tr>
+</table>
+</div>
+</div>
+		</section>
+
+
 	
 	</div>
-	<section>
-<!-- <hr style="background-color: #57b846; width: 100%; margin-top: -50px; margin-bottom: 40px"/>
- -->	</section>
 
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
@@ -129,4 +201,6 @@
 
 </body>
 </html>
+
+
 

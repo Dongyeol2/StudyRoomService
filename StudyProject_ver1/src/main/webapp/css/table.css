@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo|Pacifico&display=swap')
+	;
+
+* {
+	font-family: 'Nanum Myeongjo', serif;
+}
+
+.tables{
+	margin: 0 auto;
+	text-align: center;		
+	margin-bottom: 60px;
+}
+
+.tablea {
+	margin: 0 auto;
+	text-align: center;
+	border : 1px solid gray;
+}
+
+.tablea th{
+	background-color: #57b846;	
+	height: 40px;
+}
+
+.tablea tr, .tablea td{
+	margin: 20px;
+	padding: 10px;
+}
+
+.tablea tr:hover {
+	background-color: #d7f5d2;
+	font-weight: bold;
+}

@@ -22,6 +22,23 @@ public class AdminController {
 
 	@Autowired
 	AdminService service;
+
+	@RequestMapping("/admin/ausers.do")
+	public ModelAndView getAUser() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("users", service.getUserList());
+		mav.setViewName("admin/admin_user");
+		return mav;
+	}
+	
+	@RequestMapping("/admin/astudyrooms.do")
+	public ModelAndView getAStudyRooms() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rooms", service.getStudyRoomList());
+		mav.setViewName("admin/admin_studyroom");
+		return mav;
+	}
+	
 	
 	@RequestMapping("/admin/adminpage.do")
 	public ModelAndView getAdminPage() {
@@ -37,7 +54,7 @@ public class AdminController {
 	public ModelAndView usersearch(String searchCondition, String searchKeyword) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("users", service.searchUser(searchCondition, searchKeyword));
-		mav.setViewName("admin/admin_main");
+		mav.setViewName("admin/admin_user");
 		return mav;
 	}
 	
@@ -45,7 +62,7 @@ public class AdminController {
 	public ModelAndView roomsearch(String searchCondition, String searchKeyword) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("rooms", service.searchStudyRoom(searchCondition, searchKeyword));
-		mav.setViewName("admin/admin_main");
+		mav.setViewName("admin/admin_studyroom");
 		return mav;
 	}
 	/*
