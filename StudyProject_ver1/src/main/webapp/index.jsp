@@ -128,7 +128,7 @@
 									그 인</a>
 						</c:if>
 						<c:if test="${!empty login}">  
-							<li><a class="menu" href="#">스터디 예약하기</a></li>
+							<li><a class="menu" href="${pageContext.request.contextPath}/write.do"">스터디 예약하기</a></li>
 							<li><a class="menu" href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
 							<li><a class="menu" href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 						</c:if>
