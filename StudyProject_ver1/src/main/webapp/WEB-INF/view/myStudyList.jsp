@@ -25,7 +25,7 @@
 				<td >${studyList.studyno}	</td>
 				<td >${studyList.studytitle}	</td>
 				<td >${studyList.subjectcode2}	</td>
-				<td >${studyList.locationcode}	</td>
+				<td >${studyList.locationcode2}	</td>
 				<td >${studyList.managerid}	</td>
 				<td >${studyList.regdate}	</td>
 				<td >${studyList.state}	</td>

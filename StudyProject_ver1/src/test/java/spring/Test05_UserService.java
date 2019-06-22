@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import spring.biz.location.service.LocationService;
 import spring.biz.subcategory.service.SubCategoryService;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
@@ -21,7 +22,17 @@ public class Test05_UserService {
 	@Autowired
 	SubCategoryService scService;
 	
+	@Autowired
+	LocationService locationService;
+	
 	@Test
+	public void getLocation() {
+		System.out.println(locationService.getLocation(1168064000).getLoc1());
+		System.out.println(locationService.getLocation(1168064000).getLoc2());
+	}
+	
+	
+	//@Test
 	public void getsubcategoryNameFromsubjectCode() {
 		System.out.println(scService.getSubCategory(1).getSubjectname());
 	}

@@ -8,4 +8,6 @@ public interface LocationDAO {
 	List<String> getLoc1List();
 	
 	List<LocationVO> getLoc2List(String loc1);
+	LocationVO getLocation(long locationCode);
+	
 }

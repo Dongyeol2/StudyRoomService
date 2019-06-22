@@ -12,6 +12,9 @@
 		select locationcode,loc1,decode(loc2,null,'전체',loc2) as loc2 from location where loc1 = #{loc1} and loc3 is null
 	</select>
 	
+	<select id = "getLocation" resultType="locationvo">
+		select loc1,loc2 from  location where locationcode = #{locationCode}
+	</select>
  </mapper>
 
 

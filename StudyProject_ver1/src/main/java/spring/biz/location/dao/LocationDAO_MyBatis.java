@@ -25,4 +25,10 @@ public class LocationDAO_MyBatis implements LocationDAO{
 		return sqlSession.selectList("location.getloc2list", loc1);
 	}
 
+	@Override
+	public LocationVO getLocation(long locationCode) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("location.getLocation", locationCode);
+	}
+
 }

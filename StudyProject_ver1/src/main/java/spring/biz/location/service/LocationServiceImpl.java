@@ -31,4 +31,10 @@ public class LocationServiceImpl implements LocationService{
 		return dao.getLoc2List(loc1);
 	}
 
+	@Override
+	public LocationVO getLocation(long locationCode) {
+		// TODO Auto-generated method stub
+		return dao.getLocation(locationCode);
+	}
+
 }
