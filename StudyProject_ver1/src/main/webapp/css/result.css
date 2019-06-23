@@ -1,0 +1,105 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo|Pacifico&display=swap')
+	;
+
+* {
+	font-family: 'Nanum Myeongjo', serif;
+}
+.result{
+	background-color: red;	
+	width: 100%;
+	height : 100%;
+}
+
+.myprofile{
+	margin: 0 auto;
+	width: 80%;	
+
+/* 	border: 1px solid #28a745; */
+/* 	border-radius: 20px; */
+	margin-top: 30px;	
+    }
+
+#aa{
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.profile{
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+    }
+
+.profile tr:nth-child(2n){
+	margin: 20px;
+	padding: 30px;
+}
+
+.profile tr:last-child {
+	margin: 20px;
+	padding: 30px;
+}
+    
+.profile_a{
+	border: 0.5px solid #28a745;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.profile_a:hover{
+	background-color: #28a745;
+	color: white;
+}
+
+
+aside{
+	margin-top : 100px;
+	width: 30%;
+	height: 800px;
+	float: left;
+	
+}
+
+#myimg {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+.sidemenu {
+	margin: 0 auto;
+}
+
+.sidemenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.sidemenu li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.sidemenu li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidemenu li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
+section{
+	margin-top : 100px;
+	width: 70%;
+	height: 800px;
+	float: left;
+}

@@ -73,11 +73,11 @@ public class UserController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/mypage.do",method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/mypage.do",method = RequestMethod.GET)
 	public ModelAndView mypage(HttpServletRequest request , HttpSession session) {
 		
 		//UserVO vo = (UserVO) session.getAttribute("login");
-		UserVO vo = (UserVO)request.getSession().getAttribute("login");
+		UserVO vo = (UserVO)request.getSession().getAttribute("User");
 		ModelAndView mav= new ModelAndView();
 		if(vo.getUserid().equals("admin")) {
 			mav.addObject("users", adminService.getUserList());
@@ -86,10 +86,45 @@ public class UserController {
 		}else {
 			System.out.println("mypage로 이동");
 			mav.addObject("user",vo);
-			mav.setViewName("mypage");	
+			mav.setViewName("mypage/mypage");	
 		}
 		return mav;
 	}
+
+	@RequestMapping(value = "/mypage/modify.do",method = RequestMethod.GET)
+	public ModelAndView mypageModify(HttpServletRequest request , HttpSession session) {
+		
+		UserVO vo = (UserVO)request.getSession().getAttribute("User");
+		ModelAndView mav= new ModelAndView();
+		if(vo.getUserid().equals("admin")) {
+			mav.addObject("users", adminService.getUserList());
+			mav.addObject("rooms", adminService.getStudyRoomList());
+			mav.setViewName("admin/admin_main");
+		}else {
+			System.out.println("mypage_modify로 이동");
+			mav.addObject("user",vo);
+			mav.setViewName("mypage/mypage_modify");	
+		}
+		return mav;
+	}
+
+	@RequestMapping(value = "/mypage/mystudy.do",method = RequestMethod.GET)
+	public ModelAndView mypageMyStudy(HttpServletRequest request , HttpSession session) {
+		
+		UserVO vo = (UserVO)request.getSession().getAttribute("User");
+		ModelAndView mav= new ModelAndView();
+		if(vo.getUserid().equals("admin")) {
+			mav.addObject("users", adminService.getUserList());
+			mav.addObject("rooms", adminService.getStudyRoomList());
+			mav.setViewName("admin/admin_main");
+		}else {
+			System.out.println("mypage_studylist로 이동");
+			mav.addObject("user",vo);
+			mav.setViewName("mypage/mypage_studylist");	
+		}
+		return mav;
+	}
+
 	
 	@RequestMapping("/user/list.do")
 	public ModelAndView getUserList() {

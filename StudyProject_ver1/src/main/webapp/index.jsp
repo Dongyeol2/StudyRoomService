@@ -216,6 +216,7 @@ select{
 					<div class="py-1">
 						<div class="row align-items-center">
 							<div class="col-2">
+								<img style=" width: 20%; height: 20%;" alt="logo_studyheaven" src="images/logo.png">
 								<h2 class="mb-0 site-logo">
 									<a href="index.html">Study<strong class="font-weight-bold">Room</strong>
 									</a>
@@ -303,13 +304,15 @@ select{
 												<li><a class="menu"
 													href="${pageContext.request.contextPath}/login.do">로 그
 														인</a>
+												<li><a class="menu"
+													href="${pageContext.request.contextPath}/user/add.do">회 원 가 입</a>
 											</c:if>
 											<c:if test="${!empty login}">
 												<li><a class="menu"
 													href="${pageContext.request.contextPath}/write.do"">스터디
 														예약하기</a></li>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+													href="${pageContext.request.contextPath}/mypage/mypage.do">마이페이지</a></li>
 												<li><a class="menu"
 													href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 											</c:if>
@@ -327,7 +330,7 @@ select{
 		<div style="height: 70px;"></div>
 
 		<div class="site-blocks-cover overlay"
-			style="background-image: url('images/logo.png'); background-size: 50%; background-position: 50% -300px;"
+			style="background-image: url('images/study.jpg'); "
 			data-aos="fade" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row align-items-center">

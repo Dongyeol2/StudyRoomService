@@ -7,10 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin</title>
+<title>Mypage_MyStudyList</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" type="image⁄x-icon" href="../images/logo.png">
 
 <link
 	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
@@ -157,7 +158,7 @@
 													href="${pageContext.request.contextPath}/write.do"">스터디
 														예약하기</a></li>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+													href="${pageContext.request.contextPath}/mypage/mypage.do">마이페이지</a></li>
 												<li><a class="menu"
 													href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 											</c:if>
@@ -207,8 +208,8 @@
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
 				  <li class="sidemenu"><a href="#">나의 스터디 목록</a></li>
-				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/modify.do">회원 정보 수정</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">스터디 예약 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
 				</ul>
 					</td>
 				</tr>
@@ -218,37 +219,13 @@
 		
 		<section>
 			<table class="tablea">
-			  <tr>
-				<td>이름</td>
-				<td>
-					 ${User.username}
-				</td>
-			  </tr>
-			  <tr>
-				<td>사용자 아이디</td>
-				<td>
-					 ${User.userid}
-				</td>
-			  </tr>
-			  <tr>
-				<td>이메일주소</td>
-				<td>
-					<a href=""> ${User.email}</a>
-				</td>
-			  </tr>		
-			  <tr>
-				<td>전화번호</td>
-				<td>
-					<a href="">${User.phone}</a> 
-				</td>
-			  </tr>		
-			  <tr>
-				<td>주소</td>
-				<td>
-					<a href="">${User.address}</a>
-				</td>
-			  </tr>		
-			 </table>
+			<c:if test="${empty lists }">
+				<div>
+					
+				</div>
+			</c:if>
+		
+			</table>
 		</section>
 	</div>
 

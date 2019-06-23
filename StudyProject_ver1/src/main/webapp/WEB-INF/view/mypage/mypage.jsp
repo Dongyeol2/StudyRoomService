@@ -7,10 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin</title>
+<title>Mypage</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" type="image⁄x-icon" href="../images/logo.png">
 
 <link
 	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
@@ -207,8 +208,8 @@
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
 				  <li class="sidemenu"><a href="#">나의 스터디 목록</a></li>
-				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/modify.do">회원 정보 수정</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">스터디 예약 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
 				</ul>
 					</td>
 				</tr>
@@ -233,19 +234,19 @@
 			  <tr>
 				<td>이메일주소</td>
 				<td>
-					<a href=""> ${User.email}</a>
+					 ${User.email}
 				</td>
 			  </tr>		
 			  <tr>
 				<td>전화번호</td>
 				<td>
-					<a href="">${User.phone}</a> 
+					 ${User.phone}
 				</td>
 			  </tr>		
 			  <tr>
 				<td>주소</td>
 				<td>
-					<a href="">${User.address}</a>
+					${User.address}
 				</td>
 			  </tr>		
 			 </table>
