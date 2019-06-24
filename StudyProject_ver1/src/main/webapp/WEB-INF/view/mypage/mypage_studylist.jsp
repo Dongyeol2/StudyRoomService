@@ -207,8 +207,8 @@
 					<td>
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
-				  <li class="sidemenu"><a href="#">나의 스터디 목록</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">스터디 예약 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">나의 스터디 목록</a></li>
+				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
 				</ul>
 					</td>
