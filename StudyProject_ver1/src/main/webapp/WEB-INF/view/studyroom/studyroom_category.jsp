@@ -443,25 +443,28 @@ footer {
 						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
 								<tr>
 									<td>
-									<div  class="studyinfo">
+										<div  class="studyinfo">
 										<div class="detailinfo">
-										<c:if test="${room.state.equals('0')}">
-										<span id="state">모집중</span>
-										</c:if>
+										<c:if test="${room.state.equals('0')}">  
+										<span id="state">모집중</span>  
+										</c:if>  
 										<c:if test="${room.state.equals('1')}">
-										<span id="stated">모집완료</span>
-										</c:if>									
-
-											<span id="locationcode"></span>
-											<span id="subcategory"></span>
+										<span id="stated">모집완료</span>      
+										</c:if>									  
+											<span id="location">${room.location}</span>
+											<span id="subjectname">${room.subjectname}</span>
+											<span id="subcategory">  
+											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+											${room.studytitle}</a>
+											</span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
-											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
+											<span id="viewcnt">조회수 : ${room.viewcnt}</span>   
 										</div>
 										<hr color="gray">
 										<div class="detailinfo">
 											<pre>${room.content}</pre>										
-											<c:if test="${room.state.equals('0')}">
-											<button onclick="">스터디 신청하기</button>
+											<c:if test="${!empty login }">
+											<button onclick="applyStudy()">스터디 신청하기</button>>
 											</c:if>
 										</div>										
 									</div>

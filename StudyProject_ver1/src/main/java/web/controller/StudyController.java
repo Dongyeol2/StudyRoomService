@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.biz.category.service.CategoryService;
 import spring.biz.studymember.service.StudyMemberService;
 import spring.biz.studymember.vo.StudyMemberVO;
 import spring.biz.studyroom.service.StudyRoomService;
@@ -28,6 +29,13 @@ public class StudyController {
 	@Autowired
 	StudyMemberService mservice;
 	
+	@Autowired
+	CategoryService cervice;
+	
+	@Autowired
+	SubCategoryService scservice;
+	
+
 	@RequestMapping(value = "/write.do",method = RequestMethod.GET)
 	public String addStudyRoom() throws Exception{
 		return "studyroom/studyroom_write";
@@ -71,7 +79,10 @@ public class StudyController {
 	@RequestMapping("/subjectlist.do")
 	public ModelAndView subjectcatory(@RequestParam("subjectcode") int subjectcode) throws Exception{
 		ModelAndView mav = new ModelAndView();
+
+		
 		mav.addObject("rooms", service.getSubcategoryList(subjectcode));
+		
 		mav.setViewName("studyroom/studyroom_subject");
 		return mav;
 	}

@@ -20,17 +20,21 @@
 	</select>
 	
 	<select id="subjectlist" resultType="studyroomvo">
-		select *
-		from studyroom s, subcategory c
-		where s.subjectcode = c.subjectcode and s.subjectcode=#{s.subjectcode}
+		select s.studyno,s.studytitle,s.subjectcode,s.membercnt,s.locationcode,s.managerid,s.regdate,s.state,s.content,s.viewcnt,
+       		   c.categorycode,c.subjectname,l.loc1 || ' ' || l.loc2 as location
+		from studyroom s, subcategory c, location l
+		where s.subjectcode = c.subjectcode 
+			and s.subjectcode=#{s.subjectcode} 
+			and s.locationcode = l.locationcode
 	</select>
  	
  	<select id="categorylist" resultType="studyroomvo">
-		select *
-		from studyroom s, subcategory u, category c
+		select s.studyno, s.studytitle, s.subjectcode, s.membercnt, s.locationcode, s.managerid, s.regdate, s.state, s.content, s.viewcnt,
+	       u.categorycode, u.subjectname, l.loc1 || ' ' || l.loc2 as location
+		from studyroom s, subcategory u, category c, location l
 		where s.subjectcode = u.subjectcode 
-		and u.categorycode = c.categorycode 
-		and c.categorycode=#{c.categorycode}
+			and u.categorycode = c.categorycode 
+			and c.categorycode=#{c.categorycode} and s.locationcode = l.locationcode
 	</select>
  	
  </mapper>

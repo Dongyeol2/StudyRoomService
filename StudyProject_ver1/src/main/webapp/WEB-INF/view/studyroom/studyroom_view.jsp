@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script >
 	function roomList() {
-		f.action="subcategorylist.do"
+		f.action="subjectlist.do"
 		f.submit();
 	}
 	function roomModify() {
@@ -55,6 +55,12 @@
 			<td width=120 align=center bgcolor="E6ECDE" height="22">방장</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
 				 				 ${room.managerid}
+			</td>
+		  </tr>
+		  <tr>
+			<td width=120 align=center bgcolor="E6ECDE" height="22">내용</td>
+			<td width=490 bgcolor="ffffff" style="padding-left:10">
+				 				 ${room.content}
 			</td>
 		  </tr>
 	  </table>
