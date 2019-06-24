@@ -30,7 +30,7 @@
 				<div class="row align-items-center">
 					<div class="col-12" data-aos="fade">
 						<h1>Search Study</h1>
-						<form action="#">
+						<form action ="${pageContext.request.contextPath}/search.do">
 							<div class="row mb-3">
 								<div class="col-md-9">
 									<div class="row">
