@@ -38,12 +38,14 @@
 
 <link rel="stylesheet" href="css/style_index.css">
 <link rel="stylesheet" href="css/button.css">
-<link rel="stylesheet" href="css/write.css">
+<link rel="stylesheet" href="css/searchResult.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
-	
+<!-- 드롭다운 박스 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
 <script language="JavaScript">
 	$(function() {
 		getCategoryList(); //Category가져오기
@@ -209,7 +211,7 @@ select {
 
 section {
 	margin: 0 auto;
-	height: 1200px;
+	height: 800px;
 }
 
 footer {
