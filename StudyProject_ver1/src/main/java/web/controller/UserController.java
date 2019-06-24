@@ -44,6 +44,40 @@ public class UserController {
 	LocationService locationService;
 	
 	
+	@RequestMapping("/mypage/mypage_myinfo.do")
+	// public ModelAndView update(@ModelAttribute("user") UserVO vo) {
+	public ModelAndView mypageInfo(HttpServletRequest request , HttpSession session) {
+		
+		//UserVO vo = (UserVO) session.getAttribute("login");
+		UserVO vo = (UserVO)request.getSession().getAttribute("User");
+		ModelAndView mav= new ModelAndView();
+		if(vo.getUserid().equals("admin")) {
+			mav.addObject("users", adminService.getUserList());
+			mav.addObject("rooms", adminService.getStudyRoomList());
+			mav.setViewName("admin/admin_main");
+		}else {
+			System.out.println("mypage로 이동");
+			mav.addObject("user",vo);
+			mav.setViewName("mypage/mypage_myinfo");	
+		}
+		return mav;
+	}
+	
+	
+	@RequestMapping("/mypage/update.do")
+	// public ModelAndView update(@ModelAttribute("user") UserVO vo) {
+	public ModelAndView mypageUpdate(UserVO vo) {
+		System.out.println("mypageUpdate");
+		System.out.println(vo);
+		ModelAndView mav = new ModelAndView();
+		service.updateUser(vo);
+		System.out.println(vo);
+		mav.addObject("user", service.getUser(vo.getUserid()));
+		mav.setViewName("mypage/mypage_myinfo");
+		return mav;
+	}
+	
+	
 	@RequestMapping(value = "/mypage/mypage_studylist.do",method = RequestMethod.GET)
 	public ModelAndView myStudyList(HttpServletRequest request , HttpSession session) {
 		ModelAndView mav= new ModelAndView();
@@ -91,9 +125,9 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/mypage/modify.do",method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/mypage_modify.do",method = RequestMethod.POST)
 	public ModelAndView mypageModify(HttpServletRequest request , HttpSession session) {
-		
+		System.out.println("mypageModify Method");
 		UserVO vo = (UserVO)request.getSession().getAttribute("User");
 		ModelAndView mav= new ModelAndView();
 		if(vo.getUserid().equals("admin")) {

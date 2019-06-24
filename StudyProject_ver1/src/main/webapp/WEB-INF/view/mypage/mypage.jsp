@@ -158,7 +158,7 @@
 													href="${pageContext.request.contextPath}/write.do"">스터디
 														예약하기</a></li>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
+													href="${pageContext.request.contextPath}/mypage/mypage.do">마이페이지</a></li>
 												<li><a class="menu"
 													href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 											</c:if>
@@ -196,7 +196,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td><a class="profile_a" href="#" onclick="confirmLogout">로그아웃</a></td>
+						<td><a class="profile_a" href="${pageContext.request.contextPath}/logout.do" onclick="confirmLogout">로그아웃</a></td>
 						<td><a class="profile_a" href="">정보수정</a></td>
 					</tr>
 				</table>
@@ -207,9 +207,10 @@
 					<td>
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_studylist.do">나의 스터디 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_studylist.do" target="iframe">나의 스터디 목록</a></li>
 				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
+				  <%-- <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_modify.do" target="iframe">회원 정보 수정</a></li> --%>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_myinfo.do" target="iframe">회원 정보 수정</a></li>
 				</ul>
 					</td>
 				</tr>
@@ -218,38 +219,9 @@
 		</aside>
 		
 		<section>
-			<table class="tablea">
-			  <tr>
-				<td>이름</td>
-				<td>
-					 ${User.username}
-				</td>
-			  </tr>
-			  <tr>
-				<td>사용자 아이디</td>
-				<td>
-					 ${User.userid}
-				</td>
-			  </tr>
-			  <tr>
-				<td>이메일주소</td>
-				<td>
-					 ${User.email}
-				</td>
-			  </tr>		
-			  <tr>
-				<td>전화번호</td>
-				<td>
-					 ${User.phone}
-				</td>
-			  </tr>		
-			  <tr>
-				<td>주소</td>
-				<td>
-					${User.address}
-				</td>
-			  </tr>		
-			 </table>
+			<iframe name="iframe" width="100%" height="100%" style="border:none;  overflow-y:hidden;"   scrolling="no" src = "${pageContext.request.contextPath}/mypage/mypage_myinfo.do">
+				
+			</iframe>
 		</section>
 	</div>
 
