@@ -147,3 +147,5 @@ CREATE TABLE NOTIFY (
 	
 
 	
+	
+	SELECT * FROM (SELECT studyno FROM studyroom ORDER BY studyno DESC) WHERE ROWNUM = 1;
