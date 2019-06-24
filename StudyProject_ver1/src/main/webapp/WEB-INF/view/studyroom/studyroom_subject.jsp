@@ -481,7 +481,7 @@ select::-ms-expand {
 											<span id="location">${room.location}</span>
 											<span id="subjectname">${room.subjectname}</span>
 											<span id="subcategory">  
-												<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+												<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}&locationcode=${room.locationcode}&subjectcode=${room.subjectcode}">
 											${room.studytitle}</a>
 											</span>
 											<span id="regdate">게시일 : ${room.regdate}</span>

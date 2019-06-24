@@ -56,8 +56,8 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	}
 	
 	@Override
-	public StudyRoomVO getStudyRoom(int studyno) {
-		return dao.getStudyRoom(studyno);
+	public StudyRoomVO getStudyRoom(int studyno, long locationcode, int subjectcode) {
+		return dao.getStudyRoom(studyno, locationcode, subjectcode);
 	}
 	
 	@Override

@@ -96,9 +96,9 @@ public class StudyController {
 	}
 	
 	@RequestMapping("/studyroom/view.do")
-	public ModelAndView roomView(@RequestParam("studyno") int studyno) {
+	public ModelAndView roomView(@RequestParam("studyno") int studyno, @RequestParam("locationcode") long locationcode, @RequestParam("subjectcode") int subjectcode) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("room", service.getStudyRoom(studyno));
+		mav.addObject("room", service.getStudyRoom(studyno, locationcode, subjectcode));
 		mav.setViewName("studyroom/studyroom_view");
 		return mav;
 	}
@@ -112,7 +112,7 @@ public class StudyController {
 	@RequestMapping("/studyroom/modify.do")
 	public ModelAndView modify(@RequestParam("studyno") int studyno) {
 		ModelAndView mav = new ModelAndView();
-        mav.addObject("rooms", service.getStudyRoom(studyno));
+        //mav.addObject("rooms", service.getStudyRoom(studyno));
 		mav.setViewName("studyroom/studyroom_modify");
 		return mav;
 	}
@@ -124,7 +124,7 @@ public class StudyController {
 		ModelAndView mav = new ModelAndView();
 		service.updateRoom(studyroom);
 		
-		mav.addObject("rooms",service.getStudyRoom(studyroom.getStudyno()));
+		//mav.addObject("rooms",service.getStudyRoom(studyroom.getStudyno()));
 		mav.setViewName("studyroom/studyroom_view");
 		return mav;
 	}

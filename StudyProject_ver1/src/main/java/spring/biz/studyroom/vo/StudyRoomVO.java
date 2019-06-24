@@ -22,6 +22,7 @@ public class StudyRoomVO {
 	public int viewcnt;
 	public String location;
 	public String subjectname;
+	public String phone;
 	public String subjectcode2;
 	public String locationcode2;
 	public String stateName;
@@ -68,12 +69,22 @@ public class StudyRoomVO {
 		this.subjectname = subjectname;
 	}
 
+	
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public StudyRoomVO() {
 		super();
 	}
 
 	public StudyRoomVO(int studyno, String studytitle, int subjectcode, int membercnt, long locationcode,
-			String managerid, Date regdate, String state, String content, int viewcnt, String location, String subjectname) {
+			String managerid, Date regdate, String state, String content, int viewcnt, String location, String subjectname, String phone) {
 		super();
 		this.studyno = studyno;
 		this.studytitle = studytitle;
@@ -87,6 +98,7 @@ public class StudyRoomVO {
 		this.viewcnt = viewcnt;
 		this.location = location;
 		this.subjectname = subjectname;
+		this.phone = phone;
 	}
 
 	public int getStudyno() {

@@ -22,7 +22,7 @@
 	}
 </script>
 </head>
-<%-- 
+
 <body >
 <table width=780 border=0 cellpadding=0 cellspacing=0>
 	<tr>
@@ -103,7 +103,10 @@
 		  <c:if test="${room.managerid ne login}">
 		  <tr>
 			<td align=center>
-			<input type="button" value="참가하기" onClick=""> &nbsp;
+				<c:if test="${login ne null }">
+				<!-- <button onclick="applyStudy()">스터디 신청하기</button> -->
+				<input type="button" value="참가하기" onClick="applyStudy()"> &nbsp;
+				</c:if>
 			<input type="button" value="목록" onClick="roomList()"> 
 			</td>
 		  </tr>
@@ -115,5 +118,4 @@
 
 </body>
 
- --%>
 </html>

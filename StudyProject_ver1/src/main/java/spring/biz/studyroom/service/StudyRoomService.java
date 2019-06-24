@@ -8,7 +8,7 @@ import spring.biz.studyroom.vo.StudyRoomVO;
 public interface StudyRoomService {
 	   int addStudyRoom(StudyRoomVO studyroom);
 	   int getStudyNo();
-	   StudyRoomVO getStudyRoom(int studyno);
+	   StudyRoomVO getStudyRoom(int studyno, long locationcode, int subjectcode);
 	   List<StudyRoomVO> getSubcategoryList(int subjectcode);
 	   List<StudyRoomVO> getCategoryList(int categorycode);
 	   int updateRoom(StudyRoomVO studyroom);

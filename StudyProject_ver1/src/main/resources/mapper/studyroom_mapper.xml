@@ -4,8 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="studyroom">
 
-	<select id="getstudyroom" resultType="studyroomvo">
-		select * from studyroom where studyno = #{studyno}
+	<select id="getstudyroom" parameterType="hashMap" resultType="studyroomvo">
+		select s.studyno,s.studytitle,s.subjectcode,s.membercnt,s.locationcode,s.managerid,s.regdate,s.state,s.content,s.viewcnt,
+               u.userid, u.phone, c.categorycode,c.subjectname,l.locationcode,l.loc1 || ' ' || l.loc2 as location
+        from studyroom s, userinfo u, subcategory c, location l
+        where s.studyno = #{studyno}
+              and s.managerid = u.userid
+              and s.locationcode = l.locationcode
+              and l.locationcode = #{locationcode}
+              and c.subjectcode = #{subjectcode}
 	</select>
 
 	<insert id="addstudyroom" parameterType="studyroomvo">
@@ -21,7 +28,7 @@
 	
 	<select id="subjectlist" resultType="studyroomvo">
 		select s.studyno,s.studytitle,s.subjectcode,s.membercnt,s.locationcode,s.managerid,s.regdate,s.state,s.content,s.viewcnt,
-       		   c.categorycode,c.subjectname,l.loc1 || ' ' || l.loc2 as location
+       		   c.categorycode,c.subjectname,l.locationcode, l.loc1 || ' ' || l.loc2 as location
 		from studyroom s, subcategory c, location l
 		where s.subjectcode = c.subjectcode 
 			and s.subjectcode=#{s.subjectcode} 
@@ -30,7 +37,7 @@
  	
  	<select id="categorylist" resultType="studyroomvo">
 		select s.studyno, s.studytitle, s.subjectcode, s.membercnt, s.locationcode, s.managerid, s.regdate, s.state, s.content, s.viewcnt,
-	       u.categorycode, u.subjectname, l.loc1 || ' ' || l.loc2 as location
+	       u.categorycode, u.subjectname,l.locationcode, l.loc1 || ' ' || l.loc2 as location
 		from studyroom s, subcategory u, category c, location l
 		where s.subjectcode = u.subjectcode 
 			and u.categorycode = c.categorycode 

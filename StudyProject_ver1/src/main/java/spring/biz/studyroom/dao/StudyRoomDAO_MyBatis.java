@@ -30,8 +30,17 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 	}
 	
 	@Override
-	public StudyRoomVO getStudyRoom(int studyno) {
-		return sqlSession.selectOne("studyroom.getstudyroom",studyno);
+	public StudyRoomVO getStudyRoom(int studyno, long locationcode, int subjectcode) {
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("studyno", Integer.toString(studyno));
+		map.put("locationcode", Long.toString(locationcode));
+		map.put("subjectcode", Integer.toString(subjectcode));
+		
+		System.out.println(map.get("subjectcode"));
+		System.out.println(map.get("locationcode"));
+		
+		return sqlSession.selectOne("studyroom.getstudyroom",map);
 	}
 	
 	@Override
