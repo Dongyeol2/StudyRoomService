@@ -400,11 +400,6 @@ footer {
 													</select>
 												</div>
 											</div>
-
-											<div class="col-md-6 mb-3 mb-md-0">
-												<input type="text" class="mr-3 form-control border-0 px-4"
-													placeholder="category keywords or subject name ">
-											</div>
 										</div>
 									</div>
 									<div class="col-md-3">
