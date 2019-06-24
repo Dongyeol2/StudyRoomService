@@ -423,7 +423,6 @@ footer {
 				<div>
 					<form name="f" method="get"
 						action="${pageContext.request.contextPath}/write.do">
-
 						<table style="width: 550px" class="tablea">
 							<c:if test="${empty rooms }">
 								<tr>
@@ -442,6 +441,7 @@ footer {
 
 							<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
 							<c:forEach var="room" items="${rooms}">
+						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
 								<tr>
 									<td>
 									<div  class="studyinfo">
@@ -451,11 +451,8 @@ footer {
 										</c:if>
 										<c:if test="${room.state.equals('1')}">
 										<span id="stated">모집완료</span>
-										</c:if>
-											</span>										
+										</c:if>									
 
-										<c:if test="${room.state.equals('0')}">
-										</c:if>
 											<span id="locationcode"></span>
 											<span id="subcategory"></span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
@@ -464,7 +461,10 @@ footer {
 										<hr color="gray">
 										<div class="detailinfo">
 											<pre>${room.content}</pre>										
-										</div>
+											<c:if test="${room.state.equals('0')}">
+											<a class="abtn" href="#">스터디 신청하기</a>
+											</c:if>
+										</div>										
 									</div>
 									</td>
 								</tr>
