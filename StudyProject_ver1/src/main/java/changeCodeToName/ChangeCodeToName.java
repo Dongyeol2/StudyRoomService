@@ -21,11 +21,14 @@ public class ChangeCodeToName {
 	@Autowired
 	LocationService locationService;
 	
-	public void changeLocationCodeToName(StudyRoomVO srv) {
+	public String changeLocationCodeToName(StudyRoomVO srv) {
+		
 		String loc1 = locationService.getLocation(srv.getLocationcode()).getLoc1();
 		String loc2 = locationService.getLocation(srv.getLocationcode()).getLoc2();
 		String loc = loc1 +" "+ loc2;
+		System.out.println(loc);
 		srv.setLocationcode2(loc);
+		return loc;
 	}
 	
 	public void changeSubjectCodeToName(StudyRoomVO srv) {
@@ -34,10 +37,10 @@ public class ChangeCodeToName {
 	}
 	
 	public void changeStateCodeToName(StudyRoomVO srv) {
-		if(srv.getState() == "0") {
+		if(srv.getState().equals("0")) {
 			
 			srv.setStateName("모집중");
-		} else if (srv.getState() == "1") {
+		} else if (srv.getState().equals("1")) {
 			srv.setStateName("모집완료");
 		} else {
 			srv.setStateName("상태이상함");

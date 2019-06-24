@@ -44,7 +44,7 @@ public class UserController {
 	LocationService locationService;
 	
 	
-	@RequestMapping(value = "/myStudyList.do",method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/mypage_studylist.do",method = RequestMethod.GET)
 	public ModelAndView myStudyList(HttpServletRequest request , HttpSession session) {
 		ModelAndView mav= new ModelAndView();
 		UserVO vo = (UserVO) session.getAttribute("login");
@@ -68,7 +68,7 @@ public class UserController {
 		
 		
 		mav.addObject("studyLists",studyList);
-		mav.setViewName("myStudyList");
+		mav.setViewName("mypage/mypage_studylist");
 		
 		return mav;
 	}

@@ -218,7 +218,7 @@ select{
 							<div class="col-2">
 								<img style="width: 20%; height: 20%;" alt="logo_studyheaven" src="images/logo.png">
 								<h2 class="mb-0 site-logo">
-									<a href="index.html">Study<strong class="font-weight-bold">Room</strong>
+									<a href="index.jsp">Study<strong class="font-weight-bold">Room</strong>
 									</a>
 								</h2>
 							</div>

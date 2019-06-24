@@ -206,7 +206,7 @@
 					<td>
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
-				  <li class="sidemenu"><a href="#">나의 스터디 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/myStudyList.do">나의 스터디 목록</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">스터디 예약 목록</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
 				</ul>
@@ -217,38 +217,29 @@
 		</aside>
 		
 		<section>
-			<table class="tablea">
-			  <tr>
-				<td>이름</td>
-				<td>
-					 ${User.username}
-				</td>
-			  </tr>
-			  <tr>
-				<td>사용자 아이디</td>
-				<td>
-					 ${User.userid}
-				</td>
-			  </tr>
-			  <tr>
-				<td>이메일주소</td>
-				<td>
-					 ${User.email}
-				</td>
-			  </tr>		
-			  <tr>
-				<td>전화번호</td>
-				<td>
-					 ${User.phone}
-				</td>
-			  </tr>		
-			  <tr>
-				<td>주소</td>
-				<td>
-					${User.address}
-				</td>
-			  </tr>		
-			 </table>
+			<table>	
+	<tr>
+	<th>no.</th>
+	<th>제목</th>
+	<th>과목</th>
+	<th>위치</th>
+	<th>매니저아이디</th>
+	<th>게시일</th>
+	<th>모집상태</th>
+	</tr>
+<c:forEach var="studyList" items="${studyLists}" >	
+	<tr>
+	<td >${studyList.studyno} </td>
+	<td >${studyList.studytitle} </td>
+	<td >${studyList.subjectcode2} </td>
+	<td >${studyList.locationcode2} </td>
+	<td >${studyList.managerid} </td>
+	<td >${studyList.regdate} </td>
+	<td >${studyList.stateName} </td>
+	</tr>
+	</c:forEach>
+	</table>
+
 		</section>
 	</div>
 

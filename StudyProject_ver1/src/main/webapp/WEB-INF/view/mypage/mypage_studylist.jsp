@@ -72,7 +72,7 @@
 						<div class="row align-items-center">
 							<div class="col-2">
 								<h2 class="mb-0 site-logo">
-									<a href="index.html">Study<strong class="font-weight-bold">Room</strong>
+									<a href="${pageContext.request.contextPath}/index.jsp">Study<strong class="font-weight-bold">Room</strong>
 									</a>
 								</h2>
 							</div>
@@ -207,7 +207,7 @@
 					<td>
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mystudy.do">나의 스터디 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_studylist.do">나의 스터디 목록</a></li>
 				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/modify.do">회원 정보 수정</a></li>
 				</ul>
@@ -218,14 +218,29 @@
 		</aside>
 		
 		<section>
-			<table class="tablea">
-			<c:if test="${empty lists }">
-				<div>
-					
-				</div>
-			</c:if>
-		
-			</table>
+			<table>	
+	<tr>
+	<th>no.</th>
+	<th>제목</th>
+	<th>과목</th>
+	<th>위치</th>
+	<th>매니저아이디</th>
+	<th>게시일</th>
+	<th>모집상태</th>
+	</tr>
+<c:forEach var="studyList" items="${studyLists}" >	
+	<tr>
+	<td >${studyList.studyno} </td>
+	<td >${studyList.studytitle} </td>
+	<td >${studyList.subjectcode2} </td>
+	<td >${studyList.locationcode2} </td>
+	<td >${studyList.managerid} </td>
+	<td >${studyList.regdate} </td>
+	<td >${studyList.stateName} </td>
+	</tr>
+	</c:forEach>
+	</table>
+
 		</section>
 	</div>
 
