@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
+import spring.biz.user.vo.UserVO;
 
 @Controller
 public class StudyController {
@@ -28,15 +29,27 @@ public class StudyController {
 	}
 	
 	@RequestMapping(value = "/write.do",method = RequestMethod.POST)
-	public String addStudyRoomProc(@ModelAttribute("studyroom") StudyRoomVO studyroom , 
-			                  HttpServletRequest request,
-			                  BindingResult errors) {
+	public String addStudyRoomProc(HttpServletRequest request) {
 		
-		System.out.println(studyroom);  
+		StudyRoomVO studyroom = new StudyRoomVO();
+		UserVO user = (UserVO) (request.getSession().getAttribute("User"));
+		studyroom.setManagerid(user.getUserid());
+		studyroom.setStudytitle(request.getParameter("studytitle"));
+		studyroom.setSubjectcode(Integer.parseInt(request.getParameter("subcategory")));
+		studyroom.setLocationcode(Long.parseLong(request.getParameter("location2")));
+		studyroom.setMembercnt(Integer.parseInt(request.getParameter("membercnt")));
+		studyroom.setContent(request.getParameter("content"));
+		System.out.println(studyroom);
 		
-		int row = 0 ;
-		row = service.addStudyRoom(studyroom);
-		return "studyroom/studyroom_write";
+		int roomrow = 0;
+		int memberrow = 0;
+		roomrow = service.addStudyRoom(studyroom);
+		//int studyno = service.getStudyNo(studyroom);
+		//memberrow = service.addStudyMember(studyroom);
+		System.out.println(roomrow);
+		System.out.println(memberrow);
+		
+		return "redirect:/mypage/mypage_studylist.do";
 		
 	}
 	

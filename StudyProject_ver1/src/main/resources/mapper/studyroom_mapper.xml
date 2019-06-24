@@ -8,17 +8,11 @@
 		select * from studyroom where studyno = #{studyno}
 	</select>
 
-	<insert id="add" parameterType="studyroomvo">
+	<insert id="addstudyroom" parameterType="studyroomvo">
 		insert into studyroom
 		(studyno, studytitle, subjectcode, membercnt, locationcode, managerid, content)
-		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, 
-		(select subjectcode from subcategory where subjectname=#{subjectname}),
-		#{membercnt}, (select locationcode from location where loc1 like #{loc1} and loc2 like #{loc2} and loc3 like #{loc3}) , #{managerid}, #{content})
-	</insert>
-	<insert id="in" parameterType="studyroomvo">
-		insert into studyroom
-		(studyno, studytitle, membercnt, content)
-		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, #{membercnt}, #{content})
+		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, #{subjectcode},
+		#{membercnt}, #{locationcode}, #{managerid}, #{content})
 	</insert>
 	
 	<select id="subjectlist" resultType="studyroomvo">

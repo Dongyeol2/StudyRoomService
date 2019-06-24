@@ -50,12 +50,6 @@
 
 		$("#regdate").val(year + "/" + month + "/" + day);
 
-		function studyroomCreate() {
-			f.action = "./write.do";
-			f.method = "post";
-			f.submit();
-		}
-
 		$('#category').change(function() {
 			if ($('#category option:selected').val() == "default") {
 				$("#subcategory").empty();
@@ -77,6 +71,13 @@
 
 	});
 
+
+	function studyroomCreate() {
+		f.action = "./write.do";
+		f.method = "post";
+		f.submit();
+	}
+	
 	function getCategoryList() {
 		$.ajax({
 			type : "GET",
@@ -278,7 +279,7 @@ select {
 						<select name="location2" id="location2">
 							<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
 							<c:forEach var="data" items="${location2 }">
-								<option value="${data.loc2 }">${data.loc2 }></option>
+								<option value="${data.locationcode }">${data.loc2 }></option>
 							</c:forEach>
 						</select>
 					</div>
@@ -309,7 +310,9 @@ select {
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-primary"
+					<!-- <button type="submit" class="btn btn-primary"
+						onclick="studyroomCreate()">신청하기</button> -->
+						<button class="btn btn-primary"
 						onclick="studyroomCreate()">신청하기</button>
 				</div>
 			</div>
