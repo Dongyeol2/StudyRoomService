@@ -190,9 +190,9 @@
 		});
 
 	}
-	
-	function applyStudy(){
-		
+
+	function applyStudy() {
+
 	}
 </script>
 
@@ -215,7 +215,7 @@ select {
 
 section {
 	margin: 0 auto;
-	height: 800px;
+	height: 100%;
 }
 
 footer {
@@ -263,7 +263,8 @@ footer {
 										</div>
 
 										<ul class="site-menu js-clone-nav d-none d-lg-block">
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
@@ -280,7 +281,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
@@ -295,7 +297,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
@@ -308,14 +311,16 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
@@ -324,7 +329,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
@@ -423,7 +429,8 @@ footer {
 					</tr>
 				</table>
 
-				<div style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top : -50px; margin-bottom: 50px;"></div>
+				<div
+					style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top: -50px; margin-bottom: 50px;"></div>
 				<div>
 					<form name="f" method="get"
 						action="${pageContext.request.contextPath}/write.do">
@@ -443,44 +450,54 @@ footer {
 						<table style="width: 550px" class="tablea">
 							<c:if test="${!empty rooms }">
 
-							<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
-							<c:forEach var="room" items="${rooms}">
-						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
-								<tr>
-									<td>
-									<div  class="studyinfo">
-										<div class="detailinfo">
-										<c:if test="${room.state.equals('0')}">
-										<span id="state">모집중</span>
-										</c:if>
-										<c:if test="${room.state.equals('1')}">
-										<span id="stated">모집완료</span>
-										</c:if>									
+								<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
+								<c:forEach var="room" items="${rooms}">
+									<input type="hidden" name="studyno" id="studyno"
+										value="${room.studyno }">
+									<tr>
+										<td>
+											<div class="studyinfo">
+												<div class="detailinfo">
+													<div id="tdiv">
+														<c:if test="${room.state.equals('0')}">
+															<span id="state">모집중</span>
+														</c:if>
+														<c:if test="${room.state.equals('1')}">
+															<span id="stated">모집완료</span>
+														</c:if>
 
-											<span id="membercnt">제한인원 : ${room.membercnt}</span>
-											<span id="subcategory">
-											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
-											${room.studytitle}</a>
-											</span>
-											<span id="regdate">게시일 : ${room.regdate}</span>
-											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
-										</div>
-										<hr color="gray">
-										<div class="detailinfo">
-											<pre>${room.content}</pre>
-											<c:if test="${login ne null}">
-											<button onclick="applyStudy()">스터디 신청하기</button>
+														<span id="membercnt">제한인원 : ${room.membercnt}</span>
+													</div>
+													<div id="bdiv">
+														<div id="ldiv">
+															<span id="subcategory"> <a
+																href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+																	${room.studytitle}</a>
+															</span>
+														</div>
+														<div id="rdiv">
+															<span id="regdate">게시일 : ${room.regdate}</span> <span
+																id="viewcnt">조회수 : ${room.viewcnt}</span>
+
+														</div>
+													</div>
+												</div>
+												<hr color="gray">
+												<div class="detailinfo">
+													<pre>${room.content}</pre>
+													<c:if test="${!empty login }">
+														<button onclick="applyStudy()">스터디 신청하기</button>>
 											</c:if>
-										</div>										
-									</div>
-									</td>
-								</tr>
-							</c:forEach>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</c:forEach>
 							</c:if>
 						</table>
-						<table>
+						<table style="margin: 0 auto; ">
 							<tr>
-								<td><input class="abtn" type="submit" value="방 추가" /></td>
+								<td><input style="margin-top: 30px; margin-bottom: 30px" class="abtn" type="submit" value="방 추가" /></td>
 							</tr>
 						</table>
 					</form>

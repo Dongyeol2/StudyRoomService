@@ -211,7 +211,7 @@ select {
 
 section {
 	margin: 0 auto;
-	height: 800px;
+	height: 100%;
 }
 
 footer {
@@ -452,11 +452,8 @@ footer {
 										<span id="stated">모집완료</span>
 										</c:if>									
 
-											<span id="membercnt">제한인원 : ${room.membercnt}</span>
-											<span id="subcategory">
-											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
-											${room.studytitle}</a>
-											</span>
+											<span id="locationcode"></span>
+											<span id="subcategory"></span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
 											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
 										</div>
@@ -473,7 +470,7 @@ footer {
 							</c:forEach>
 							</c:if>
 						</table>
-						<table style="margin: 0 auto; margin-top :30px;">
+						<table style="margin: 0 auto; margin-top :30px; margin-bottom: 30px;">
 							<tr>
 								<td><input class="abtn" type="submit" value="방 추가" /></td>
 							</tr>
@@ -484,7 +481,7 @@ footer {
 
 		</section>
 
-<!-- 		<footer class="site-footer">
+ 		<footer class="site-footer">
 			<div class="container">
 
 
@@ -551,7 +548,7 @@ footer {
 				</div>
 			</div>
 		</footer>
- -->	</div>
+	</div>
 
 
 
