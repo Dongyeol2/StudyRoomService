@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script >
 	function roomList() {
-		f.action="studyroom_subject.jsp"
+		f.action="subcategorylist.do"
 		f.submit();
 	}
 	function roomModify() {

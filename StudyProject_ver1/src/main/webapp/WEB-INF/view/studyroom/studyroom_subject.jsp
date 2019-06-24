@@ -468,7 +468,7 @@ footer {
 										<hr color="gray">
 										<div class="detailinfo">
 											<pre>${room.content}</pre>										
-											<c:if test="${room.state.equals('0')}">
+											<c:if test="${!empty login }">
 											<button onclick="applyStudy()">스터디 신청하기</button>>
 											</c:if>
 										</div>										
