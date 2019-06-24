@@ -28,10 +28,10 @@
 			<div class="wrap-login100 p-t-85 p-b-20">
 				<form id="fomr1" name="form1"  action="login.do" method="post" class="login100-form validate-form">
 					<span class="login100-form-title p-b-70">
-						Study Heaven
+						<h3>Study Heaven</h3>
 					</span>
 					<span class="login100-form-avatar">
-						<img src="images/logo.png" alt="Logo_AvatarHeaven">
+					 <a href="${pageContext.request.contextPath}/index.jsp"><img src="images/logo.png" alt="Logo_AvatarHeaven"></a>	
 					</span>
 
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "id">
