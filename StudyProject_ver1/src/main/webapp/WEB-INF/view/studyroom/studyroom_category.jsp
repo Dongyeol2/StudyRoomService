@@ -264,9 +264,9 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
 													<li><a
-														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">TOEIC-SPEAKING</a></li>
+														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">OPIC</a></li>
 													<li><a
-														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">OPIC</a></li>
+														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">TOEIC-SPEAKING</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=14">TEPS</a></li>
 													<li><a
@@ -448,18 +448,25 @@ footer {
 										</c:if>									  
 											<span id="location">${room.location}</span>
 											<span id="subjectname">${room.subjectname}</span>
-											<span id="subcategory">  
-											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
-											${room.studytitle}</a>
-											</span>
+											<c:if test="${login ne null }">
+												<span id="subcategory">  
+													<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+												${room.studytitle}</a>
+												</span>
+											</c:if>
+											<c:if test="${empty login }">
+												<span id="subcategory">  
+												${room.studytitle}
+												</span>
+											</c:if>
 											<span id="regdate">게시일 : ${room.regdate}</span>
 											<span id="viewcnt">조회수 : ${room.viewcnt}</span>   
 										</div>
 										<hr color="gray">
 										<div class="detailinfo">
 											<pre>${room.content}</pre>										
-											<c:if test="${!empty login }">
-											<button onclick="applyStudy()">스터디 신청하기</button>>
+											<c:if test="${login ne null }">
+											<button onclick="applyStudy()">스터디 신청하기</button>
 											</c:if>
 										</div>										
 									</div>
