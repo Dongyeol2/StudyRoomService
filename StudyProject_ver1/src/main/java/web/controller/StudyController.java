@@ -83,5 +83,39 @@ public class StudyController {
 		mav.setViewName("studyroom/studyroom_category");
 		return mav;
 	}
+	
+	@RequestMapping("/studyroom/view.do")
+	public ModelAndView roomView(@RequestParam("studyno") int studyno) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("room", service.getStudyRoom(studyno));
+		mav.setViewName("studyroom/studyroom_view");
+		return mav;
+	}
+	
+	@RequestMapping("/studyroom/remove.do")
+	public String remove(String studyno) {
+		service.removeRoom(studyno);
+		return "redirect:/subjectlist.do";
+	}
+	
+	@RequestMapping("/studyroom/modify.do")
+	public ModelAndView modify(@RequestParam("studyno") int studyno) {
+		ModelAndView mav = new ModelAndView();
+        mav.addObject("rooms", service.getStudyRoom(studyno));
+		mav.setViewName("studyroom/studyroom_modify");
+		return mav;
+	}
+	
+	@RequestMapping("/studyroom/update.do")
+	//public ModelAndView update(@ModelAttribute("user") UserVO vo) {
+	public ModelAndView update(StudyRoomVO studyroom) {
+		System.out.println(studyroom);
+		ModelAndView mav = new ModelAndView();
+		service.updateRoom(studyroom);
+		
+		mav.addObject("rooms",service.getStudyRoom(studyroom.getStudyno()));
+		mav.setViewName("studyroom/studyroom_view");
+		return mav;
+	}
 
 }

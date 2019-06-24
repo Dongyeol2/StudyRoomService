@@ -5,13 +5,13 @@
 <title>사용자 관리</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script language="JavaScript">
-function userModify() {
+function roomModify() {
 	f.action= "update.do";
 	f.submit();
 }
 
-function userList() {
-	f.action = "list.do";
+function roomList() {
+	f.action = "subjectlist.do";
 	f.submit();
 }
 </script>
@@ -32,41 +32,40 @@ function userList() {
 	  
 	  <!-- modify Form  -->
 	  <form name="f" method="post" action="">
-	 	   <input type="hidden" name="userid" value="${user.userid }">
-	 	   <input type="hidden" name="username" value="${user.username }"> 
+	 	   <input type="hidden" name="managerid" value="${studyroom.managerid}">
+	 	   <input type="hidden" name="studyno" value="${studyroom.studyno}}"> 
 	 
 	  <table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 		  <tr>
-			<td width=100 align=center bgcolor="E6ECDE" height="22">사용자 아이디</td>
+			<td width=100 align=center bgcolor="E6ECDE" height="22">방장</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				${user.userid}
+				${studyroom.managerid}
 			</td>
 		  </tr>
 		 
 		  
 		  <tr>
-			<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
+			<td width=100 align=center bgcolor="E6ECDE" height="22">방번호</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<%-- <input type="text" style="width:240" name="username" value="${user.username}"/>  --%>
-				 ${user.username}
+				 ${studyroom.studyno}
 			</td>
 		  </tr>
 		  <tr>
-			<td width=100 align=center bgcolor="E6ECDE" height="22">email</td>
+			<td width=100 align=center bgcolor="E6ECDE" height="22">title</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="email" value="${user.email}">
+				<input type="text" style="width:240" name="title" value="${studyroom.title}">
 			</td>
 		  </tr>	
 		 <tr>
-			<td width=100 align=center bgcolor="E6ECDE" height="22">phone</td>
+			<td width=100 align=center bgcolor="E6ECDE" height="22">membercnt</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="phone" value="${user.phone}">
+				<input type="text" style="width:240" name="membercnt" value="${studyroom.membercnt}">
 			</td>
 		  </tr>	
 		  <tr>
-			<td width=100 align=center bgcolor="E6ECDE" height="22">address</td>
+			<td width=100 align=center bgcolor="E6ECDE" height="22">content</td>
 			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="address" value="${user.address}">
+				<input type="text" style="width:240" name="content" value="${studyroom.content}">
 			</td>
 		  </tr>	
 		  
@@ -77,8 +76,8 @@ function userList() {
 	  <table width=590 border=0 cellpadding=0 cellspacing=0>
 		  <tr>
 			<td align=center>
-			<input type="button" value="수정" onClick="userModify()"> &nbsp;
-			<input type="button" value="목록" onClick="userList()">
+			<input type="button" value="수정" onClick="roomModify()"> &nbsp;
+			<input type="button" value="목록" onClick="roomList()">
 			</td>
 		  </tr>
 	  </table>

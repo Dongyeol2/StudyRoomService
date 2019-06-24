@@ -263,7 +263,7 @@ footer {
 										</div>
 
 										<ul class="site-menu js-clone-nav d-none d-lg-block">
-											<li class="has-children"><a href="#">영어</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
@@ -280,7 +280,7 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
 												</ul></li>
-											<li class="has-children"><a href="#">일본어</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
@@ -295,7 +295,7 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
 												</ul></li>
-											<li class="has-children"><a href="#">중국어</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
@@ -308,14 +308,14 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
 												</ul></li>
-											<li class="has-children"><a href="#">코딩</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
 												</ul></li>
-											<li class="has-children"><a href="#">취업</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
@@ -324,7 +324,7 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
 												</ul></li>
-											<li class="has-children"><a href="#">기타</a>
+											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
@@ -457,8 +457,11 @@ footer {
 										<span id="stated">모집완료</span>
 										</c:if>									
 
-											<span id="locationcode"></span>
-											<span id="subcategory"></span>
+											<span id="membercnt">제한인원 : ${room.membercnt}</span>
+											<span id="subcategory">
+											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+											${room.studytitle}</a>
+											</span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
 											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
 										</div>

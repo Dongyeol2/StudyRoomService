@@ -56,7 +56,7 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	}
 	
 	@Override
-	public StudyRoomVO getStudyRoom(String studyno) {
+	public StudyRoomVO getStudyRoom(int studyno) {
 		return dao.getStudyRoom(studyno);
 	}
 	
@@ -68,6 +68,16 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	@Override
 	public List<StudyRoomVO> getCategoryList(int categorycode) {
 		return dao.getCategoryList(categorycode);
+	}
+	
+	@Override
+	public int updateRoom(StudyRoomVO studyroom) {
+		return dao.updateRoom(studyroom);
+	}
+
+	@Override
+	public int removeRoom(String studyno) {
+		return dao.removeRoom(studyno);
 	}
 
 }

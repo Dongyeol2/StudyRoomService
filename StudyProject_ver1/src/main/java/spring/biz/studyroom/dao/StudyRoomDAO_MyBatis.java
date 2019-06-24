@@ -28,7 +28,7 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 	}
 	
 	@Override
-	public StudyRoomVO getStudyRoom(String studyno) {
+	public StudyRoomVO getStudyRoom(int studyno) {
 		return sqlSession.selectOne("studyroom.getstudyroom",studyno);
 	}
 	
@@ -40,5 +40,15 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 	@Override
 	public List<StudyRoomVO> getCategoryList(int categorycode) {
 		return sqlSession.selectList("studyroom.categorylist", categorycode);
+	}
+	
+	@Override
+	public int updateRoom(StudyRoomVO studyroom) {
+		return sqlSession.update("studyroom.studyroomupdate", studyroom);
+	}
+
+	@Override
+	public int removeRoom(String studyno) {
+		return sqlSession.delete("studyroom.studyroomdelete", studyno);
 	}
 }

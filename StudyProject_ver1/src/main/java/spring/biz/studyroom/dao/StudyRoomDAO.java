@@ -6,8 +6,10 @@ import spring.biz.studyroom.vo.StudyRoomVO;
 
 public interface StudyRoomDAO {
 	   int addStudyRoom(StudyRoomVO studyroom);
-	   StudyRoomVO getStudyRoom(String studyno);
+	   StudyRoomVO getStudyRoom(int studyno);
 	   int getStudyNo();
 	   List<StudyRoomVO> getSubcategoryList(int subjectcode);
 	   List<StudyRoomVO> getCategoryList(int categorycode);
+	   int updateRoom(StudyRoomVO studyroom);
+	   int removeRoom(String studyno);
 }
