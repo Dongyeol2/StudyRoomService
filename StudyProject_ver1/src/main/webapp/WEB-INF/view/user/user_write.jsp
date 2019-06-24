@@ -97,7 +97,7 @@ function userList() {
                             </div>
                             <div class="form-group">
                                 <label for="userpw"><i class="zmdi zmdi-lock"></i></label>
-								<input type="password" placeholder="Your Password" style="width:150" id="userpw" name="userpw" id="userpw" value="${user.userpw}">
+								<input type="password" placeholder="Your Password" style="width:150" id="userpw" name="userpw" id="userpw" onkeyup="checkPwd()" value="${user.userpw}">
 								<font color="red"><form:errors path="user.userpw" /></font>
                             </div>
                             
@@ -112,7 +112,7 @@ function userList() {
 								<font color="red"><form:errors path="user.email" /></font>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Sign Up"/>
+                                <input style="background-color: #28a745; " type="submit" name="signup" id="signup" class="form-submit" value="Sign Up"/>
                             </div>
                         </form>
                     </div>
