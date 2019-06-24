@@ -13,6 +13,25 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+select {
+width: 200px;
+padding: .8em .5em;
+border: 1px solid #999;
+font-family: inherit;
+background: url('images/arrow.png') no-repeat 95% 50%;
+border-radius: 0px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background-color: white;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+</style>
 
 </head>
 <body>
@@ -24,55 +43,51 @@
 		<div style="height: 70px;"></div>
 
 		<div class="site-blocks-cover overlay"
-			style="background-image: url('images/study.jpg'); "
-			data-aos="fade" data-stellar-background-ratio="0.5">
+			style="background-image: url('images/study.jpg');" data-aos="fade"
+			data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-12" data-aos="fade">
 						<h1>Search Study</h1>
-						<form action ="${pageContext.request.contextPath}/search.do">
+						<form action="${pageContext.request.contextPath}/search.do">
 							<div class="row mb-3">
 								<div class="col-md-9">
 									<div class="row">
-											<div class="col-sm-10">
-												<div class="dropdown" id="s1">
-													<select name="category" id="category">
-														<option id="big" value="default" selected="selected">대분류</option>
-														<c:forEach var="scateData" items="${category }">
-															<option value="${scateData.categorycode}">${scateData.categoryname }</option>
-														</c:forEach>
-													</select>
+										<div class="col-sm-10">
+											<div class="dropdown" id="s1">
+												<select class="selectpicker" name="category" id="category">
+													<option id="big" value="default" selected="selected">대분류</option>
+													<c:forEach var="scateData" items="${category }">
+														<option value="${scateData.categorycode}">${scateData.categoryname }</option>
+													</c:forEach>
+												</select>
 
-												</div>
-												<div class="dropdown" id="s2">
-													<select name="subcategory" id="subcategory">
-														<option id="small" value="default" selected="selected">소분류</option>
-														<c:forEach var="scateData" items="${subcategory }">
-															<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
-														</c:forEach>
-													</select>
-												</div>
-												<div class="dropdown" id="s3">
-													<select name="location1" id="location1">
-														<option id="do_si" value="default" selected="selected">도,시</option>
-														<c:forEach var="data" items="${location1 }">
-															<option value="${data.loc1 }">${data.loc1 }></option>
-														</c:forEach>
-													</select>
-												</div>
-												<div class="dropdown" id="s4">
-													<select name="location2" id="location2">
-														<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
-														<c:forEach var="data" items="${location2 }">
-															<option value="${data.loc2 }">${data.loc2 }></option>
-														</c:forEach>
-													</select>
-												</div>
 											</div>
-
-										<div class="col-md-6 mb-3 mb-md-0">
-											<input type="text" class="mr-3 form-control border-0 px-4"
-												placeholder="category keywords or subject name ">
+											<div class="dropdown" id="s2">
+												<select class="selectpicker" name="subcategory"
+													id="subcategory">
+													<option id="small" value="default" selected="selected">소분류</option>
+													<c:forEach var="scateData" items="${subcategory }">
+														<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
+													</c:forEach>
+												</select>
+											</div>
+											<div class="dropdown" id="s3">
+												<select class="selectpicker" name="location1" id="location1">
+													<option id="do_si" value="default" selected="selected">도,시</option>
+													<c:forEach var="data" items="${location1 }">
+														<option value="${data.loc1 }">${data.loc1 }></option>
+													</c:forEach>
+												</select>
+											</div>
+											<div class="dropdown" id="s4">
+												<select class="selectpicker" name="location2" id="location2">
+													<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
+													<c:forEach var="data" items="${location2 }">
+														<option value="${data.loc2 }">${data.loc2 }></option>
+													</c:forEach>
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>
