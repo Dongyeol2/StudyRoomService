@@ -65,7 +65,7 @@
     
     <!-- 아이디 확인 -->
 	<select id="idCheck" resultType="uservo">
- 		select userid from userinfo
+ 		select * from userinfo
      	where userid = #{userid}
 	</select>
 				

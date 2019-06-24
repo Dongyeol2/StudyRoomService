@@ -64,6 +64,7 @@
 
 		$("#regdate").val(year + "/" + month + "/" + day);
 		
+		
 		$('#category').change(
 				function() {
 					if ($('#category option:selected').val() == "default") {
@@ -440,11 +441,11 @@ footer {
 							<div>
 								<label for="regdate">게시일:</label>
 								<div class="aregdate">
-									<div id="regdate">
-										<input type="hidden" class="form-control" id="regdate"
+									<!-- <div id="regdate"> -->
+										<input type="text" class="form-control" id="regdate"
 											name="regdate" readonly="readonly">
 											
-									</div>
+									<!-- </div> -->
 								</div>
 							</div>
 						</div>

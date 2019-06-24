@@ -25,9 +25,13 @@
 	
 }
 
-#locationcode, #suncategory{
+#locationcode{
 	background-color:  #e6ccff;
 	color: white;
+}
+
+#subcategory{
+	border: none;
 }
 
 #state{
@@ -44,6 +48,31 @@
 #regdate, #viewcnt{
 	float: right;
 	border: none;
+	height: 60px;
+}
+
+#bdiv{
+	height: 50px;
+}
+
+#ldiv, rdiv{
+    display:inline-table;
+    float: left;
+}
+
+#subcategory, #regdate, #viewcnt{
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#ldiv{
+	display: inline-block;	
+}
+
+#rdiv{
+	display: inline-block;
+	float: right;
 }
 
 .tables{
@@ -67,3 +96,42 @@
 	margin: 20px;
 	padding: 10px;
 }
+
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.site-wrap{
+	position: relative;
+	min-height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

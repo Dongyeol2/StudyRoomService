@@ -37,6 +37,7 @@ public class LoginController {
 		}
 				
 	}
+
 	
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request) {
