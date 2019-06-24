@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Job Finder &mdash; Colorlib Website Template</title>
+<title>Study Heaven &mdash; Enrollment </title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" type="image⁄x-icon" href="../images/logo.png">
 
 <link
 	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
@@ -289,7 +290,7 @@ footer {
 								<img style="width: 20%; height: 20%;" alt="logo_studyheaven"
 									src="images/logo.png">
 								<h2 class="mb-0 site-logo">
-									<a href="index.html">Study<strong class="font-weight-bold">Room</strong>
+									<a href="index.jsp">Study<strong class="font-weight-bold">Room</strong>
 									</a>
 								</h2>
 							</div>

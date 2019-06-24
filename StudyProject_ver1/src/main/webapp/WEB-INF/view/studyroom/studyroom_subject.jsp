@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Job Finder &mdash; Colorlib Website Template</title>
+<title>Study Heaven &mdash; CSearch </title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" type="image⁄x-icon" href="../images/logo.png">
 
 <link
 	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
@@ -249,7 +250,7 @@ footer {
 								<img style="width: 20%; height: 20%;" alt="logo_studyheaven"
 									src="images/logo.png">
 								<h2 class="mb-0 site-logo">
-									<a href="index.html">Study<strong class="font-weight-bold">Room</strong>
+									<a href="index.jsp">Study<strong class="font-weight-bold">Room</strong>
 									</a>
 								</h2>
 							</div>
@@ -461,17 +462,10 @@ footer {
 										</c:if>									  
 											<span id="location">${room.location}</span>
 											<span id="subjectname">${room.subjectname}</span>
-											<c:if test="${login ne null }">
-												<span id="subcategory">  
-													<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
-												${room.studytitle}</a>
-												</span>
-											</c:if>
-											<c:if test="${empty login }">
-												<span id="subcategory">  
-												${room.studytitle}
-												</span>
-											</c:if>
+											<span id="subcategory">  
+												<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+											${room.studytitle}</a>
+											</span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
 											<span id="viewcnt">조회수 : ${room.viewcnt}</span>   
 										</div>

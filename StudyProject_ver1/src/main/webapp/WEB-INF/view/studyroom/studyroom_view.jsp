@@ -22,6 +22,7 @@
 	}
 </script>
 </head>
+<%-- 
 <body >
 <table width=780 border=0 cellpadding=0 cellspacing=0>
 	<tr>
@@ -38,34 +39,58 @@
 	  <!-- view Form  -->
 	  <form name="f" method="post" action="">
 	  <input type="hidden" name="studyno" value="${room.studyno}">
-	  <table border="0" cellpadding="0" cellspacing="1" width="610" bgcolor="BBBBBB">
+	  <table>
 		  <tr>
-			<td width=120 align=center bgcolor="E6ECDE" height="22">방 번호</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
+			<td>방 번호</td>
+			<td>
 				 ${room.studyno}
 			</td>
 		  </tr>
 		  <tr>
-			<td width=120 align=center bgcolor="E6ECDE" height="22">방 제목</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				 				 ${room.studytitle}
+			<td>방 제목</td>
+			<td>
+				 ${room.studytitle}
 			</td>
 		  </tr>
 		  <tr>
-			<td width=120 align=center bgcolor="E6ECDE" height="22">방장</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				 				 ${room.managerid}
+			<td>방장ID</td>
+			<td>
+				 ${room.managerid}
 			</td>
 		  </tr>
 		  <tr>
-			<td width=120 align=center bgcolor="E6ECDE" height="22">내용</td>
-			<td width=490 bgcolor="ffffff" style="padding-left:10">
-				 				 ${room.content}
+			<td>내용</td>
+			<td>
+				 ${room.content}
+			</td>
+		  </tr>
+		  <tr>
+			<td>지역</td>
+			<td>
+				 ${room.location}
+			</td>
+		  </tr>
+		  <tr>
+			<td>과목</td>
+			<td>
+				 ${room.subjectname}
+			</td>
+		  </tr>
+		  <tr>
+			<td>방장전화번호</td>
+			<td>
+				 ${room.phone}
+			</td>
+		  </tr>
+		  <tr>
+			<td>게시일자</td>
+			<td>
+				 ${room.regdate}
 			</td>
 		  </tr>
 	  </table>
 	  </form>
-	  <table width=610 border=0 cellpadding=0 cellspacing=0>
+	  <table>
 		  <c:if test="${room.managerid eq login}">
 		  <tr>
 			<td align=center>
@@ -89,4 +114,6 @@
 </table>  
 
 </body>
+
+ --%>
 </html>
