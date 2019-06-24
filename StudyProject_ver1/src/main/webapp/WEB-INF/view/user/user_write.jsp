@@ -79,7 +79,7 @@ function userList() {
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form method="" class="register-form" id="register-form">
+                        <form method="" class="register-form" id="register-form" name="f">
  	                        <div class="form-group">
                                 <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
 								<input type="text" placeholder="Your Name" style="width:240" id="username" name="username" value="${user.username}">
@@ -112,7 +112,7 @@ function userList() {
 								<font color="red"><form:errors path="user.email" /></font>
                             </div>
                             <div class="form-group form-button">
-                                <input style="background-color: #28a745; " type="submit" name="signup" id="signup" class="form-submit" value="Sign Up"/>
+                                <input style="background-color: #28a745; " type="button" name="signup" id="signup" class="form-submit" value="Sign Up"/>
                             </div>
                         </form>
                     </div>

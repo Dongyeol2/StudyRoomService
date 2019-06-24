@@ -176,6 +176,7 @@ public class UserController {
 	@RequestMapping(value = "/user/add.do", method = RequestMethod.POST)
 	public String addUserProc(@ModelAttribute("user") UserVO vo, HttpServletRequest request, BindingResult errors) {
 
+		System.out.println("sssssssss");
 		new UserValidator().validate(vo, errors);
 		if (errors.hasErrors()) {
 			return "user/user_write";

@@ -452,8 +452,11 @@ footer {
 										<span id="stated">모집완료</span>
 										</c:if>									
 
-											<span id="locationcode"></span>
-											<span id="subcategory"></span>
+											<span id="membercnt">제한인원 : ${room.membercnt}</span>
+											<span id="subcategory">
+											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
+											${room.studytitle}</a>
+											</span>
 											<span id="regdate">게시일 : ${room.regdate}</span>
 											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
 										</div>
