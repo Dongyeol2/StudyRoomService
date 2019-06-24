@@ -424,11 +424,11 @@ footer {
 					<form name="f" method="get"
 						action="${pageContext.request.contextPath}/write.do">
 
-						<table class="tablea">
+						<table style="width: 550px" class="tablea">
 							<c:if test="${empty rooms }">
 								<tr>
 									<td>
-										<div>
+										<div class="noResult">
 											<p>스터디가 없습니다.</p>
 											<a href="#">예약하러 가기</a>
 										</div>
@@ -446,11 +446,22 @@ footer {
 									<td>
 									<div  class="studyinfo">
 										<div class="detailinfo">
-											<span id="studyno">${room.studyno}</span>
-											<span id="studytitle">${room.studytitle}</span>
-											<span id="membercnt">${room.membercnt}</span>
-											<span id="regdate">${room.regdate}</span>
+										<c:if test="${room.state.equals('0')}">
+										<span id="state">모집중</span>
+										</c:if>
+										<c:if test="${room.state.equals('1')}">
+										<span id="stated">모집완료</span>
+										</c:if>
+											</span>										
+
+										<c:if test="${room.state.equals('0')}">
+										</c:if>
+											<span id="locationcode"></span>
+											<span id="subcategory"></span>
+											<span id="regdate">게시일 : ${room.regdate}</span>
+											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
 										</div>
+										<hr color="gray">
 										<div class="detailinfo">
 											<pre>${room.content}</pre>										
 										</div>
