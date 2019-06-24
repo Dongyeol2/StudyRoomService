@@ -48,7 +48,22 @@
 	$(function() {
 		getCategoryList(); //Category가져오기
 		getLoc1List(); //Location1가져오기
+		
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = new String(date.getMonth() + 1);
+		var day = new String(date.getDate());
 
+		// 한자리수일 경우 0을 채워준다. 
+		if (month.length == 1) {
+			month = "0" + month;
+		}
+		if (day.length == 1) {
+			day = "0" + day;
+		}
+
+		$("#regdate").val(year + "/" + month + "/" + day);
+		
 		$('#category').change(
 				function() {
 					if ($('#category option:selected').val() == "default") {
@@ -72,6 +87,36 @@
 
 	});
 
+
+	function studyroomCreate() {
+		f.action = "./write.do";
+		f.method = "post";
+		f.submit(); 
+		/* $.ajax({
+			type : "POST",
+			url : "./write.do",
+			data : {"studytitle" : $('#studytitle').val(),
+                	"subcategory" : $('#subcategory option:selected').val(),
+                	"location2" : $('#location2 option:selected').val(),
+                	"membercnt" : $('#membercnt').val(),
+                	"content" : $('#content').val()},
+			dataType : 'json',
+			success : function(data) {
+				if (data) {
+					if (data.length > 0) {
+						if(data.equals("success")){
+							alert("성공");
+						}
+					}
+				}
+			},
+			error : function(request, status, error) {
+				console.log('code:' + request.status + '\n' + 'message:'
+						+ request.responseText + '\n' + 'error:' + error);
+			}
+		}); */
+	}
+	
 	function getCategoryList() {
 		$.ajax({
 			type : "GET",

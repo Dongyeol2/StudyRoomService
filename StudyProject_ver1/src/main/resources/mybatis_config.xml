@@ -10,6 +10,7 @@
 	 <typeAlias type="spring.biz.category.vo.CategoryVO" alias="categoryvo"/>
      <typeAlias type="spring.biz.subcategory.vo.SubCategoryVO" alias="subcategoryvo"/>
      <typeAlias type="spring.biz.studyroom.vo.StudyRoomVO" alias="studyroomvo"/>
+     <typeAlias type="spring.biz.studymember.vo.StudyMemberVO" alias="studymembervo"/>
      <typeAlias type="spring.biz.location.vo.LocationVO" alias="locationvo"/>
 <!-- <typeAlias type="spring.biz.board.vo.BoardVO" alias="boardvo"/> -->  
  </typeAliases>
@@ -31,7 +32,8 @@
        <mapper resource="mapper/admin_mapper.xml"/> 
        <mapper resource="mapper/subcategory_mapper.xml"/> 
        <mapper resource="mapper/category_mapper.xml"/> 
-       <mapper resource="mapper/studyroom_mapper.xml"/> 
+       <mapper resource="mapper/studyroom_mapper.xml"/>
+       <mapper resource="mapper/studymember_mapper.xml"/>  
        <mapper resource="mapper/location_mapper.xml"/> 
        
       <!-- <mapper resource="mapper/board_mapper.xml"/> -->

@@ -21,6 +21,11 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 	public int addStudyRoom(StudyRoomVO studyroom) {
 		return sqlSession.insert("studyroom.addstudyroom",studyroom);
 	}
+
+	@Override
+	public int getStudyNo() {
+		return sqlSession.selectOne("studyroom.getstudyno");
+	}
 	
 	@Override
 	public StudyRoomVO getStudyRoom(String studyno) {

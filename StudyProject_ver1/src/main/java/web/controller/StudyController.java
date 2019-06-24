@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.biz.studymember.service.StudyMemberService;
+import spring.biz.studymember.vo.StudyMemberVO;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -23,14 +25,18 @@ public class StudyController {
 	@Autowired
 	StudyRoomService service;
 	
+	@Autowired
+	StudyMemberService mservice;
+	
 	@RequestMapping(value = "/write.do",method = RequestMethod.GET)
-	public String addStudyRoom() {
+	public String addStudyRoom() throws Exception{
 		return "studyroom/studyroom_write";
 	}
 	
 	@RequestMapping(value = "/write.do",method = RequestMethod.POST)
-	public String addStudyRoomProc(HttpServletRequest request) {
+	public String addStudyRoomProc(HttpServletRequest request) throws Exception{
 		
+		//studyroomvo
 		StudyRoomVO studyroom = new StudyRoomVO();
 		UserVO user = (UserVO) (request.getSession().getAttribute("User"));
 		studyroom.setManagerid(user.getUserid());
@@ -40,21 +46,30 @@ public class StudyController {
 		studyroom.setMembercnt(Integer.parseInt(request.getParameter("membercnt")));
 		studyroom.setContent(request.getParameter("content"));
 		System.out.println(studyroom);
-		
 		int roomrow = 0;
-		int memberrow = 0;
 		roomrow = service.addStudyRoom(studyroom);
-		//int studyno = service.getStudyNo(studyroom);
-		//memberrow = service.addStudyMember(studyroom);
-		System.out.println(roomrow);
-		System.out.println(memberrow);
+		
+		//studymembervo
+		int studyno = service.getStudyNo();
+		StudyMemberVO studymember = new StudyMemberVO();
+		studymember.setStudyno(studyno);
+		studymember.setUserid(user.getUserid());
+		studymember.setStatus("0");
+		
+		System.out.println(studymember);
+		
+		int memberrow = 0;
+		memberrow = mservice.addStudyMember(studymember);
+		
+		//System.out.println(roomrow);
+		//System.out.println(memberrow);
 		
 		return "redirect:/mypage/mypage_studylist.do";
 		
 	}
 	
 	@RequestMapping("/subjectlist.do")
-	public ModelAndView subjectcatory(@RequestParam("subjectcode") int subjectcode) {
+	public ModelAndView subjectcatory(@RequestParam("subjectcode") int subjectcode) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("rooms", service.getSubcategoryList(subjectcode));
 		mav.setViewName("studyroom/studyroom_subject");
@@ -62,7 +77,7 @@ public class StudyController {
 	}
 	
 	@RequestMapping("/categorylist.do")
-	public ModelAndView catory(@RequestParam("categorycode") int categorycode) {
+	public ModelAndView catory(@RequestParam("categorycode") int categorycode) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("rooms", service.getCategoryList(categorycode));
 		mav.setViewName("studyroom/studyroom_category");

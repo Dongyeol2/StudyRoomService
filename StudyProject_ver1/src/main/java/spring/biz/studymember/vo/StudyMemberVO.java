@@ -39,7 +39,11 @@ public class StudyMemberVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "StudyMemberVO [studyno=" + studyno + ", userid=" + userid + ", status=" + status + "]";
+	}
 	
 	
 }

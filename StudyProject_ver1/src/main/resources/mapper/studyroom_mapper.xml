@@ -14,6 +14,10 @@
 		values ((select nvl(max(studyno),0)+1 from studyroom), #{studytitle}, #{subjectcode},
 		#{membercnt}, #{locationcode}, #{managerid}, #{content})
 	</insert>
+
+	<select id="getstudyno" resultType="Integer">
+		select * from (select studyno from studyroom order by studyno desc) where rownum = 1
+	</select>
 	
 	<select id="subjectlist" resultType="studyroomvo">
 		select *
