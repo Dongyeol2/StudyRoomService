@@ -38,7 +38,7 @@
 
 <link rel="stylesheet" href="css/style_index.css">
 <link rel="stylesheet" href="css/button.css">
-<link rel="stylesheet" href="css/write.css">
+<link rel="stylesheet" href="css/write_application.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -356,7 +356,7 @@ footer {
 
 		<section>
 			<div class="container">
-				<h2>스터디 신청서</h2>
+				<h2 id="app">스터디 신청서</h2>
 				<form name="f" method="post" action="" class="form-horizontal"
 					class="needs-validation">
 					<div id="application">
