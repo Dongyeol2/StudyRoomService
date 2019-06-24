@@ -197,7 +197,7 @@ select {
 	float: left;
 }
 
-#category, #subcategory {
+#category1, #category {
 	width: 6em;
 }
 
@@ -357,116 +357,128 @@ footer {
 		<div style="height: 200px;"></div>
 
 		<section>
-			<div class="container">
-				<h2>스터디 신청서</h2>
-				<form name="f" method="post" action="" class="form-horizontal"
-					class="needs-validation">
-					<div id="application">
-						<div id="a1">
-							<div class="atitle">
-								<label for="studytitle">제목:</label>
-								<div>
-									<input type="text" id="studytitle" placeholder="Enter title"
-										name="studytitle" required="required"
-										value="${studyroom.studytitle}">
-								</div>
-							</div>
-						</div>
 
-						<div id="a2">
-							<div class="acategory">
-								<label for="regdate">과목:</label>
-								<div class="dropdown" id="s1">
-									<select name="category" id="category">
-										<option id="big" value="default" selected="selected">대분류</option>
-										<c:forEach var="scateData" items="${category }">
-											<option value="${scateData.categorycode}">${scateData.categoryname }</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-							<div>
-								<div class="dropdown" id="s2">
-									<select name="subcategory" id="subcategory">
-										<option id="small" value="default" selected="selected">소분류</option>
-										<c:forEach var="scateData" items="${subcategory }">
-											<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-							<div>
-								<label for="regdate">게시일:</label>
-								<div class="aregdate">
-									<div>
-										<input type="text" class="form-control" id="regdate"
-											name="regdate" readonly="readonly">
+			<div>
+				<table class="tables">
+					<tr>
+						<td>
+							<form action="#">
+								<div class="row mb-3">
+									<div class="col-md-9">
+										<div class="row">
+											<div class="col-sm-10">
+												<div class="dropdown" id="s1">
+													<select name="category" id="category">
+														<option id="big" value="default" selected="selected">대분류</option>
+														<c:forEach var="scateData" items="${category }">
+															<option value="${scateData.categorycode}">${scateData.categoryname }</option>
+														</c:forEach>
+													</select>
+
+												</div>
+												<div class="dropdown" id="s2">
+													<select name="subcategory" id="subcategory">
+														<option id="small" value="default" selected="selected">소분류</option>
+														<c:forEach var="scateData" items="${subcategory }">
+															<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="dropdown" id="s3">
+													<select name="location1" id="location1">
+														<option id="do_si" value="default" selected="selected">도,시</option>
+														<c:forEach var="data" items="${location1 }">
+															<option value="${data.loc1 }">${data.loc1 }></option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="dropdown" id="s4">
+													<select name="location2" id="location2">
+														<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
+														<c:forEach var="data" items="${location2 }">
+															<option value="${data.loc2 }">${data.loc2 }></option>
+														</c:forEach>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-md-6 mb-3 mb-md-0">
+												<input type="text" class="mr-3 form-control border-0 px-4"
+													placeholder="category keywords or subject name ">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<input type="submit"
+											class="btn btn-search btn-primary btn-block" value="Search">
 									</div>
 								</div>
-							</div>
-						</div>
 
-						<div id="a3">
-							<div class="aloc1">
-								<label for="regdate">지역:</label>
-								<div class="dropdown" id="s3">
-									<select name="location1" id="location1">
-										<option id="do_si" value="default" selected="selected">도,시</option>
-										<c:forEach var="data" items="${location1 }">
-											<option value="${data.loc1 }">${data.loc1 }></option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-							<div class="aloc2">
-								<select name="location2" id="location2">
-									<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
-									<c:forEach var="data" items="${location2 }">
-										<option value="${data.locationcode }">${data.loc2 }></option>
-									</c:forEach>
-								</select>
-							</div>
-							<div class="amembercnt">
-								<label for="membercnt">인원수:</label>
-								<div>
-									<input type="number" class="form-control" id="membercnt"
-										placeholder="Enter membercount" name="membercnt"
-										value="${studyroom.membercnt}">
-								</div>
-							</div>
-						</div>
+							</form>
+						</td>
+					</tr>
+				</table>
 
-						<div id="a4">
-							<div class="ainfo">
-								<label for="membercnt">인원수:</label>
-								<div id="uinfo">신청자 : ${login.username} / 연락처 :
-									${login.phone}</div>
-							</div>
-						</div>
+				<div style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top : -50px; margin-bottom: 50px;"></div>
+				<div>
+					<form name="f" method="get"
+						action="${pageContext.request.contextPath}/write.do">
+						<table style="width: 550px" class="tablea">
+							<c:if test="${empty rooms }">
+								<tr>
+									<td>
+										<div class="noResult">
+											<p>스터디가 없습니다.</p>
+											<a href="#">예약하러 가기</a>
+										</div>
+									</td>
+								</tr>
+							</c:if>
+						</table>
 
-						<div id="a5">
-							<div class="acontent">
-								<label for="content">내용:</label>
-								<div>
-									<input type="text" class="form-control" id="content"
-										placeholder="Enter content" name="content"
-										value="${studyroom.content}">
-								</div>
-							</div>
-						</div>
+						<table style="width: 550px" class="tablea">
+							<c:if test="${!empty rooms }">
 
-						<div id="a6">
-							<div class="abutton">
-								<div>
-									<button class="abtn" onclick="studyroomCreate()">신청하기</button>
-								</div>
-							</div>
-						</div>
-					</div>
+							<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
+							<c:forEach var="room" items="${rooms}">
+						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
+								<tr>
+									<td>
+									<div  class="studyinfo">
+										<div class="detailinfo">
+										<c:if test="${room.state.equals('0')}">
+										<span id="state">모집중</span>
+										</c:if>
+										<c:if test="${room.state.equals('1')}">
+										<span id="stated">모집완료</span>
+										</c:if>									
 
-				</form>
+											<span id="locationcode"></span>
+											<span id="subcategory"></span>
+											<span id="regdate">게시일 : ${room.regdate}</span>
+											<span id="viewcnt">조회수 : ${room.viewcnt}</span>
+										</div>
+										<hr color="gray">
+										<div class="detailinfo">
+											<pre>${room.content}</pre>										
+											<c:if test="${room.state.equals('0')}">
+											<a class="abtn" href="#">스터디 신청하기</a>
+											</c:if>
+										</div>										
+									</div>
+									</td>
+								</tr>
+							</c:forEach>
+							</c:if>
+						</table>
+						<table>
+							<tr>
+								<td><input class="abtn" type="submit" value="방 추가" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
 			</div>
-
 
 		</section>
 
