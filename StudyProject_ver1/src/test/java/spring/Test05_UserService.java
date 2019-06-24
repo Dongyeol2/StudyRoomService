@@ -1,5 +1,7 @@
 package spring;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.biz.location.service.LocationService;
+import spring.biz.studyroom.service.StudyRoomService;
+import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
 import spring.biz.user.service.UserService;
 import spring.biz.user.vo.UserVO;
@@ -24,8 +28,32 @@ public class Test05_UserService {
 	
 	@Autowired
 	LocationService locationService;
+	@Autowired
+	StudyRoomService studyRoomService;
 	
-	@Test
+	//@Test
+	public void searchLocGetStudyRoom() {
+		List<StudyRoomVO> studyLists = studyRoomService.searchLocGetStudyRoom(1168064000);
+		
+		for (StudyRoomVO srv : studyLists) {
+			System.out.println(srv.toString());
+		}
+	}
+	
+	
+	//@Test
+	public void searchLocSubject() {
+		List<StudyRoomVO> studyLists = studyRoomService.searchSubjectLocGetStudyRoom(11, 1100000000);
+		
+		for (StudyRoomVO srv : studyLists) {
+			System.out.println(srv.toString());
+		}
+		
+		
+	}
+	
+	
+	//@Test
 	public void getLocation() {
 		System.out.println(locationService.getLocation(1168064000).getLoc1());
 		System.out.println(locationService.getLocation(1168064000).getLoc2());

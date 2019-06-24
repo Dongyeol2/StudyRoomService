@@ -12,4 +12,6 @@ public interface StudyRoomDAO {
 	   List<StudyRoomVO> getCategoryList(int categorycode);
 	   int updateRoom(StudyRoomVO studyroom);
 	   int removeRoom(String studyno);
+	   List<StudyRoomVO> searchLocGetStudyRoom(long locCode); 
+	   List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode , long locCode); 
 }

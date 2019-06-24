@@ -79,5 +79,17 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	public int removeRoom(String studyno) {
 		return dao.removeRoom(studyno);
 	}
+	
+	@Override
+	public List<StudyRoomVO> searchLocGetStudyRoom(long locCode) {
+		// TODO Auto-generated method stub
+		return dao.searchLocGetStudyRoom(locCode);
+	}
+
+	@Override
+	public List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode, long locCode) {
+		// TODO Auto-generated method stub
+		return dao.searchSubjectLocGetStudyRoom(subjectCode, locCode);
+	}
 
 }
