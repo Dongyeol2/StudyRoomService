@@ -174,16 +174,21 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/add.do", method = RequestMethod.POST)
-	public String addUserProc(@ModelAttribute("user") UserVO vo, HttpServletRequest request, BindingResult errors) {
+	public String addUserProc(@ModelAttribute("user") UserVO vo, 
+								HttpServletRequest request, 
+								BindingResult errors) {
+		ModelAndView mav = new ModelAndView();
 
 		System.out.println("sssssssss");
 		new UserValidator().validate(vo, errors);
 		if (errors.hasErrors()) {
+			System.out.println("111");
 			return "user/user_write";
 		}
 		int row = 0;
 		row = service.addUser(vo);
-		return "/index";
+		System.out.println(row);
+		return "redirect:/index.jsp";
 
 	}
 

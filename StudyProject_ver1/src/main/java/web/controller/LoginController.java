@@ -29,7 +29,7 @@ public class LoginController {
 			if(user.getUserid().equals("admin")) {
 				return "redirect:admin/adminpage.do";
 			}else {
-				return "redirect:/index.jsp";
+				return "redirect:index.jsp";
 			}
 		}else {
    			request.setAttribute("msg", "로그인 정보를 다시입력하세요.");
