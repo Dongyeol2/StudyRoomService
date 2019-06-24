@@ -47,5 +47,13 @@ public class StudyController {
 		mav.setViewName("studyroom/studyroom_subject");
 		return mav;
 	}
+	
+	@RequestMapping("/categorylist.do")
+	public ModelAndView catory(@RequestParam("categorycode") int categorycode) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("rooms", service.getCategoryList(categorycode));
+		mav.setViewName("studyroom/studyroom_category");
+		return mav;
+	}
 
 }

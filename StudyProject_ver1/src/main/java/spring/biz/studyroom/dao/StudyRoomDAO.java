@@ -8,4 +8,5 @@ public interface StudyRoomDAO {
 	   int addStudyRoom(StudyRoomVO studyroom);
 	   StudyRoomVO getStudyRoom(String studyno);
 	   List<StudyRoomVO> getSubcategoryList(int subjectcode);
+	   List<StudyRoomVO> getCategoryList(int categorycode);
 }

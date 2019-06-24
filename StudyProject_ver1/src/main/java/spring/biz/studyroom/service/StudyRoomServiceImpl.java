@@ -59,7 +59,10 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 		return dao.getSubcategoryList(subjectcode);
 	}
 
-	
+	@Override
+	public List<StudyRoomVO> getCategoryList(int categorycode) {
+		return dao.getCategoryList(categorycode);
+	}
 
 	
 

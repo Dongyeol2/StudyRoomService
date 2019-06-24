@@ -31,4 +31,8 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 		return sqlSession.selectList("studyroom.subjectlist", subjectcode);
 	}
 
+	@Override
+	public List<StudyRoomVO> getCategoryList(int categorycode) {
+		return sqlSession.selectList("studyroom.categorylist", categorycode);
+	}
 }

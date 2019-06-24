@@ -27,6 +27,14 @@
 		where s.subjectcode = c.subjectcode and s.subjectcode=#{s.subjectcode}
 	</select>
  	
+ 	<select id="categorylist" resultType="studyroomvo">
+		select *
+		from studyroom s, subcategory u, category c
+		where s.subjectcode = u.subjectcode 
+		and u.categorycode = c.categorycode 
+		and c.categorycode=#{c.categorycode}
+	</select>
+ 	
  </mapper>
 
 
