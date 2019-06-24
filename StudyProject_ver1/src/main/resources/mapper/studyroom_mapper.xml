@@ -37,6 +37,13 @@
 			and c.categorycode=#{c.categorycode} and s.locationcode = l.locationcode
 	</select>
  	
+ 	<select id = "searchLocGetStudyRoom" resultType="studyroomvo">
+ 		select * from studyroom where locationcode like #{locationcodeStr}||'%'
+ 	</select>
+ 	
+ 	<select id = "searchSubjectLocGetStudyRoom" resultType="studyroomvo" parameterType="map">
+ 		select * from studyroom where subjectcode = #{subjectcode} and locationcode like #{locationcode}||'%'
+ 	</select>
  </mapper>
 
 
