@@ -237,9 +237,9 @@ select{
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
 													<li><a
-														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">TOEIC-SPEAKING</a></li>
+														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=12">OPIC</a></li>
 													<li><a
-														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">OPIC</a></li>
+														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=13">TOEIC-SPEAKING</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=14">TEPS</a></li>
 													<li><a
