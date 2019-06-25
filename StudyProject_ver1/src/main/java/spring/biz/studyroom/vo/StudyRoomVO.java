@@ -12,6 +12,7 @@ public class StudyRoomVO {
 
 	public int studyno;
 	public String studytitle;
+	public int categorycode;
 	public int subjectcode;
 	public int membercnt;
 	public long locationcode;
@@ -79,7 +80,14 @@ public class StudyRoomVO {
 	}
 
 	
-	
+	public int getCategorycode() {
+		return categorycode;
+	}
+
+	public void setCategorycode(int categorycode) {
+		this.categorycode = categorycode;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -92,11 +100,12 @@ public class StudyRoomVO {
 		super();
 	}
 
-	public StudyRoomVO(int studyno, String studytitle, int subjectcode, int membercnt, long locationcode,
+	public StudyRoomVO(int studyno, String studytitle, int categorycode, int subjectcode, int membercnt, long locationcode,
 			String managerid, Date regdate, String state, String content, int viewcnt, String location, String subjectname, String phone) {
 		super();
 		this.studyno = studyno;
 		this.studytitle = studytitle;
+		this.categorycode = categorycode;
 		this.subjectcode = subjectcode;
 		this.membercnt = membercnt;
 		this.locationcode = locationcode;

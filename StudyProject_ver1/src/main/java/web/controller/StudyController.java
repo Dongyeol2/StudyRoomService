@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import spring.biz.category.service.CategoryService;
+import spring.biz.notify.service.NotifyService;
+import spring.biz.notify.vo.NotifyVO;
 import spring.biz.studymember.service.StudyMemberService;
 import spring.biz.studymember.vo.StudyMemberVO;
 import spring.biz.studyroom.service.StudyRoomService;
@@ -34,6 +36,9 @@ public class StudyController {
 	
 	@Autowired
 	SubCategoryService scservice;
+	
+	@Autowired
+	NotifyService nservice;
 	
 
 	@RequestMapping(value = "/write.do",method = RequestMethod.GET)
@@ -63,6 +68,7 @@ public class StudyController {
 		studymember.setStudyno(studyno);
 		studymember.setUserid(user.getUserid());
 		studymember.setStatus("0");
+		studymember.setAttend("0");
 		
 		System.out.println(studymember);
 		
@@ -93,6 +99,34 @@ public class StudyController {
 		mav.addObject("rooms", service.getCategoryList(categorycode));
 		mav.setViewName("studyroom/studyroom_category");
 		return mav;
+	}
+	
+	@RequestMapping("/studyroom/applystudy.do")
+	public String applyStudy(HttpServletRequest request,@RequestParam("studyno") int studyno) throws Exception {
+		System.out.println(studyno);
+		UserVO vo = (UserVO)request.getSession().getAttribute("User");
+		String managerid = nservice.getManagerId(studyno);
+		NotifyVO notify = new NotifyVO();
+		notify.setStudyno(studyno);
+		notify.setUserid(vo.getUserid());		
+		notify.setTarget_userid(managerid);
+		notify.setNotifytype("0"); 
+		notify.setNotifycheck("0");
+		
+		StudyMemberVO mvo = new StudyMemberVO();
+		mvo.setStudyno(studyno); 
+		mvo.setUserid(vo.getUserid());
+		mvo.setStatus("1");
+		mvo.setAttend("0");
+		
+		int row1 = 0; 
+		row1 = nservice.sendNotify(notify);
+		System.out.println(row1);
+		
+		int row2 = 0;
+		row2 = nservice.setAttend(mvo);
+		System.out.println(row2);
+		return "redirect:/mypage/mypage_studylist.do";
 	}
 	
 	@RequestMapping("/studyroom/view.do")

@@ -88,35 +88,6 @@
 
 	});
 
-	function studyroomCreate() {
-		f.action = "./write.do";
-		f.method = "post";
-		f.submit();
-		/* $.ajax({
-			type : "POST",
-			url : "./write.do",
-			data : {"studytitle" : $('#studytitle').val(),
-		        	"subcategory" : $('#subcategory option:selected').val(),
-		        	"location2" : $('#location2 option:selected').val(),
-		        	"membercnt" : $('#membercnt').val(),
-		        	"content" : $('#content').val()},
-			dataType : 'json',
-			success : function(data) {
-				if (data) {
-					if (data.length > 0) {
-						if(data.equals("success")){
-							alert("성공");
-						}
-					}
-				}
-			},
-			error : function(request, status, error) {
-				console.log('code:' + request.status + '\n' + 'message:'
-						+ request.responseText + '\n' + 'error:' + error);
-			}
-		}); */
-	}
-
 	function getCategoryList() {
 		$.ajax({
 			type : "GET",
@@ -540,7 +511,7 @@ select::-ms-expand {
 						<div id="a6">
 							<div class="abutton">
 								<div>
-									<button style="margin-top: 30px; width: 70%;" class="abtn" onclick="studyroomCreate()">신청하기</button>
+									<button style="margin-top: 30px; width: 70%;" class="abtn" onclick="location.href='${pageContext.request.contextPath}/write.do'">신청하기</button>
 								</div>
 							</div>
 						</div>
