@@ -47,6 +47,16 @@ public class SearchController {
 		
 		System.out.println("---------------------------------");
 		List<StudyRoomVO> studyrooms;
+		if (location2.equals("default") && subcategory.equals("default")) {
+			System.out.println("홈으로~");
+			mav.setViewName("redirect:/index.jsp");
+			mav.addObject("msg", "검색키워드를 입력해주세요");
+			
+			
+			return mav;
+		}
+		
+		
 		if(location2 == null || location2.equals("default")) { 
 			System.out.println("only subject");
 			subcategorycode = Integer.parseInt(subcategory);
