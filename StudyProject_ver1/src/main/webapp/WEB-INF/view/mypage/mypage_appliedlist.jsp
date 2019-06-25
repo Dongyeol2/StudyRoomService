@@ -41,7 +41,31 @@
 
 </head>
 <body>
-
+	<h2>지금 함께 하고 있는 스터디원</h2>
+	<table>	
+		<tr>
+			<th>no.</th>
+			
+			<th>제목</th>
+			<th>과목</th>
+			<th>지역</th>
+			<th>게시일</th>
+			<th>내용</th>
+		</tr>
+		<c:forEach var="studyList" items="${studyMemberList}" >	
+			<tr>
+				<td >${studyList.studyno} </td>
+				
+				<td >${studyList.studytitle} </td>
+				<td >${studyList.subjectcode2} </td>
+				<td >${studyList.locationcode2} </td>
+				<td >${studyList.regdate} </td>
+				<td >${studyList.content} </td>
+	
+			</tr>
+		</c:forEach>
+	</table>
+	<h2>스터디 신청자</h2>
 	<table>	
 		<tr>
 			<th>no.</th>

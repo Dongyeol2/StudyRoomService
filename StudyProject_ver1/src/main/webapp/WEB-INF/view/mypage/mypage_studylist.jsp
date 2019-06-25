@@ -56,7 +56,8 @@
 		<c:forEach var="studyList" items="${studyLists}" >	
 			<tr>
 				<td >${studyList.studyno} </td>
-				<td >${studyList.studytitle} </td>
+				<td ><a href ="${pageContext.request.contextPath}/mypage/applicationListBystudyno.do?studyno=${studyList.studyno}">${studyList.studytitle}</a> </td>
+				<%-- <td >${studyList.studytitle} </td> --%>
 				<td >${studyList.subjectcode2} </td>
 				<td >${studyList.locationcode2} </td>
 				<td >${studyList.managerid} </td>

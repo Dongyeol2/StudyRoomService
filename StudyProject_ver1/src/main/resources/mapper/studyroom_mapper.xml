@@ -60,7 +60,7 @@
  		
  	</update>
  	<select id = "viewApplicationList2" resultType="studyroomvo" parameterType="map">
- 		select * from studymember m, studyroom r where m.studyno = r.studyno and attend = 0 and r.managerid = #{userid} and m.studyno = #{studyno}
+ 		select * from studymember m, studyroom r where m.studyno = r.studyno and attend = #{attend} and r.managerid = #{userid} and m.studyno = #{studyno}
  	</select>
  </mapper>
 

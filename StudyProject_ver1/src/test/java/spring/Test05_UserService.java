@@ -33,7 +33,7 @@ public class Test05_UserService {
 	
 	@Test
 	public void viewApplicationList() {
-		List<StudyRoomVO> studyLists = studyRoomService.viewApplicationList("user02",19);
+		List<StudyRoomVO> studyLists = studyRoomService.viewApplicationList("user02",19,0);
 		
 		for (StudyRoomVO srv : studyLists) {
 			System.out.println(srv.toString());

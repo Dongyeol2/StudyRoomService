@@ -108,12 +108,13 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 		return sqlSession.selectList("studyroom.viewApplicationList", userid);
 	}
 	@Override
-	public List<StudyRoomVO> viewApplicationList(String userid, int studyno) {
+	public List<StudyRoomVO> viewApplicationList(String userid, int studyno,int attend) {
 		Map<String, String> map = new HashMap<String, String>();
 		String strStudyno = Integer.toString(studyno);
-		
+		String strAttend = Integer.toString(attend);
 		map.put("userid", userid);
 		map.put("studyno", strStudyno);
+		map.put("attend", strAttend);
 		return sqlSession.selectList("studyroom.viewApplicationList2", map);
 	}
 
