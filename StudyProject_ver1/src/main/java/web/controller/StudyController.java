@@ -76,9 +76,9 @@ public class StudyController {
 		memberrow = mservice.addStudyMember(studymember);
 		
 		//System.out.println(roomrow);
-		//System.out.println(memberrow);
-		
-		return "redirect:/mypage/mypage_studylist.do";
+		//System.out.println(memberrow);  
+		int subjectcode = Integer.parseInt(request.getParameter("subcategory"));
+		return "redirect:/subjectlist.do?subjectcode="+subjectcode;
 		
 	}
 	

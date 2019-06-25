@@ -93,6 +93,7 @@ public class UserStudyListController {
 		
 		mav.addObject("applyStudyList",applyStudyList);
 		mav.setViewName("mypage/mypage_appliedlist");
+		
 		return mav;
 	}
 	

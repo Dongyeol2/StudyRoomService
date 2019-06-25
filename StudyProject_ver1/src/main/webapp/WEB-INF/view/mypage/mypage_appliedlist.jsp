@@ -37,12 +37,25 @@
 
 <link rel="stylesheet" href="../css/style_index.css">
 <link rel="stylesheet" href="../css/result.css">
-<link rel="stylesheet" href="../css/myinfo_table.css">
+<!-- <link rel="stylesheet" href="../css/myinfo_table.css"> -->
+<link rel="stylesheet" href="../css/table.css">
+<link rel="stylesheet" href="../css/button.css">
 
 </head>
 <body>
 	<h2>지금 함께 하고 있는 스터디원</h2>
-	<table>	
+	<table class="tablea" style="margin : 30px; ">	
+		<c:if test="${empty studyMemberList }">
+			<tr>
+				<td>
+					<div class="noResult">
+						<p>스터디를 함께 하는 스터디원이 없습니다. </p>
+					</div>
+				</td>
+			</tr>
+		</c:if>
+
+		<c:if test="${!empty studyMemberList}">
 		<tr>
 			<th>no.</th>
 			
@@ -64,9 +77,22 @@
 	
 			</tr>
 		</c:forEach>
+		</c:if>
 	</table>
+	<div style="width: 100%; height: 50px;"></div>
 	<h2>스터디 신청자</h2>
-	<table>	
+	<table class="tablea" style="margin : 30px; ">	
+		<c:if test="${empty applyStudyList }">
+			<tr>
+				<td>
+					<div class="noResult">
+						<p>스터디를 신청한 스터디원이 없습니다. </p>
+					</div>
+				</td>
+			</tr>
+		</c:if>
+
+		<c:if test="${!empty applyStudyList}">
 		<tr>
 			<th>no.</th>
 			
@@ -75,8 +101,8 @@
 			<th>지역</th>
 			<th>게시일</th>
 			<th>내용</th>
-			<th>.</th>
-			<th>.</th>
+			<th>&nbsp; </th>
+			<th>&nbsp;</th>
 		</tr>
 		<c:forEach var="studyList" items="${applyStudyList}" >	
 			<tr>
@@ -87,13 +113,14 @@
 				<td >${studyList.locationcode2} </td>
 				<td >${studyList.regdate} </td>
 				<td >${studyList.content} </td>
-				<td><button>수락</button></td>
-				<td><button>거절</button></td>
+				<td><button class="abtn">수락</button></td>
+				<td><button class="abtn">거절</button></td>
 				<td></td>
 				
 	
 			</tr>
 		</c:forEach>
+		</c:if>
 	</table>
 	
 	<script src="../js/jquery-3.3.1.min.js"></script>

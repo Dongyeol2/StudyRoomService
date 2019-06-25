@@ -71,6 +71,7 @@
 					<div class="py-1">
 						<div class="row align-items-center">
 							<div class="col-2">
+								<img style="width: 20%; height: 20%;" alt="logo_studyheaven" src="../images/logo.png">
 								<h2 class="mb-0 site-logo">
 									<a href="${pageContext.request.contextPath}/index.jsp">Study<strong class="font-weight-bold">Room</strong>
 									</a>
@@ -210,7 +211,7 @@
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_studylist.do" target="iframe">나의 스터디 목록</a></li>
-				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/applicationList.do" target="iframe">신청받은 리스트</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/applicationList.do" target="iframe">신청받은 스터디 목록</a></li>
 				  <%-- <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_modify.do" target="iframe">회원 정보 수정</a></li> --%>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_myinfo.do" target="iframe">회원 정보 수정</a></li>
 				</ul>

@@ -4,7 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>My Info</title>
+<link rel="stylesheet" href="../css/table.css">
+
 <script language="JavaScript">
+
+
 function userModify() {
 	f.action= "${pageContext.request.contextPath}/mypage/mypage_modify.do";
 	f.submit();
@@ -14,6 +18,7 @@ function userModify() {
 </script>
 </head>
 <body>
+<h2>나의 정보</h2>
 <form name="f" method="post" action="">
 <table class="tablea">
 			  <tr>
