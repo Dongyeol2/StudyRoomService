@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import changeCodeToName.ChangeCodeToName;
 import spring.biz.location.service.LocationService;
+import spring.biz.studymember.service.StudyMemberService;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -32,21 +33,25 @@ public class UserStudyListController {
 	SubCategoryService subCategoryService;
 	@Autowired
 	LocationService locationService;
+	@Autowired
+	StudyMemberService studyMemberService;
 	
 	
 	@RequestMapping("/mypage/accept.do")
-	public ModelAndView accept() {
+	public ModelAndView accept(HttpServletRequest request , HttpSession session
+			,@RequestParam("studyno")int studyno,@RequestParam("userid")String userid) {
 		
 		ModelAndView mav= new ModelAndView();
+		System.out.println("accept");
 		
-		
-		
+		studyMemberService.acceptMember(userid, 1, studyno);
 		
 		
 		
 		
 		return mav;
 	}
+
 	
 	@RequestMapping("/mypage/applicationListBystudyno.do")
 	public ModelAndView viewApplicationListBystudyno(HttpServletRequest request , HttpSession session
