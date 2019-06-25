@@ -5,13 +5,12 @@
 <mapper namespace="studymember">
 	<insert id="addstudymember" parameterType="studymembervo">
 		insert into studymember
-		(studyno, userid, status)
-		values (#{studyno}, #{userid}, #{status})
+		(studyno, userid, status, attend)
+		values (#{studyno}, #{userid}, #{status},#{attend})
 	</insert>
 	<update id="">
 		update studymember set attend = 1 where userid='user07'
 	</update>
-	
  </mapper>
 
 
