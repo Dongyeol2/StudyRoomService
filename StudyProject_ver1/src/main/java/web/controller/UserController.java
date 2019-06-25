@@ -99,6 +99,9 @@ public class UserController {
 			 srv.setLocationcode2(loc);
 			 
 			 cctn.changeStateCodeToName(srv);
+			 if (srv.getManagerid().equals(vo.getUserid())) {
+				srv.setIsManager("방장");
+			}
 		 }
 		 
 		

@@ -51,6 +51,7 @@
 	<th>매니저아이디</th>
 	<th>게시일</th>
 	<th>모집상태</th>
+	<th>방장</th>
 	</tr>
 <c:forEach var="studyList" items="${studyLists}" >	
 	<tr>
@@ -61,6 +62,7 @@
 	<td >${studyList.managerid} </td>
 	<td >${studyList.regdate} </td>
 	<td >${studyList.stateName} </td>
+	<td>${studyList.isManager}</td>
 	</tr>
 	</c:forEach>
 	</table>

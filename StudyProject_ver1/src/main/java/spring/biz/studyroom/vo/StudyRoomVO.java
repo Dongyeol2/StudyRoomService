@@ -26,7 +26,16 @@ public class StudyRoomVO {
 	public String subjectcode2;
 	public String locationcode2;
 	public String stateName;
+	public String isManager;
 	
+	public String getIsManager() {
+		return isManager;
+	}
+
+	public void setIsManager(String isManager) {
+		this.isManager = isManager;
+	}
+
 	public String getStateName() {
 		return stateName;
 	}
