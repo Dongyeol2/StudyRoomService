@@ -7,6 +7,7 @@
   <typeAliases>
      <typeAlias type="spring.biz.user.vo.UserVO" alias="uservo"/>
 	 <typeAlias type="spring.biz.admin.vo.AdminVO" alias="adminvo"/>
+	 <typeAlias type="spring.biz.notify.vo.NotifyVO" alias="notifyvo"/>
 	 <typeAlias type="spring.biz.category.vo.CategoryVO" alias="categoryvo"/>
      <typeAlias type="spring.biz.subcategory.vo.SubCategoryVO" alias="subcategoryvo"/>
      <typeAlias type="spring.biz.studyroom.vo.StudyRoomVO" alias="studyroomvo"/>
@@ -35,6 +36,7 @@
        <mapper resource="mapper/studyroom_mapper.xml"/>
        <mapper resource="mapper/studymember_mapper.xml"/>  
        <mapper resource="mapper/location_mapper.xml"/> 
+       <mapper resource="mapper/notify_mapper.xml"/> 
        
       <!-- <mapper resource="mapper/board_mapper.xml"/> -->
   </mappers>

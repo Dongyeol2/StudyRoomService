@@ -10,13 +10,14 @@ public class NotifyVO {
 	public int studyno;
 	public Date notifydate;
 	public String notifycheck;
+	public String status;
 	
 	public NotifyVO() {
 		super();
 	}
 	
 	public NotifyVO(int seq, String userid, String target_userid, String notifytype, int studyno, Date notifydate,
-			String notifycheck) {
+			String notifycheck, String status) {
 		super();
 		this.seq = seq;
 		this.userid = userid;
@@ -25,6 +26,7 @@ public class NotifyVO {
 		this.studyno = studyno;
 		this.notifydate = notifydate;
 		this.notifycheck = notifycheck;
+		this.status = status;
 	}
 
 	public int getSeq() {
@@ -81,6 +83,14 @@ public class NotifyVO {
 
 	public void setNotifycheck(String notifycheck) {
 		this.notifycheck = notifycheck;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notify">
+	<select id="getmanagerid" resultType="String">
+		   select managerid from studyroom where studyno=#{studyno}
+	</select>
+	
+	<insert id="sendnotify">
+	     insert into notify
+		(seq, userid, target_userid, notifytype, studyno, notifycheck)
+		values ((select nvl(max(seq),0)+1 from notify), #{userid}, #{target_userid}, #{notifytype}, #{studyno}, #{notifycheck})
+	</insert>
+	
+	<insert id="setattend" parameterType="studymembervo">
+	     insert into studymember
+		(studyno, userid, status, attend)
+		values (#{studyno}, #{userid}, #{status},#{attend})
+	</insert>
+ </mapper>
+
+
+
+
+
+
+
+
+
+
