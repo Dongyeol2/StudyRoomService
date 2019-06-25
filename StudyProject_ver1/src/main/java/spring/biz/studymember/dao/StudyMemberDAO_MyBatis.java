@@ -1,5 +1,8 @@
 package spring.biz.studymember.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,5 +20,13 @@ public class StudyMemberDAO_MyBatis implements StudyMemberDAO{
 	@Override
 	public int addStudyMember(StudyMemberVO studymember) {
 		return sqlSession.insert("studymember.addstudymember",studymember);
+	}
+
+
+	@Override
+	public int acceptMember(String userid , int check) {
+		// TODO Auto-generated method stub
+		Map<String, String> map = new HashMap<String, String>();
+		return sqlSession.update("studymember.acceptMember", userid);
 	}
 }

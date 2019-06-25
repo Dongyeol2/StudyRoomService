@@ -8,6 +8,10 @@
 		(studyno, userid, status)
 		values (#{studyno}, #{userid}, #{status})
 	</insert>
+	<update id="">
+		update studymember set attend = 1 where userid='user07'
+	</update>
+	
  </mapper>
 
 

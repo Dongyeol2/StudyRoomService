@@ -101,4 +101,10 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 		return dao.viewApplicationList(userid,studyno,attend);
 	}
 
+	@Override
+	public StudyRoomVO getStudyRoom(int studyno) {
+		// TODO Auto-generated method stub
+		return dao.getStudyRoom(studyno);
+	}
+
 }

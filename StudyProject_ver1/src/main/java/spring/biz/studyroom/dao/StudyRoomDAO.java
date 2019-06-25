@@ -16,4 +16,5 @@ public interface StudyRoomDAO {
 	   List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode , long locCode);
 	   List<StudyRoomVO> viewApplicationList(String userid);
 	   List<StudyRoomVO> viewApplicationList(String userid, int studyno,int attend);
+	   StudyRoomVO getStudyRoom(int studyno);
 }
