@@ -107,5 +107,14 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("studyroom.viewApplicationList", userid);
 	}
+	@Override
+	public List<StudyRoomVO> viewApplicationList(String userid, int studyno) {
+		Map<String, String> map = new HashMap<String, String>();
+		String strStudyno = Integer.toString(studyno);
+		
+		map.put("userid", userid);
+		map.put("studyno", strStudyno);
+		return sqlSession.selectList("studyroom.viewApplicationList2", map);
+	}
 
 }
