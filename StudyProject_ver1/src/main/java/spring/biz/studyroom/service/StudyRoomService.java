@@ -14,5 +14,6 @@ public interface StudyRoomService {
 	   int updateRoom(StudyRoomVO studyroom);
 	   int removeRoom(String studyno);
 	   List<StudyRoomVO> searchLocGetStudyRoom(long locCode); 
-	   List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode , long locCode); 
+	   List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode , long locCode);
+	   List<StudyRoomVO> viewApplicationList(String userid);
 }

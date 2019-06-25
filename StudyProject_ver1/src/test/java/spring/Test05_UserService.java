@@ -31,6 +31,16 @@ public class Test05_UserService {
 	@Autowired
 	StudyRoomService studyRoomService;
 	
+	@Test
+	public void viewApplicationList() {
+		List<StudyRoomVO> studyLists = studyRoomService.viewApplicationList("user02");
+		
+		for (StudyRoomVO srv : studyLists) {
+			System.out.println(srv.toString());
+		}
+	}
+	
+	
 	//@Test
 	public void searchLocGetStudyRoom() {
 		List<StudyRoomVO> studyLists = studyRoomService.searchLocGetStudyRoom(1168064000);

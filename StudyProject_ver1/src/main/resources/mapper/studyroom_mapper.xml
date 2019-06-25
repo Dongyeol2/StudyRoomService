@@ -51,6 +51,10 @@
  	<select id = "searchSubjectLocGetStudyRoom" resultType="studyroomvo" parameterType="map">
  		select * from studyroom where subjectcode = #{subjectcode} and locationcode like #{locationcode}||'%'
  	</select>
+ 	<select id = "viewApplicationList" resultType="studyroomvo">
+ 		select * from studymember m, studyroom r where m.studyno = r.studyno and attend = 0 and r.managerid = #{userid}
+ 	</select>
+ 	
  </mapper>
 
 

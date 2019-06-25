@@ -82,14 +82,17 @@ public class StudyRoomServiceImpl implements StudyRoomService{
 	
 	@Override
 	public List<StudyRoomVO> searchLocGetStudyRoom(long locCode) {
-		// TODO Auto-generated method stub
 		return dao.searchLocGetStudyRoom(locCode);
 	}
 
 	@Override
 	public List<StudyRoomVO> searchSubjectLocGetStudyRoom(int subjectCode, long locCode) {
-		// TODO Auto-generated method stub
 		return dao.searchSubjectLocGetStudyRoom(subjectCode, locCode);
+	}
+
+	@Override
+	public List<StudyRoomVO> viewApplicationList(String userid) {
+		return dao.viewApplicationList(userid);
 	}
 
 }

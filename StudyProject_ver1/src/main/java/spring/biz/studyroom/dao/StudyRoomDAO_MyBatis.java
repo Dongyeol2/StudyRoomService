@@ -102,4 +102,10 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 		return sqlSession.selectList("studyroom.searchSubjectLocGetStudyRoom", map);
 	}
 
+	@Override
+	public List<StudyRoomVO> viewApplicationList(String userid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("studyroom.viewApplicationList", userid);
+	}
+
 }
