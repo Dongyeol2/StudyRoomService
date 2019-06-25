@@ -210,7 +210,7 @@
 				<ul class="sidemenu">
 				  <li class="sidemenu"><a class="active" href="#">&nbsp;</a></li>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_studylist.do" target="iframe">나의 스터디 목록</a></li>
-				  <li class="sidemenu"><a href="#">스터디 예약 목록</a></li>
+				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/applicationList.do" target="iframe">신청받은 리스트</a></li>
 				  <%-- <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_modify.do" target="iframe">회원 정보 수정</a></li> --%>
 				  <li class="sidemenu"><a href="${pageContext.request.contextPath}/mypage/mypage_myinfo.do" target="iframe">회원 정보 수정</a></li>
 				</ul>

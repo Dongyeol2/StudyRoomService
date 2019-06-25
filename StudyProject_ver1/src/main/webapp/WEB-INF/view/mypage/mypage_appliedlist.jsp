@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mypage_MyStudyList</title>
+<title>Mypage_AppliedList</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,27 +45,27 @@
 	<table>	
 		<tr>
 			<th>no.</th>
+			
 			<th>제목</th>
 			<th>과목</th>
-			<th>위치</th>
-			<th>매니저아이디</th>
+			<th>지역</th>
 			<th>게시일</th>
-			<th>모집상태</th>
-			<th>방장</th>
+			<th>내용</th>
 		</tr>
-		<c:forEach var="studyList" items="${studyLists}" >	
+		<c:forEach var="studyList" items="${applyStudyList}" >	
 			<tr>
 				<td >${studyList.studyno} </td>
+				
 				<td >${studyList.studytitle} </td>
 				<td >${studyList.subjectcode2} </td>
 				<td >${studyList.locationcode2} </td>
-				<td >${studyList.managerid} </td>
 				<td >${studyList.regdate} </td>
-				<td >${studyList.stateName} </td>
-				<td>${studyList.isManager}</td>
+				<td >${studyList.content} </td>
+	
 			</tr>
 		</c:forEach>
 	</table>
+	
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="../js/jquery-ui.js"></script>
