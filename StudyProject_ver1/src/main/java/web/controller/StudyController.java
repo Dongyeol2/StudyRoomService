@@ -80,7 +80,7 @@ public class StudyController {
 	public ModelAndView subjectcatory(@RequestParam("subjectcode") int subjectcode) throws Exception{
 		ModelAndView mav = new ModelAndView();
 
-		
+		System.out.println("들어왔슈");
 		mav.addObject("rooms", service.getSubcategoryList(subjectcode));
 		
 		mav.setViewName("studyroom/studyroom_subject");

@@ -382,7 +382,7 @@ select::-ms-expand {
 		<section>
 
 			<div>
-				<table class="tables">
+				<table class="tables" style="width: 70%;">
 					<tr>
 						<td>
 							<form action="${pageContext.request.contextPath}/search.do">
@@ -409,7 +409,7 @@ select::-ms-expand {
 													</select>
 												</div>
 												<div class="dropdown" id="s3">
-													<select class="selectpicker" name="location1"
+													<select style="border: 1px gray solid;" class="selectpicker" name="location1"
 														id="location1">
 														<option id="do_si" value="default" selected="selected">도,시</option>
 														<c:forEach var="data" items="${location1 }">
