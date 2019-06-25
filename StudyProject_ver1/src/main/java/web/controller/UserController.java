@@ -50,14 +50,16 @@ public class UserController {
 		
 		//UserVO vo = (UserVO) session.getAttribute("login");
 		UserVO vo = (UserVO)request.getSession().getAttribute("User");
+		UserVO dbVo = service.getUser(vo.getUserid());
+		
 		ModelAndView mav= new ModelAndView();
-		if(vo.getUserid().equals("admin")) {
+		if(dbVo.getUserid().equals("admin")) {
 			mav.addObject("users", adminService.getUserList());
 			mav.addObject("rooms", adminService.getStudyRoomList());
 			mav.setViewName("admin/admin_main");
 		}else {
 			System.out.println("mypage로 이동");
-			mav.addObject("user",vo);
+			mav.addObject("user",dbVo);
 			mav.setViewName("mypage/mypage_myinfo");	
 		}
 		return mav;
