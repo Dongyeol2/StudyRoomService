@@ -75,6 +75,8 @@
 			<th>지역</th>
 			<th>게시일</th>
 			<th>내용</th>
+			<th>.</th>
+			<th>.</th>
 		</tr>
 		<c:forEach var="studyList" items="${applyStudyList}" >	
 			<tr>
@@ -85,6 +87,10 @@
 				<td >${studyList.locationcode2} </td>
 				<td >${studyList.regdate} </td>
 				<td >${studyList.content} </td>
+				<td><button>수락</button></td>
+				<td><button>거절</button></td>
+				<td></td>
+				
 	
 			</tr>
 		</c:forEach>

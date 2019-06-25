@@ -382,7 +382,7 @@ select::-ms-expand {
 		<section>
 
 			<div>
-				<table class="tables"  style="width: 70%;">
+				<table class="tables"  style="width: 75%;">
 					<tr>
 						<td>
 							<form action="${pageContext.request.contextPath}/search.do">

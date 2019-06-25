@@ -221,7 +221,7 @@
 		</aside>
 		
 		<section>
-			<iframe name="iframe" width="100%" height="100%" style="border:none;  overflow-y:hidden;"   scrolling="no" src = "${pageContext.request.contextPath}/mypage/mypage_myinfo.do">
+			<iframe name="iframe" width="100%" height="100%" style="border:none;   src = "${pageContext.request.contextPath}/mypage/mypage_myinfo.do">
 				
 			</iframe>
 		</section>

@@ -118,4 +118,10 @@ public class StudyRoomDAO_MyBatis implements StudyRoomDAO{
 		return sqlSession.selectList("studyroom.viewApplicationList2", map);
 	}
 
+	@Override
+	public StudyRoomVO getStudyRoom(int studyno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("studyroom.getstudyroom1",studyno);
+	}
+
 }

@@ -34,6 +34,20 @@ public class UserStudyListController {
 	LocationService locationService;
 	
 	
+	@RequestMapping("/mypage/accept.do")
+	public ModelAndView accept() {
+		
+		ModelAndView mav= new ModelAndView();
+		
+		
+		
+		
+		
+		
+		
+		return mav;
+	}
+	
 	@RequestMapping("/mypage/applicationListBystudyno.do")
 	public ModelAndView viewApplicationListBystudyno(HttpServletRequest request , HttpSession session
 			,@RequestParam("studyno")int studyno) {
@@ -73,8 +87,10 @@ public class UserStudyListController {
 				 cctn.changeStateCodeToName(srv);
 				 //System.out.println(srv.toString());//
 				}
+		if(studyRoomService.getStudyRoom(studyno).getManagerid().equals(vo.getUserid())) {
+			mav.addObject("studyMemberList",studyMemberList);
+		}
 		
-		mav.addObject("studyMemberList",studyMemberList);
 		mav.addObject("applyStudyList",applyStudyList);
 		mav.setViewName("mypage/mypage_appliedlist");
 		return mav;
