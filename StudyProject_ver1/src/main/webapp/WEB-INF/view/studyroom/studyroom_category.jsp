@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Study Heaven &mdash; CSearch </title>
+<title>Study Heaven &mdash; CSearch</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -217,23 +217,23 @@ section {
 footer {
 	height: 400px;
 }
+
 select {
-width: 200px;
-padding: .8em .5em;
-border: 1px solid #999;
-font-family: inherit;
-background: url('images/arrow.png') no-repeat 95% 50%;
-border-radius: 0px;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-background-color: white;
+	width: 200px;
+	padding: .8em .5em;
+	border: 1px solid #999;
+	font-family: inherit;
+	background: url('images/arrow.png') no-repeat 95% 50%;
+	border-radius: 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: white;
 }
 
 select::-ms-expand {
-    display: none;
+	display: none;
 }
-
 </style>
 </head>
 <body>
@@ -276,7 +276,8 @@ select::-ms-expand {
 										</div>
 
 										<ul class="site-menu js-clone-nav d-none d-lg-block">
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
@@ -293,7 +294,8 @@ select::-ms-expand {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
@@ -308,7 +310,8 @@ select::-ms-expand {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
@@ -321,14 +324,16 @@ select::-ms-expand {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
@@ -337,7 +342,8 @@ select::-ms-expand {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
@@ -349,7 +355,8 @@ select::-ms-expand {
 													href="${pageContext.request.contextPath}/login.do">로 그
 														인</a>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/user/add.do">회 원 가 입</a>
+													href="${pageContext.request.contextPath}/user/add.do">회
+														원 가 입</a>
 											</c:if>
 											<c:if test="${!empty login}">
 												<li><a class="menu"
@@ -378,60 +385,63 @@ select::-ms-expand {
 				<table class="tables">
 					<tr>
 						<td>
-						<form action="${pageContext.request.contextPath}/search.do">
-							<div class="row mb-3">
-								<div class="col-md-9">
-									<div class="row">
-										<div class="col-sm-10">
-											<div class="dropdown" id="s1">
-												<select class="selectpicker" name="category" id="category">
-													<option id="big" value="default" selected="selected">대분류</option>
-													<c:forEach var="scateData" items="${category }">
-														<option value="${scateData.categorycode}">${scateData.categoryname }</option>
-													</c:forEach>
-												</select>
+							<form action="${pageContext.request.contextPath}/search.do">
+								<div class="row mb-3">
+									<div class="col-md-9">
+										<div class="row">
+											<div class="col-sm-10">
+												<div class="dropdown" id="s1">
+													<select class="selectpicker" name="category" id="category">
+														<option id="big" value="default" selected="selected">대분류</option>
+														<c:forEach var="scateData" items="${category }">
+															<option value="${scateData.categorycode}">${scateData.categoryname }</option>
+														</c:forEach>
+													</select>
 
-											</div>
-											<div class="dropdown" id="s2">
-												<select class="selectpicker" name="subcategory"
-													id="subcategory">
-													<option id="small" value="default" selected="selected">소분류</option>
-													<c:forEach var="scateData" items="${subcategory }">
-														<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
-													</c:forEach>
-												</select>
-											</div>
-											<div class="dropdown" id="s3">
-												<select class="selectpicker" name="location1" id="location1">
-													<option id="do_si" value="default" selected="selected">도,시</option>
-													<c:forEach var="data" items="${location1 }">
-														<option value="${data.loc1 }">${data.loc1 }></option>
-													</c:forEach>
-												</select>
-											</div>
-											<div class="dropdown" id="s4">
-												<select class="selectpicker" name="location2" id="location2">
-													<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
-													<c:forEach var="data" items="${location2 }">
-														<option value="${data.loc2 }">${data.loc2 }></option>
-													</c:forEach>
-												</select>
+												</div>
+												<div class="dropdown" id="s2">
+													<select class="selectpicker" name="subcategory"
+														id="subcategory">
+														<option id="small" value="default" selected="selected">소분류</option>
+														<c:forEach var="scateData" items="${subcategory }">
+															<option value="${scateData.subjectcode }">${scateData.subjectname }></option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="dropdown" id="s3">
+													<select class="selectpicker" name="location1"
+														id="location1">
+														<option id="do_si" value="default" selected="selected">도,시</option>
+														<c:forEach var="data" items="${location1 }">
+															<option value="${data.loc1 }">${data.loc1 }></option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="dropdown" id="s4">
+													<select class="selectpicker" name="location2"
+														id="location2">
+														<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
+														<c:forEach var="data" items="${location2 }">
+															<option value="${data.loc2 }">${data.loc2 }></option>
+														</c:forEach>
+													</select>
+												</div>
 											</div>
 										</div>
 									</div>
+									<div class="col-md-3">
+										<input type="submit"
+											class="btn btn-search btn-primary btn-block" value="Search">
+									</div>
 								</div>
-								<div class="col-md-3">
-									<input type="submit"
-										class="btn btn-search btn-primary btn-block" value="Search">
-								</div>
-							</div>
 
-						</form>
+							</form>
 						</td>
 					</tr>
 				</table>
 
-				<div style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top : -50px; margin-bottom: 50px;"></div>
+				<div
+					style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top: -50px; margin-bottom: 50px;"></div>
 				<div>
 					<form name="f" method="get"
 						action="${pageContext.request.contextPath}/write.do">
@@ -451,42 +461,52 @@ select::-ms-expand {
 						<table style="width: 550px" class="tablea">
 							<c:if test="${!empty rooms }">
 
-							<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
-							<c:forEach var="room" items="${rooms}">
-						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
-								<tr>
-									<td>
-										<div  class="studyinfo">
-										<div class="detailinfo">
-										<c:if test="${room.state.equals('0')}">  
-										<span id="state">모집중</span>  
-										</c:if>  
-										<c:if test="${room.state.equals('1')}">
-										<span id="stated">모집완료</span>      
-										</c:if>									  
-											<span id="location">${room.location}</span>
-											<span id="subjectname">${room.subjectname}</span>
-											<span id="subcategory">  
-												<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}&locationcode=${room.locationcode}&subjectcode=${room.subjectcode}">
-											${room.studytitle}</a>
-											</span>
-											<span id="regdate">게시일 : ${room.regdate}</span>
-											<span id="viewcnt">조회수 : ${room.viewcnt}</span>   
-										</div>
-										<hr color="gray">
-										<div class="detailinfo">
-											<pre>${room.content}</pre>										
-											<c:if test="${login ne null }">
-											<button onclick="applyStudy()">스터디 신청하기</button>
-											</c:if>
-										</div>										
-									</div>
-									</td>
-								</tr>
-							</c:forEach>
+								<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
+								<c:forEach var="room" items="${rooms}">
+									<input type="hidden" name="studyno" id="studyno"
+										value="${room.studyno }">
+									<tr>
+										<td>
+											<div class="studyinfo">
+												<div class="detailinfo">
+													<div class="">
+														<c:if test="${room.state.equals('0')}">
+															<span id="state">모집중</span>
+														</c:if>
+														<c:if test="${room.state.equals('1')}">
+															<span id="stated">모집완료</span>
+														</c:if>
+														<span id="location">${room.location}</span> <span
+															id="subjectname">${room.subjectname}</span>
+													</div>
+													<div id="bdiv">
+														<div id="ldiv">
+															<span id="subcategory"> <a
+																href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}&locationcode=${room.locationcode}&subjectcode=${room.subjectcode}">
+																	${room.studytitle}</a>
+															</span>
+														</div>
+														<div id="rdiv">
+															<span id="regdate">게시일 : ${room.regdate}</span> <span
+																id="viewcnt">조회수 : ${room.viewcnt}</span>
+														</div>
+													</div>
+												</div>
+												<hr color="gray">
+												<div class="detailinfo">
+													<pre>${room.content}</pre>
+													<c:if test="${login ne null }">
+														<button onclick="applyStudy()">스터디 신청하기</button>
+													</c:if>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</c:forEach>
 							</c:if>
 						</table>
-						<table style="margin: 0 auto; margin-top :30px; margin-bottom: 30px;">
+						<table
+							style="margin: 0 auto; margin-top: 30px; margin-bottom: 30px;">
 							<tr>
 								<td><input class="abtn" type="submit" value="방 추가" /></td>
 							</tr>
@@ -497,7 +517,7 @@ select::-ms-expand {
 
 		</section>
 
- 		<footer class="site-footer">
+		<footer class="site-footer">
 			<div class="container">
 
 
@@ -533,15 +553,16 @@ select::-ms-expand {
 
 							</p>
 							<p>
-								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-								Copyright &copy;
+								Link back to Colorlib can't be removed. Template is licensed
+								under CC BY 3.0. Copyright &copy;
 								<script>
 									document.write(new Date().getFullYear());
 								</script>
 								All Rights Reserved | This template is made with <i
 									class="icon-heart text-warning" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+									href="https://colorlib.com" target="_blank">Colorlib</a> Link
+								back to Colorlib can't be removed. Template is licensed under CC
+								BY 3.0.
 							</p>
 						</div>
 					</div>
@@ -549,16 +570,16 @@ select::-ms-expand {
 				<div class="row pt-5 mt-5 text-center">
 					<div class="col-md-12">
 						<p>
-							Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-							Copyright &copy;
+							Link back to Colorlib can't be removed. Template is licensed
+							under CC BY 3.0. Copyright &copy;
 							<script>
 								document.write(new Date().getFullYear());
 							</script>
 							All Rights Reserved | This template is made with <i
 								class="icon-heart text-warning" aria-hidden="true"></i> by <a
 								href="https://colorlib.com" target="_blank"><b> Colorlib
-							</b></a>
-							Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+							</b></a> Link back to Colorlib can't be removed. Template is licensed
+							under CC BY 3.0.
 						</p>
 					</div>
 				</div>

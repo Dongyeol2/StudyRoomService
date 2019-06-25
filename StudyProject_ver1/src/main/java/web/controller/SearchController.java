@@ -51,6 +51,7 @@ public class SearchController {
 			System.out.println("only subject");
 			subcategorycode = Integer.parseInt(subcategory);
 			studyrooms = studyRoomService.getSubcategoryList(subcategorycode);
+			System.out.println(studyrooms);
 			
 		} else if(location2 != null &&  subcategory == null || subcategory.equals("default")) {
 			String distinguish = location2.substring(3, 4);
@@ -75,7 +76,8 @@ public class SearchController {
 			locationcode= Long.parseLong(location2);
 			studyrooms = studyRoomService.searchSubjectLocGetStudyRoom(subcategorycode, locationcode);
 		}
-		
+		System.out.println(studyrooms);
+
 		
 		for(StudyRoomVO srv :studyrooms) {
 			ChangeCodeToName cctn = new ChangeCodeToName();
@@ -92,8 +94,9 @@ public class SearchController {
 		mav.addObject("studyrooms",studyrooms);
 		//mav.addObject("studyrooms",studyRoomService.searchSubjectLocGetStudyRoom(subcategorycode, locationcode));
 		//mav.setViewName("${pageContext.request.contextPath}/search");
-		mav.setViewName("search");
-	
+		mav.setViewName("studyroom/studyroom_indexsearch");
+		System.out.println(studyrooms);
+
 		
 		return mav;
 	}

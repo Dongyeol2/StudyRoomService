@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Study Heaven &mdash; SCSearch</title>
+<title>Study Heaven &mdash; ISearch</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -446,7 +446,7 @@ select::-ms-expand {
 					<form name="f" method="get"
 						action="${pageContext.request.contextPath}/write.do">
 						<table style="width: 550px" class="tablea">
-							<c:if test="${empty rooms }">
+							<c:if test="${empty studyrooms }">
 								<tr>
 									<td>
 										<div class="noResult">
@@ -459,10 +459,10 @@ select::-ms-expand {
 						</table>
 
 						<table style="width: 550px" class="tablea">
-							<c:if test="${!empty rooms }">
+							<c:if test="${!empty studyrooms }">
 
 								<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
-								<c:forEach var="room" items="${rooms}">
+								<c:forEach var="StudyRoomVO" items="${studyrooms}">
 									<input type="hidden" name="studyno" id="studyno"
 										value="${room.studyno }">
 									<tr>
@@ -470,31 +470,31 @@ select::-ms-expand {
 											<div class="studyinfo">
 												<div class="detailinfo">
 													<div class="">
-														<c:if test="${room.state.equals('0')}">
+														<c:if test="${StudyRoomVO.state.equals('0')}">
 															<span id="state">모집중</span>
 														</c:if>
-														<c:if test="${room.state.equals('1')}">
+														<c:if test="${StudyRoomVO.state.equals('1')}">
 															<span id="stated">모집완료</span>
 														</c:if>
-														<span id="location">${room.location}</span> <span
-															id="subjectname">${room.subjectname}</span>
+														<span id="location">${StudyRoomVO.locationcode2}</span> <span
+															id="subjectname">${StudyRoomVO.subjectcode2}</span>
 													</div>
 													<div id="bdiv">
 														<div id="ldiv">
 															<span id="subcategory"> <a
 																href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}&locationcode=${room.locationcode}&subjectcode=${room.subjectcode}">
-																	${room.studytitle}</a>
+																	${StudyRoomVO.studytitle}</a>
 															</span>
 														</div>
 														<div id="rdiv">
-															<span id="regdate">게시일 : ${room.regdate}</span> <span
-																id="viewcnt">조회수 : ${room.viewcnt}</span>
+															<span id="regdate">게시일 : ${StudyRoomVO.regdate}</span> <span
+																id="viewcnt">조회수 : ${StudyRoomVO.viewcnt}</span>
 														</div>
 													</div>
 												</div>
 												<hr color="gray">
 												<div class="detailinfo">
-													<pre>${room.content}</pre>
+													<pre>${StudyRoomVO.content}</pre>
 													<c:if test="${login ne null }">
 														<button onclick="applyStudy()">스터디 신청하기</button>
 													</c:if>
