@@ -12,6 +12,9 @@
 		update studymember set attend = #{check} where userid=#{userid}  
 		and studyno = #{studyno}
 	</update>
+	<select id = "getUserList" resultType="studymembervo">
+		select * from studymember where studyno = #{studyno}
+	</select>
  </mapper>
 
 

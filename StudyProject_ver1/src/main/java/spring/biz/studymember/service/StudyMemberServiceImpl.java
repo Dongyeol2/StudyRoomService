@@ -1,5 +1,7 @@
 package spring.biz.studymember.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import spring.biz.studymember.dao.StudyMemberDAO;
 import spring.biz.studymember.vo.StudyMemberVO;
+import spring.biz.user.vo.UserVO;
 
 @Service("studymemberservice")
 public class StudyMemberServiceImpl implements StudyMemberService{
@@ -54,6 +57,12 @@ public class StudyMemberServiceImpl implements StudyMemberService{
 	public int acceptMember(String userid,int check, int studyno) {
 		// TODO Auto-generated method stub
 		return dao.acceptMember(userid,check,studyno);
+	}
+
+	@Override
+	public List<StudyMemberVO> getUserList(int studyno) {
+		// TODO Auto-generated method stub
+		return dao.getUserList(studyno);
 	}
 
 }

@@ -1,5 +1,6 @@
 package spring;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.biz.location.service.LocationService;
 import spring.biz.studymember.service.StudyMemberService;
+import spring.biz.studymember.vo.StudyMemberVO;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -34,9 +36,21 @@ public class Test05_UserService {
 	@Autowired
 	StudyMemberService studyMemberService;
 	
-	@Test
+	//@Test
+	public void getUserList() {
+		List<StudyMemberVO> StudyMemberLists = studyMemberService.getUserList(19);
+		//List<UserVO> userList = new ArrayList<UserVO>();
+		UserVO user;
+		for (StudyMemberVO StudyMember : StudyMemberLists) {
+			user = service.getUser(StudyMember.getUserid());
+			System.out.println(user.toString());
+		}
+	}
+	
+	
+	//@Test
 	public void accept() {
-		System.out.println(studyMemberService.acceptMember("user02", 1,45));
+		System.out.println(studyMemberService.acceptMember("abccc", 1 ,29));
 	}
 	
 	//@Test

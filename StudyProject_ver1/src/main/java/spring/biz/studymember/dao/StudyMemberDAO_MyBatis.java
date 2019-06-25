@@ -1,6 +1,7 @@
 package spring.biz.studymember.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import spring.biz.studymember.vo.StudyMemberVO;
+import spring.biz.user.vo.UserVO;
 
 @Repository("studymembermybatis")
 public class StudyMemberDAO_MyBatis implements StudyMemberDAO{
@@ -26,6 +28,7 @@ public class StudyMemberDAO_MyBatis implements StudyMemberDAO{
 	@Override
 	public int acceptMember(String userid , int check , int studyno) {
 		// TODO Auto-generated method stub
+		System.out.println("acceptMember : " + userid + check);
 		Map<String, String> map = new HashMap<String, String>();
 		String strCheck = Integer.toString(check);
 		String strStudyno = Integer.toString(studyno);
@@ -33,5 +36,12 @@ public class StudyMemberDAO_MyBatis implements StudyMemberDAO{
 		map.put("check", strCheck);
 		map.put("studyno", strStudyno);
 		return sqlSession.update("studymember.acceptMember",map);
+	}
+
+
+	@Override
+	public List<StudyMemberVO> getUserList(int studyno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("studymember.getUserList", studyno);
 	}
 }
