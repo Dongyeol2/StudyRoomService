@@ -451,7 +451,7 @@ select::-ms-expand {
 									<td>
 										<div class="noResult">
 											<p>스터디가 없습니다.</p>
-											<a href="#">예약하러 가기</a>
+											<a href="${pageContext.request.contextPath}/login.do">로그인이 필요한 서비스 입니다.</a>
 										</div>
 									</td>
 								</tr>
