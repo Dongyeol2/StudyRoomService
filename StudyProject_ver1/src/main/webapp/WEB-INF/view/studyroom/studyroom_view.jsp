@@ -323,8 +323,8 @@ select::-ms-expand {
 							<c:if test="${room.managerid ne login}">
 								<tr>
 									<td align=center><c:if test="${login ne null }">
-											<!-- <button onclick="applyStudy()">스터디 신청하기</button> -->
-											<input class="btn" type="button" value="참가하기" onClick="applyStudy()"> &nbsp;
+											<button type="button" onclick="location.href='${pageContext.request.contextPath}/studyroom/applystudy.do?studyno=${room.studyno }'">스터디 신청하기</button> 
+											<!-- <input class="btn" type="button" value="참가하기" onClick="applyStudy()"> --> &nbsp;
 							</c:if> <input class="btn" type="button" value="목록" onClick="roomList()"></td>
 								</tr>
 							</c:if>

@@ -496,7 +496,7 @@ select::-ms-expand {
 												<div class="detailinfo">
 													<pre>${room.content}</pre>
 													<c:if test="${login ne null }">
-														<button onclick="applyStudy()">스터디 신청하기</button>
+														<button type="button" onclick="location.href='${pageContext.request.contextPath}/studyroom/applystudy.do?studyno=${room.studyno }'">스터디 신청하기</button>
 													</c:if>
 												</div>
 											</div>
