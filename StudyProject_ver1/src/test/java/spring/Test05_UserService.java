@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.biz.location.service.LocationService;
+import spring.biz.studymember.service.StudyMemberService;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -30,8 +31,15 @@ public class Test05_UserService {
 	LocationService locationService;
 	@Autowired
 	StudyRoomService studyRoomService;
+	@Autowired
+	StudyMemberService studyMemberService;
 	
 	@Test
+	public void accept() {
+		System.out.println(studyMemberService.acceptMember("user02", 1,45));
+	}
+	
+	//@Test
 	public void viewApplicationList() {
 		List<StudyRoomVO> studyLists = studyRoomService.viewApplicationList("user02",19,0);
 		

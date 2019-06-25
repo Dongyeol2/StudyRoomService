@@ -51,9 +51,9 @@ public class StudyMemberServiceImpl implements StudyMemberService{
 	}
 
 	@Override
-	public int acceptMember(String userid,int check) {
+	public int acceptMember(String userid,int check, int studyno) {
 		// TODO Auto-generated method stub
-		return dao.acceptMember(userid,check);
+		return dao.acceptMember(userid,check,studyno);
 	}
 
 }

@@ -24,9 +24,14 @@ public class StudyMemberDAO_MyBatis implements StudyMemberDAO{
 
 
 	@Override
-	public int acceptMember(String userid , int check) {
+	public int acceptMember(String userid , int check , int studyno) {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<String, String>();
-		return sqlSession.update("studymember.acceptMember", userid);
+		String strCheck = Integer.toString(check);
+		String strStudyno = Integer.toString(studyno);
+		map.put("userid", userid);
+		map.put("check", strCheck);
+		map.put("studyno", strStudyno);
+		return sqlSession.update("studymember.acceptMember",map);
 	}
 }
