@@ -98,7 +98,10 @@ public class StudyController {
 	@RequestMapping("/studyroom/view.do")
 	public ModelAndView roomView(@RequestParam("studyno") int studyno, @RequestParam("locationcode") long locationcode, @RequestParam("subjectcode") int subjectcode) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("room", service.getStudyRoom(studyno, locationcode, subjectcode));
+		StudyRoomVO room = service.getStudyRoom(studyno, locationcode, subjectcode);
+		room.setViewcnt(room.getViewcnt()+1);
+		mav.addObject("room", room);
+//		mav.addObject("room", service.getStudyRoom(studyno, locationcode, subjectcode));
 		mav.setViewName("studyroom/studyroom_view");
 		return mav;
 	}

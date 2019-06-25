@@ -8,7 +8,7 @@
 }
 
 body{
-	background-color: orange;
+	background-color:  #e6ffe6;
 	
 }
 
@@ -23,19 +23,51 @@ body{
 	height: 500%;
 }
 
-#atitle div{
+#atitle	input{
 	width: 100%;
 }
 
 input[type=number], input[type=text], select {
-  padding: 12px 20px;
+  padding: 25px 20px;
   margin: 8px 0;
   display: inline-block;  
   border: 1px solid #ccc;
   border-radius: 4px;  
   box-sizing: border-box;
-  height: 10px;  
+  height: 20px;  
 }    
+#a1, #a2, #a3, #a4{
+	margin: 20px;
+	width: 80%;
+}
+
+.ausername, .aphone{
+	display: inline-block;
+	width: 40%;
+}
+
+.acategory, .aregdate{
+	display: inline-block;
+	width: 40%;
+}
+
+
+.alocation, .amembercnt{
+	display: inline;
+	width: 40%;
+}
+
+#c1, #c2{
+	display: inline-block;
+}
+
+#mc, .regdate{
+	float : right;	
+}
+
+#location1, #location2{
+	display: inline-block;
+}
 
 input[type=submit] {
   width: 100%;

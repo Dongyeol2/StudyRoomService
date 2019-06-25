@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Study Heaven &mdash; Enrollment </title>
+<title>Study Heaven &mdash; Enrollment</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,13 +43,13 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
-	
+
+
 <script language="JavaScript">
 	$(function() {
 		getCategoryList(); //Category가져오기
 		getLoc1List(); //Location1가져오기
-		
+
 		var date = new Date();
 		var year = date.getFullYear();
 		var month = new String(date.getMonth() + 1);
@@ -64,8 +64,7 @@
 		}
 
 		$("#regdate").val(year + "/" + month + "/" + day);
-		
-		
+
 		$('#category').change(
 				function() {
 					if ($('#category option:selected').val() == "default") {
@@ -89,19 +88,18 @@
 
 	});
 
-
 	function studyroomCreate() {
 		f.action = "./write.do";
 		f.method = "post";
-		f.submit(); 
+		f.submit();
 		/* $.ajax({
 			type : "POST",
 			url : "./write.do",
 			data : {"studytitle" : $('#studytitle').val(),
-                	"subcategory" : $('#subcategory option:selected').val(),
-                	"location2" : $('#location2 option:selected').val(),
-                	"membercnt" : $('#membercnt').val(),
-                	"content" : $('#content').val()},
+		        	"subcategory" : $('#subcategory option:selected').val(),
+		        	"location2" : $('#location2 option:selected').val(),
+		        	"membercnt" : $('#membercnt').val(),
+		        	"content" : $('#content').val()},
 			dataType : 'json',
 			success : function(data) {
 				if (data) {
@@ -118,7 +116,7 @@
 			}
 		}); */
 	}
-	
+
 	function getCategoryList() {
 		$.ajax({
 			type : "GET",
@@ -304,7 +302,8 @@ footer {
 										</div>
 
 										<ul class="site-menu js-clone-nav d-none d-lg-block">
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
@@ -321,7 +320,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
@@ -336,7 +336,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
@@ -349,14 +350,16 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
@@ -365,7 +368,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
@@ -377,7 +381,8 @@ footer {
 													href="${pageContext.request.contextPath}/login.do">로 그
 														인</a>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/user/add.do">회 원 가 입</a>
+													href="${pageContext.request.contextPath}/user/add.do">회
+														원 가 입</a>
 											</c:if>
 											<c:if test="${!empty login}">
 												<li><a class="menu"
@@ -406,21 +411,41 @@ footer {
 				<form name="f" method="post" action="" class="form-horizontal"
 					class="needs-validation">
 					<div id="application">
-						<div id="a1">
-							<div class="atitle">
-								<label for="studytitle">제목:</label>
-								<div>
-									<input type="text" id="studytitle" placeholder="Enter title"
-										name="studytitle" required="required"
-										value="${studyroom.studytitle}">
+						<div id="a4">
+							<div class="ausername">
+								<!-- 								<label for="username">작성자:</label>
+ -->
+								<div class="ainfo">
+									<input readonly="readonly" type="text" id="username"
+										name="username" value="${login.username}">
+								</div>
+							</div>
+							<div class="aphone">
+								<!-- 								<label for="username">연락처:</label>
+ -->
+								<div class="ainfo">
+									<input readonly="readonly" type="text" id="phone" name="phone"
+										value="${login.phone}">
 								</div>
 							</div>
 						</div>
 
+						<div id="a1">
+							<div class="atitle" style="width: 80%">
+								<!-- 								<label for="studytitle">제목:</label>
+ -->
+								<div>
+									<input class="form-control" type="text" id="studytitle"
+										placeholder="Enter title" name="studytitle"
+										required="required" value="${studyroom.studytitle}">
+								</div>
+							</div>
+						</div>
 						<div id="a2">
 							<div class="acategory">
-								<label for="regdate">과목:</label>
-								<div class="dropdown" id="s1">
+								<!-- 							<label for="category">과목:</label>
+ -->
+								<div id="c1">
 									<select name="category" id="category">
 										<option id="big" value="default" selected="selected">대분류</option>
 										<c:forEach var="scateData" items="${category }">
@@ -428,9 +453,7 @@ footer {
 										</c:forEach>
 									</select>
 								</div>
-							</div>
-							<div>
-								<div class="dropdown" id="s2">
+								<div id="c2">
 									<select name="subcategory" id="subcategory">
 										<option id="small" value="default" selected="selected">소분류</option>
 										<c:forEach var="scateData" items="${subcategory }">
@@ -439,22 +462,20 @@ footer {
 									</select>
 								</div>
 							</div>
-							<div>
-								<label for="regdate">게시일:</label>
-								<div class="aregdate">
-									<!-- <div id="regdate"> -->
-										<input type="text" class="form-control" id="regdate"
-											name="regdate" readonly="readonly">
-											
-									<!-- </div> -->
+							<div class="aregdate">
+								<!-- 								<label for="regdate">게시일:</label>
+ -->
+								<div class="regdate">
+									<input type="text" id="regdate" name="regdate"
+										readonly="readonly">
 								</div>
 							</div>
 						</div>
-
 						<div id="a3">
-							<div class="aloc1">
-								<label for="regdate">지역:</label>
-								<div class="dropdown" id="s3">
+							<div class="alocation">
+								<!-- 								<label for="location1">지역:</label>
+ -->
+								<div id="l1">
 									<select name="location1" id="location1">
 										<option id="do_si" value="default" selected="selected">도,시</option>
 										<c:forEach var="data" items="${location1 }">
@@ -462,48 +483,44 @@ footer {
 										</c:forEach>
 									</select>
 								</div>
-							</div>
-							<div class="aloc2">
-								<select name="location2" id="location2">
-									<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
-									<c:forEach var="data" items="${location2 }">
-										<option value="${data.locationcode }">${data.loc2 }></option>
-									</c:forEach>
-								</select>
+								<div id="l2">
+									<select name="location2" id="location2">
+										<option id="si_gun_gu" value="default" selected="selected">시,군,구</option>
+										<c:forEach var="data" items="${location2 }">
+											<option value="${data.loc2 }">${data.loc2 }></option>
+										</c:forEach>
+									</select>
+								</div>
 							</div>
 							<div class="amembercnt">
-								<label for="membercnt">인원수:</label>
-								<div>
-									<input type="number" class="form-control" id="membercnt"
-										placeholder="Enter membercount" name="membercnt"
+								<!-- 								<label for="membercnt">인원수:</label>
+ -->
+								<div id="mc">
+									<input min="1"  max="40" type="number" id="membercnt"
+									 	placeholder="0" name="membercnt"
 										value="${studyroom.membercnt}">
 								</div>
 							</div>
 						</div>
 
-						<div id="a4">
-							<div class="ainfo">
-								<label for="membercnt">인원수:</label>
-								<div id="uinfo">신청자 : ${login.username} / 연락처 :
-									${login.phone}</div>
-							</div>
-						</div>
-
 						<div id="a5">
 							<div class="acontent">
-								<label for="content">내용:</label>
+								<!-- 								<label for="content">내용:</label>
+ -->
 								<div>
-									<input type="text" class="form-control" id="content"
+ 									<textarea style="text-align: left; margin: 0 auto;" placeholder="Enter About Your Study" cols="60" rows="10" name="content">									
+									</textarea>
+<%--  									<input type="text" class="form-control" id="content"
 										placeholder="Enter content" name="content"
 										value="${studyroom.content}">
-								</div>
+ --%> 								</div>
 							</div>
 						</div>
 
 						<div id="a6">
 							<div class="abutton">
 								<div>
-									<button class="abtn" onclick="studyroomCreate()">신청하기</button>
+									<button style="margin-top: 30px; width: 70%;" class="abtn" onclick="studyroomCreate()">신청하기</button>
 								</div>
 							</div>
 						</div>

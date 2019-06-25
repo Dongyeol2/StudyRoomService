@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Study Heaven &mdash; CSearch </title>
+<title>Study Heaven &mdash; Enrollment</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,18 +39,31 @@
 
 <link rel="stylesheet" href="css/style_index.css">
 <link rel="stylesheet" href="css/button.css">
-<link rel="stylesheet" href="css/searchResult.css">
+<link rel="stylesheet" href="css/table.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- 드롭다운 박스 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+
+
 <script language="JavaScript">
 	$(function() {
 		getCategoryList(); //Category가져오기
 		getLoc1List(); //Location1가져오기
+
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = new String(date.getMonth() + 1);
+		var day = new String(date.getDate());
+
+		// 한자리수일 경우 0을 채워준다. 
+		if (month.length == 1) {
+			month = "0" + month;
+		}
+		if (day.length == 1) {
+			day = "0" + day;
+		}
+
+		$("#regdate").val(year + "/" + month + "/" + day);
 
 		$('#category').change(
 				function() {
@@ -74,6 +87,35 @@
 		})
 
 	});
+
+	function studyroomCreate() {
+		f.action = "./write.do";
+		f.method = "post";
+		f.submit();
+		/* $.ajax({
+			type : "POST",
+			url : "./write.do",
+			data : {"studytitle" : $('#studytitle').val(),
+		        	"subcategory" : $('#subcategory option:selected').val(),
+		        	"location2" : $('#location2 option:selected').val(),
+		        	"membercnt" : $('#membercnt').val(),
+		        	"content" : $('#content').val()},
+			dataType : 'json',
+			success : function(data) {
+				if (data) {
+					if (data.length > 0) {
+						if(data.equals("success")){
+							alert("성공");
+						}
+					}
+				}
+			},
+			error : function(request, status, error) {
+				console.log('code:' + request.status + '\n' + 'message:'
+						+ request.responseText + '\n' + 'error:' + error);
+			}
+		}); */
+	}
 
 	function getCategoryList() {
 		$.ajax({
@@ -198,7 +240,7 @@ select {
 	float: left;
 }
 
-#category1, #category {
+#category, #subcategory {
 	width: 6em;
 }
 
@@ -212,7 +254,7 @@ select {
 
 section {
 	margin: 0 auto;
-	height: 100%;
+	height: 1200px;
 }
 
 footer {
@@ -260,7 +302,8 @@ footer {
 										</div>
 
 										<ul class="site-menu js-clone-nav d-none d-lg-block">
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=1">영어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=11">TOEIC</a></li>
@@ -277,7 +320,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=17">GRE</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=2">일본어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=21">JPLT</a></li>
@@ -292,7 +336,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=26">OPIC</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=3">중국어</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=31">HSK</a></li>
@@ -305,14 +350,16 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=35">新HSK</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=4">코딩</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=51">알고리즘</a></li>
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=52">공모전</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=5">취업</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=42">자기소개서</a></li>
@@ -321,7 +368,8 @@ footer {
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=41">인적성</a></li>
 												</ul></li>
-											<li class="has-children"><a href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
+											<li class="has-children"><a
+												href="${pageContext.request.contextPath}/categorylist.do?categorycode=6">기타</a>
 												<ul class="dropdown arrow-top">
 													<li><a
 														href="${pageContext.request.contextPath}/subjectlist.do?subjectcode=61">자율</a></li>
@@ -333,7 +381,8 @@ footer {
 													href="${pageContext.request.contextPath}/login.do">로 그
 														인</a>
 												<li><a class="menu"
-													href="${pageContext.request.contextPath}/user/add.do">회 원 가 입</a>
+													href="${pageContext.request.contextPath}/user/add.do">회
+														원 가 입</a>
 											</c:if>
 											<c:if test="${!empty login}">
 												<li><a class="menu"
@@ -357,76 +406,78 @@ footer {
 		<div style="height: 200px;"></div>
 
 		<section>
-
-			<div>
-
-				<div style="margin: 0 auto; border-top: 1px solid #28a745; width: 60%; margin-top : -50px; margin-bottom: 50px;"></div>
-				<div>
-					<form name="f" method="get"
-						action="${pageContext.request.contextPath}/write.do">
-						<table style="width: 550px" class="tablea">
-							<c:if test="${empty rooms }">
-								<tr>
-									<td>
-										<div class="noResult">
-											<p>스터디가 없습니다.</p>
-											<a href="#">예약하러 가기</a>
-										</div>
-									</td>
-								</tr>
-							</c:if>
-						</table>
-
-						<table style="width: 550px" class="tablea">
-							<c:if test="${!empty rooms }">
-
-							<!-- 사용자 리스트를 클라이언트에게 보여주기 위하여 출력. -->
-							<c:forEach var="room" items="${rooms}">
-						<input type="hidden" name="studyno" id="studyno" value="${room.studyno }">
-								<tr>
-									<td>
-										<div  class="studyinfo">
-										<div class="detailinfo">
-										<c:if test="${room.state.equals('0')}">  
-										<span id="state">모집중</span>  
-										</c:if>  
-										<c:if test="${room.state.equals('1')}">
-										<span id="stated">모집완료</span>      
-										</c:if>									  
-											<span id="location">${room.location}</span>
-											<span id="subjectname">${room.subjectname}</span>
-											<span id="subcategory">  
-											<a href="${pageContext.request.contextPath}/studyroom/view.do?studyno=${room.studyno}">
-											${room.studytitle}</a>
-											</span>
-											<span id="regdate">게시일 : ${room.regdate}</span>
-											<span id="viewcnt">조회수 : ${room.viewcnt}</span>   
-										</div>
-										<hr color="gray">
-										<div class="detailinfo">
-											<pre>${room.content}</pre>										
-											<c:if test="${!empty login }">
-											<button onclick="applyStudy()">스터디 신청하기</button>>
-											</c:if>
-										</div>										
-									</div>
-									</td>
-								</tr>
-							</c:forEach>
-							</c:if>
-						</table>
-						<table style="margin: 0 auto; margin-top :30px; margin-bottom: 30px;">
+			<table width=780 border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td width="20"></td>
+					<td>
+						<!--contents-->
+						<table width=590 border=0 cellpadding=0 cellspacing=0>
 							<tr>
-								<td><input class="abtn" type="submit" value="방 추가" /></td>
+								<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방 정보</b></td>
 							</tr>
+						</table> <br> <!-- view Form  -->
+						<form name="f" method="post" action="">
+							<input type="hidden" name="studyno" value="${room.studyno}">
+							<table class="tablea">
+								<tr>
+									<td>방 번호</td>
+									<td>${room.studyno}</td>
+								</tr>
+								<tr>
+									<td>방 제목</td>
+									<td>${room.studytitle}</td>
+								</tr>
+								<tr>
+									<td>방장ID</td>
+									<td>${room.managerid}</td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td>${room.content}</td>
+								</tr>
+								<tr>
+									<td>지역</td>
+									<td>${room.location}</td>
+								</tr>
+								<tr>
+									<td>과목</td>
+									<td>${room.subjectname}</td>
+								</tr>
+								<tr>
+									<td>방장전화번호</td>
+									<td>${room.phone}</td>
+								</tr>
+								<tr>
+									<td>게시일자</td>
+									<td>${room.regdate}</td>
+								</tr>
+							</table>
+						</form>
+						<table>
+							<c:if test="${room.managerid eq login}">
+								<tr>
+									<td align=center><input type="button" value="수정"
+										onClick="roomModify()"> &nbsp; <input type="button"
+										value="삭제" onClick="roomRemove()"> &nbsp; <input
+										type="button" value="목록" onClick="roomList()"></td>
+								</tr>
+							</c:if>
+							<c:if test="${room.managerid ne login}">
+								<tr>
+									<td align=center><c:if test="${login ne null }">
+											<!-- <button onclick="applyStudy()">스터디 신청하기</button> -->
+											<input type="button" value="참가하기" onClick="applyStudy()"> &nbsp;
+				</c:if> <input type="button" value="목록" onClick="roomList()"></td>
+								</tr>
+							</c:if>
 						</table>
-					</form>
-				</div>
-			</div>
+					</td>
+				</tr>
+			</table>
 
 		</section>
 
- 		<footer class="site-footer">
+		<footer class="site-footer">
 			<div class="container">
 
 
@@ -462,7 +513,7 @@ footer {
 
 							</p>
 							<p>
-								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
 								<script>
 									document.write(new Date().getFullYear());
@@ -470,7 +521,7 @@ footer {
 								All Rights Reserved | This template is made with <i
 									class="icon-heart text-warning" aria-hidden="true"></i> by <a
 									href="https://colorlib.com" target="_blank">Colorlib</a>
-								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</p>
 						</div>
 					</div>
@@ -478,7 +529,7 @@ footer {
 				<div class="row pt-5 mt-5 text-center">
 					<div class="col-md-12">
 						<p>
-							Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;
 							<script>
 								document.write(new Date().getFullYear());
@@ -487,7 +538,7 @@ footer {
 								class="icon-heart text-warning" aria-hidden="true"></i> by <a
 								href="https://colorlib.com" target="_blank"><b> Colorlib
 							</b></a>
-							Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
 				</div>
