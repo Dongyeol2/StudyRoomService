@@ -41,14 +41,16 @@ public class UserStudyListController {
 	
 	@RequestMapping("/mypage/accept.do")
 	public ModelAndView accept(HttpServletRequest request , HttpSession session
-			,@RequestParam("studyno")int studyno,@RequestParam("userid")String userid) {
+			,@RequestParam("userid")String userid,@RequestParam("studyno")String studyno,@RequestParam("check")int check) {
 		
 		ModelAndView mav= new ModelAndView();
 		System.out.println("accept");
+		int intStudyno = Integer.parseInt(studyno);
+		studyMemberService.acceptMember(userid, check, intStudyno);
 		
-		studyMemberService.acceptMember(userid, 1, studyno);
-		
-		
+		//mav.addObject("studyno", studyno);
+		//String url = "/mypage/applicationListBystudyno.do?studyno="+studyno;
+		//mav.setViewName(url);
 		
 		
 		return mav;
@@ -73,13 +75,13 @@ public class UserStudyListController {
 		for(StudyMemberVO smv : studyMemberVOList) {
 			if(smv.getAttend().equals("0")) {
 				user = userService.getUser(smv.getUserid());
-				System.out.println("applyMeberList");
-				System.out.println(user.toString());
+				//System.out.println("applyMeberList");
+				//System.out.println(user.toString());
 				applyMeberList.add(user);
-			}else {
+			}else if (smv.getAttend().equals("1")){
 				user = userService.getUser(smv.getUserid());
-				System.out.println("memberList");
-				System.out.println(user.toString());
+				//System.out.println("memberList");
+				//System.out.println(user.toString());
 				memberList.add(user);
 			}
 			

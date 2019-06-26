@@ -97,6 +97,7 @@
 			<th>전화번호</th>
 			<th>&nbsp; </th>
 			<th>&nbsp;</th>
+			<th>&nbsp;</th>
 		</tr>
 		<c:forEach var="user" items="${applyMeberList}" >	
 			<tr>
@@ -104,8 +105,10 @@
 				<td >${user.username} </td>
 				<td >${user.email} </td>
 				<td >${user.phone} </td>
-				<td><button class="abtn">수락</button></td>
-				<td><button class="abtn">거절</button></td>
+				<td >${studyno} </td>
+				<td><button type="button" onclick="location.href='${pageContext.request.contextPath}/mypage/accept.do?userid=${user.userid}&studyno=${studyno}&check=1'">수락</button></td>
+				<td><button type="button" onclick="location.href='${pageContext.request.contextPath}/mypage/accept.do?userid=${user.userid}&studyno=${studyno}&check=2'">거부</button></td>
+
 				<td></td>
 				
 	
