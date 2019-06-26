@@ -43,9 +43,11 @@
 
 </head>
 <body>
+	<h2>"${studyno}"</h2>
 	<h2>지금 함께 하고 있는 스터디원</h2>
+	
 	<table class="tablea" style="margin : 30px; ">	
-		<c:if test="${empty studyMemberList }">
+		<c:if test="${empty memberList }">
 			<tr>
 				<td>
 					<div class="noResult">
@@ -55,25 +57,20 @@
 			</tr>
 		</c:if>
 
-		<c:if test="${!empty studyMemberList}">
+		<c:if test="${!empty memberList}">
 		<tr>
-			<th>no.</th>
-			
-			<th>제목</th>
-			<th>과목</th>
-			<th>지역</th>
-			<th>게시일</th>
-			<th>내용</th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>이메일</th>
+			<th>전화번호</th>
 		</tr>
-		<c:forEach var="studyList" items="${studyMemberList}" >	
+		<c:forEach var="user" items="${memberList}" >	
 			<tr>
-				<td >${studyList.studyno} </td>
+				<td >${user.userid} </td>
+				<td >${user.username} </td>
+				<td >${user.email} </td>
+				<td >${user.phone} </td>
 				
-				<td >${studyList.studytitle} </td>
-				<td >${studyList.subjectcode2} </td>
-				<td >${studyList.locationcode2} </td>
-				<td >${studyList.regdate} </td>
-				<td >${studyList.content} </td>
 	
 			</tr>
 		</c:forEach>
@@ -82,7 +79,7 @@
 	<div style="width: 100%; height: 50px;"></div>
 	<h2>스터디 신청자</h2>
 	<table class="tablea" style="margin : 30px; ">	
-		<c:if test="${empty applyStudyList }">
+		<c:if test="${empty applyMeberList }">
 			<tr>
 				<td>
 					<div class="noResult">
@@ -92,27 +89,21 @@
 			</tr>
 		</c:if>
 
-		<c:if test="${!empty applyStudyList}">
+		<c:if test="${!empty applyMeberList}">
 		<tr>
-			<th>no.</th>
-			
-			<th>제목</th>
-			<th>과목</th>
-			<th>지역</th>
-			<th>게시일</th>
-			<th>내용</th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>이메일</th>
+			<th>전화번호</th>
 			<th>&nbsp; </th>
 			<th>&nbsp;</th>
 		</tr>
-		<c:forEach var="studyList" items="${applyStudyList}" >	
+		<c:forEach var="user" items="${applyMeberList}" >	
 			<tr>
-				<td >${studyList.studyno} </td>
-				
-				<td >${studyList.studytitle} </td>
-				<td >${studyList.subjectcode2} </td>
-				<td >${studyList.locationcode2} </td>
-				<td >${studyList.regdate} </td>
-				<td >${studyList.content} </td>
+				<td >${user.userid} </td>
+				<td >${user.username} </td>
+				<td >${user.email} </td>
+				<td >${user.phone} </td>
 				<td><button class="abtn">수락</button></td>
 				<td><button class="abtn">거절</button></td>
 				<td></td>

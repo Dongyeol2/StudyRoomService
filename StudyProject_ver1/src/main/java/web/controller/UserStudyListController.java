@@ -1,5 +1,6 @@
 package web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import changeCodeToName.ChangeCodeToName;
 import spring.biz.location.service.LocationService;
 import spring.biz.studymember.service.StudyMemberService;
+import spring.biz.studymember.vo.StudyMemberVO;
 import spring.biz.studyroom.service.StudyRoomService;
 import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.subcategory.service.SubCategoryService;
@@ -60,8 +62,30 @@ public class UserStudyListController {
 		ModelAndView mav= new ModelAndView();
 		UserVO vo = (UserVO)request.getSession().getAttribute("User");
 		
+		List<StudyMemberVO> studyMemberVOList = studyMemberService.getUserList(studyno);
+		
+		
 		List<StudyRoomVO> applyStudyList = studyRoomService.viewApplicationList(vo.getUserid(),studyno,0);
 		List<StudyRoomVO> studyMemberList = studyRoomService.viewApplicationList(vo.getUserid(),studyno,1);
+		List<UserVO> applyMeberList = new ArrayList<UserVO>();
+		List<UserVO> memberList = new ArrayList<UserVO>();
+		UserVO user;
+		for(StudyMemberVO smv : studyMemberVOList) {
+			if(smv.getAttend().equals("0")) {
+				user = userService.getUser(smv.getUserid());
+				System.out.println("applyMeberList");
+				System.out.println(user.toString());
+				applyMeberList.add(user);
+			}else {
+				user = userService.getUser(smv.getUserid());
+				System.out.println("memberList");
+				System.out.println(user.toString());
+				memberList.add(user);
+			}
+			
+		}
+		
+		
 		for(StudyRoomVO srv : applyStudyList) {
 			 //srv.setSubjectcode2(subCategoryService.getSubCategory(srv.getSubjectcode()).
 			 //getSubjectname());
@@ -93,15 +117,15 @@ public class UserStudyListController {
 				 //System.out.println(srv.toString());//
 				}
 		if(studyRoomService.getStudyRoom(studyno).getManagerid().equals(vo.getUserid())) {
-			mav.addObject("studyMemberList",studyMemberList);
+			mav.addObject("applyMeberList",applyMeberList);
 		}
-		
-		mav.addObject("applyStudyList",applyStudyList);
+		mav.addObject("studyno",studyno);
+		mav.addObject("memberList",memberList);
 		mav.setViewName("mypage/mypage_appliedlist");
-		
 		return mav;
 	}
 	
+
 	
 	
 	@RequestMapping("/mypage/applicationList.do")
