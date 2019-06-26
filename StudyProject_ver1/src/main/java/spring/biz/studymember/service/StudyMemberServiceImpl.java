@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import spring.biz.studymember.dao.StudyMemberDAO;
 import spring.biz.studymember.vo.StudyMemberVO;
+import spring.biz.studyroom.vo.StudyRoomVO;
 import spring.biz.user.vo.UserVO;
 
 @Service("studymemberservice")
@@ -64,5 +65,19 @@ public class StudyMemberServiceImpl implements StudyMemberService{
 		// TODO Auto-generated method stub
 		return dao.getUserList(studyno);
 	}
+
+	@Override
+	public List<StudyRoomVO> getUserListAppliedManagerId(String managerid,int attendCode) {
+		// TODO Auto-generated method stub
+		return dao.getUserListAppliedManagerId(managerid, attendCode);
+	}
+
+	@Override
+	public List<StudyMemberVO> getUserListAppliedManagerId2(String managerid, int attendCode) {
+		// TODO Auto-generated method stub
+		return dao.getUserListAppliedManagerId2(managerid, attendCode);
+	}
+
+	
 
 }

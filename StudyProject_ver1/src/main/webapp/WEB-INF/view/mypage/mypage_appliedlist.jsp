@@ -76,6 +76,7 @@
 		</c:forEach>
 		</c:if>
 	</table>
+	
 	<div style="width: 100%; height: 50px;"></div>
 	<h2>스터디 신청자</h2>
 	<table class="tablea" style="margin : 30px; ">	
@@ -91,6 +92,7 @@
 
 		<c:if test="${!empty applyMeberList}">
 		<tr>
+			
 			<th>아이디</th>
 			<th>이름</th>
 			<th>이메일</th>
@@ -101,6 +103,7 @@
 		</tr>
 		<c:forEach var="user" items="${applyMeberList}" >	
 			<tr>
+				
 				<td >${user.userid} </td>
 				<td >${user.username} </td>
 				<td >${user.email} </td>

@@ -15,6 +15,18 @@
 	<select id = "getUserList" resultType="studymembervo">
 		select * from studymember where studyno = #{studyno}
 	</select>
+	<select id = "getUserListAppliedManagerId" parameterType="map" resultType="studyroomvo">
+		select * from studymember m,studyroom r 
+		where m.studyno = r.studyno
+		and r.managerid = #{managerid}
+		and m.attend = #{attendcode}
+	</select>
+	<select id = "getUserListAppliedManagerId2" parameterType="map" resultType="studymembervo">
+		select * from studymember m,studyroom r 
+		where m.studyno = r.studyno
+		and r.managerid = #{managerid}
+		and m.attend = #{attendcode}
+	</select>
  </mapper>
 
 

@@ -40,7 +40,7 @@ public class UserStudyListController {
 	
 	
 	@RequestMapping("/mypage/accept.do")
-	public ModelAndView accept(HttpServletRequest request , HttpSession session
+	public String accept(HttpServletRequest request , HttpSession session
 			,@RequestParam("userid")String userid,@RequestParam("studyno")String studyno,@RequestParam("check")int check) {
 		
 		ModelAndView mav= new ModelAndView();
@@ -52,8 +52,8 @@ public class UserStudyListController {
 		//String url = "/mypage/applicationListBystudyno.do?studyno="+studyno;
 		//mav.setViewName(url);
 		
-		
-		return mav;
+		String url = "redirect://mypage/applicationListBystudyno.do?studyno="+studyno;
+		return url;
 	}
 
 	
@@ -136,7 +136,12 @@ public class UserStudyListController {
 		ModelAndView mav= new ModelAndView();
 		UserVO vo = (UserVO)request.getSession().getAttribute("User");
 		
+		
 		List<StudyRoomVO> applyStudyList = studyRoomService.viewApplicationList(vo.getUserid());
+		//List<StudyRoomVO> justIdUserList = studyMemberService.getUserListAppliedManagerId(vo.getUserid(), 0);//0신청중 1참가중 2거절
+		List<UserVO> applyMeberList = new ArrayList<UserVO>();
+		
+		List<StudyMemberVO> StudyMemberVOList = studyMemberService.getUserListAppliedManagerId2(vo.getUserid(), 0);
 		
 		for(StudyRoomVO srv : applyStudyList) {
 			 //srv.setSubjectcode2(subCategoryService.getSubCategory(srv.getSubjectcode()).
@@ -155,8 +160,8 @@ public class UserStudyListController {
 				}
 		
 		
-		
-		mav.addObject("applyStudyList",applyStudyList);
+		mav.addObject("StudyMemberVOList",StudyMemberVOList);
+		mav.addObject("applyMeberList",applyMeberList);
 		mav.setViewName("mypage/mypage_appliedlist");
 		return mav;
 	}

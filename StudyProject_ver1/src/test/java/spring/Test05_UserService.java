@@ -36,6 +36,23 @@ public class Test05_UserService {
 	@Autowired
 	StudyMemberService studyMemberService;
 	
+	@Test
+	public void getUserListApplied2() {
+		List<StudyMemberVO> srvList = studyMemberService.getUserListAppliedManagerId2("user02", 0);
+		for(StudyMemberVO srv : srvList) {
+			System.out.println(srv.toString());
+		}
+	}
+	
+	
+	//@Test
+	public void getUserListApplied() {
+		List<StudyRoomVO> srvList = studyMemberService.getUserListAppliedManagerId("user02", 0);
+		for(StudyRoomVO srv : srvList) {
+			System.out.println(srv.toString());
+		}
+	}
+	
 	//@Test
 	public void getUserList() {
 		List<StudyMemberVO> StudyMemberLists = studyMemberService.getUserList(19);
